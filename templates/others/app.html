@@ -1,0 +1,42 @@
+<nav class="navbar navbar-default navbar-fixed">
+  <div>
+    <div>
+      <div class="btn-group" uib-dropdown dropdown-append-to-body>  
+        <button id="btn-append-to-body" type="button" class="btn btn-primary" uib-dropdown-toggle>Select
+          <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+        </button>
+        <ul class="uib-dropdown-menu" role="menu" aria-labelledby="btn-append-to-body" ng-model= "item">
+          <li role="menuitem"><a ui-sref="app.contentarea">Circculum Manager</a></li>
+          <li role="menuitem"><a ui-sref="app.content">Content Manager</a></li>
+          <li role="menuitem"><a ui-sref="app.itemarea">Item Manager</a></li>
+          <li role="menuitem"><a ui-sref="app.test">Test Manager</a></li>
+          <li role="menuitem"><a ui-sref="#">Others</a></li>
+        </ul>
+      </div>
+      <a class="navbar-brand" href="#"></a>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <b>Content Manager</b>
+    </div>  
+    <br/>
+    <ul align="right">
+      <li><button ui-sref="/" class="btn btn-primary"><h3>Logout</h3></button></li>
+    </ul>
+  </div>
+</nav>
+
+<div ui-view></div>
+
+<nav class="navbar navbar-inverse navbar-fixed-bottom">
+  <a align="right" ui-sref="app.areapopup">
+    <input type="button" class="btn btn-primary" value="New Area"data-toggle="modal" data-target="#myModal">
+  </a>
+</nav>
+<script src="scripts/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+  $(".topBar-menu").click(function(){
+    $(".leftNavPane").toggleClass("active");
+    $(".sectionContent").toggleClass("active");
+  });
+});
+</script>

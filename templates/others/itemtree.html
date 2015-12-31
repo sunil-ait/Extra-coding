@@ -1,0 +1,126 @@
+<div style="background-color: #6eb8b7; margin-left: 5%; margin-right: 5%;">
+  <br/>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span3">
+            <div ng-controller="BasicExampleCtrl" class="well sidebar-nav">
+                <div ui-tree id="tree-root">
+                  <ol ui-tree-nodes ng-model="data">
+                    <li ng-repeat="node in data" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+                  </ol>
+                </div>
+            </div>
+        </div>
+    <div class="span3"><div>
+    <div class="container">
+        <div ui-view></div>
+    </div>
+    </div>
+   </div>
+   <hr>    
+  </div>
+</div>
+</div>
+<!--/.fluid-container-->
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="text/ng-template" id="nodes_renderer.html">
+<div ui-tree-handle class="tree-node tree-node-content">
+<a class="btn btn-success btn-xs" ng-if="node.nodes && node.nodes.length > 0" data-nodrag ng-click="toggle(this)"><span
+    class="glyphicon"
+    ng-class="{
+      'glyphicon-chevron-right': collapsed,
+      'glyphicon-chevron-down': !collapsed
+    }"></span></a>
+<a ui-sref="selectmodel">{{node.title}}</a>
+<a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="remove(this)"><span
+    class="glyphicon glyphicon-remove"></span></a>
+<a class="pull-right btn btn-primary btn-xs"  ui-sref="app.quemodel" data-toggle="modal" data-target="#myModal" data-nodrag ng-click="newSubItem(this)" style="margin-right: 8px;"><span
+    class="glyphicon glyphicon-plus"></span></a>
+</div>
+<ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
+<li ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer.html'">
+</li>
+</ol>
+</script>
+<style type="text/css">
+  .span3{
+    margin-right: 70%;
+  }
+</style>
+
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      
+      <div class="modal-content">
+        <div class="modal-header">
+          <a type="button" ui-sref="app.dashboard" class="close" data-dismiss="modal">&times;</a>
+          <h4 class="modal-title" align="center"><b>New Course</b></h4>
+        </div>
+        <div class="modal-body">
+          <div id="scrollableContent">
+            <form role="form">
+            <br/>
+            <br/>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-3" >
+                  <div class="form-group">
+                    <select id="subject" name="subject" class="form-control">
+                       <option value="na" selected="">Select Category</option>
+                       <option value="">K-12</option>
+                       <option value="">IIT</option>
+                       <option value="">MBA Entrance</option>
+                       <option value="">Bank-PO</option>
+                       <option value="">GRE</option>
+                       <option value="">SAT</option>
+                    </select>         
+                  </div>
+                </div>
+              </div>
+              <div class="row"  >
+                <div class="col-lg-3" >
+                  <div class="form-group">
+                   <select id="subject" name="subject" class="form-control">
+                     <option value="na" selected="">Select Course</option>
+                     <option value="">Maths</option>
+                       <option value="">Chemistry</option>
+                       <option value="">Physics</option>
+                       <option value="">Quant </option>
+                       <option value="">Verbal</option>
+                       <option value="">DI-LR</option>
+                   </select>         
+                  </div>
+                </div>
+              </div>
+              <br/>
+              <div class="row">
+                <div class="col-lg-3" >
+                  <div class="form-group">  
+                    <textarea name="message" id="message" class="form-control" rows="6"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-3" >
+                  <a ui-sref="app.dashboard">
+                      <button type="button" class="btn btn-primary" data-dismiss="modal">Create Course</button>
+                  <a>
+                </div>
+              </div>
+              <br/>
+              <br/>
+              </div>
+            </form>
+            <div style="margin-left: 5%;">
+              <ui-view></ui-view>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

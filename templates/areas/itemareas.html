@@ -1,0 +1,20 @@
+<div class="curriculum-listings">
+  <div class="container_div">
+    <ul>
+      <a>
+        <li ng-repeat="area in allAreas"> 
+          <input type="hidden" ng-model="area.id">  
+          <div class="curriculum-title">
+          <br/>
+          <span align="center" ng-model="area.title">{{area.title}}</span>
+          </div>
+          <div class="curriculum-desc" ng-model="area.description">{{area.description}}</div>
+          <div align="center">
+            <a class="btn btn-primary" ui-sref="app.itemcourses({areaId: area.id})">View Course</a>
+          </div>
+          <br>
+        </li>
+      </a>
+    </ul>
+  </div>
+</div>

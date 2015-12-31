@@ -1,0 +1,28 @@
+
+<div class="curriculum-listings">
+  <div class="container_div">
+    <ul>
+      <a>
+        <li ng-repeat="lesson in allLessons">   
+          <div class="curriculum-title">
+          <br/>
+             <span align="center">{{lesson.title}}</span>
+          </div>
+          <div class="curriculum-desc">{{lesson.description}}</div>
+
+          <div align="center">
+            <a class="btn btn-primary" ui-sref="app.lessonlos({lessonId: lesson.id})">View</a>
+            <a class="btn btn-primary" ui-sref="app.lessonpopupedit({lessonId: lesson.id})">
+                 Edit</a>
+            <a class="btn btn-primary" ng-click="deletelesson(lesson)">Delete</a>
+          </div>
+
+          <br>
+        </li>
+      </a>
+    </ul>
+  </div>
+</div>
+<a align="right" ui-sref="app.lessonpopup">
+    <input type="button" class="btn btn-primary" value="New Lesson"data-toggle="modal" data-target="#myModal">
+  </a>

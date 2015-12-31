@@ -1,0 +1,174 @@
+
+	{{item}}
+	
+<form editable-form name="editableForm">
+   <div style="margin-left: 8%; margin-right: 20%; background-color: yellow;">
+	  <br/>
+	  <div align="right" style="margin-right: 10%; margin-left: 70%;">
+	    <h3>Itype</h3>
+	    <br/> 
+        <select id="subject" ng-model="item.question.itype" e-requiredname="subject" class="form-control">
+           <option value="">Question Type</option>
+           <option>1</option>
+           <option>2</option>
+           <option>3</option>
+           <option>4</option>
+           <option>5</option>
+           <option>6</option>
+           <option>7</option>
+           <option>8</option>
+           <option>9</option>
+           <option>10</option>
+         </select>        
+	  </div>
+	  <div style="margin-left: 5%;">
+	  	<span class="title">Question Type :</span>
+	  	<br/>
+		<br/>
+		<p  align="center" ng-model="item.qtype" editable-text="item.qtype" e-name="item.qtype" e-form="editableForm" e-required>{{item.qtype}}
+		</p>
+		<br/>
+		<br/>
+		<span class="title"> Type :</span>
+	  	<br/>
+		<br/>
+		<p  align="center" ng-model="item.type" editable-text="item.type" e-name="item.type" e-form="editableForm" e-required>{{item.type}}
+		</p>
+		<br/>
+		<br/>
+		<span class="title">Question :</span>
+		<br/>
+		<br/>
+		<p ng-model="item.question.question" editable-text="item.question.question" e-name="item.question.question" e-form="editableForm" e-required>{{item.question.question}}
+		</p>
+		<br/>
+		<br/>
+		<span class="title">Options :</span>
+		<br>
+		<br/>		
+		<table border="0">
+		  <tr>
+			<td width="30%">
+				<p editable-text = "item.question.option1" e-form="editableForm">
+				<input  type="radio" ng-model ="item.question.option1"name="option" value="{{item.question.option1}}"/>&nbsp;&nbsp;<b>A.</b>&nbsp; {{item.question.option1}}
+		        </p>
+			</td>
+		  </tr>
+		  <tr>
+			<td width="30%">
+				<p editable-text = "item.question.option2" e-form="editableForm">
+				<input  type="radio" ng-model ="item.question.option2"name="option" value="{{item.question.option2}}"/>&nbsp;&nbsp;<b>A.</b>&nbsp; {{item.question.option2}}
+		        </p>
+			</td>
+		  </tr>
+		  <tr>
+			<td width="30%">
+				<p editable-text = "item.question.option3" e-form="editableForm">
+				<input  type="radio" ng-model ="item.question.option3"name="option" value="{{item.question.option3}}"/>&nbsp;&nbsp;<b>A.</b>&nbsp; {{item.question.option3}}
+		        </p>
+			</td>
+		  </tr>
+		  <tr>
+			<td width="30%">
+				<p editable-text = "item.question.option4" e-form="editableForm">
+				<input  type="radio" ng-model ="item.question.option4"name="option" value="{{item.question.option4}}"/>&nbsp;&nbsp;<b>A.</b>&nbsp; {{item.question.option4}}
+		        </p>
+			</td>
+		  </tr>
+		</table>
+		<br/>
+		<span class="title">Answer :</span>
+		<p ng-model="item.question.answer"editable-text="item.question.answer" e-form="editableForm">{{item.question.answer}}
+		</p>
+		<br/>
+		<br/>
+		<span class="title">Solution :</span>
+		<p ng-model="item.question.solution" editable-textarea="item.question.solution" e-form="editableForm" e-rows="10" e-cols="80">{{item.question.solution}}
+		</p>
+		<br/>
+		<br/>
+		<span class="title">Grit :</span>
+		<p ng-model="item.question.grit" editable-textarea="item.question.grit" e-form="editableForm" e-rows="10" e-cols="80">{{item.question.grit}}
+		</p>
+		<br/>
+		<br/>
+		<span class="title">Level :</span>
+		<p ng-model="item.question.level" editable-textarea="item.question.level" e-form="editableForm" e-rows="10" e-cols="80">{{item.question.level}}
+		</p>
+		<br/>
+		<br/>
+		<span class="title">Diff :</span>
+		<p ng-model="item.question.diff" editable-textarea="item.question.diff" e-form="editableForm" e-rows="10" e-cols="80">{{item.question.diff}}
+		</p>
+		<br/>
+		<br/>
+		<span class="title">Skill :</span>
+		<p ng-model="item.question.skill" editable-textarea="item.question.skill" e-form="editableForm" e-rows="10" e-cols="80">{{item.question.skill}}
+		</p>
+		
+		<!-- VERY FIRST LEVEL -->
+
+		<br/>
+		<br/>
+		<span class="title">Grit :</span>
+		<p ng-model="item.grit" editable-textarea="item.grit" e-form="editableForm" e-rows="10" e-cols="80">{{item.grit}}
+		</p>
+		<br/>
+		<br/>
+		<span class="title">Level :</span>
+		<p ng-model="item.level" editable-textarea="item.level" e-form="editableForm" e-rows="10" e-cols="80">{{item.level}}
+		</p>
+		<br/>
+		<br/>
+		<span class="title">Diff :</span>
+		<p ng-model="item.diff" editable-textarea="item.diff" e-form="editableForm" e-rows="10" e-cols="80">{{item.diff}}
+		</p>
+		<br/>
+		<br/>
+		<br/>
+		<button type="button" class="btn btn-primary" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
+		 Edit
+	    </button>
+	    <button type="button" class="btn btn-primary" ng-click= "edit(2)" ng-show="!editableForm.$visible">
+		  Publish
+	    </button>
+	        <span ng-show="editableForm.$visible">
+	        <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
+	          Save
+	        </button>
+	        <button type="button" class="btn btn-Danger" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+	          Cancel
+	        </button>
+        	<button type="button" class="btn btn-primary" ng-click="editableForm.$show()" ng-show="editableForm.$visible">
+				Map
+		    </button>
+      		</span>
+        <br/>
+        <br/>
+      </div>
+	</div>
+   <br/>
+   <br/>
+</form>
+
+
+<style type="text/css">
+
+form[name="editableForm"] .title {
+  display: inline-block;
+  font-weight: bold;
+  padding-top: 5px;
+  vertical-align: top;
+  min-width: 90px;
+}
+
+form[name="editableForm"] .editable {
+  display: inline-block;
+  padding-top: 5px;
+  vertical-align: top;
+}
+form[name="editableForm"] > div {
+  height: auto;
+  padding: 5px 0;
+}
+</style>

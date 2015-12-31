@@ -1,0 +1,51 @@
+<div style="margin-left: 5%; margin-right: 5%;">
+  <div align="right">                  
+    <ul class="nav nav-tabs" role="tablist">
+    <br/>
+      <li ui-sref-active="active"  class="active"><a ui-sref="app.simplequestion({lessonId1: lessonid11})" class="btn btn-info">Add S.Q.</a>
+      </li>
+      <li ui-sref-active="active" class="active"><a ui-sref="app.comprehension" class="btn btn-info">Add C.Q.</a></li>        
+    </ul>
+  </div>
+</div>
+<div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div style="margin-left: 15%; margin-right: 10%;">
+  <div class="col-md-4"><b>QType</b></div>
+  <div class="col-md-4"><b>Type</b></div>
+  <div class="col-md-4"><b>Operations</b></div>
+</div>
+<br/>
+<br/>
+<br/>
+<ul style="margin-left: 15%; margin-right: 10%;" ng-repeat= "item in items">
+  <li><div class="col-md-4">{{item.qtype}}</div></li>
+  <li><div class="col-md-4">{{item.type}}</div></li>
+  <li><div class="col-md-4">
+     <button type="button" class= "btn btn-primary" ui-sref= "app.simplequestionedit({itemId: item.id})">Edit</button>
+     <button type="button" class= "btn btn-primary"  ng-click= "delete(item)">Delete</button>
+    </div>
+  </li> 
+</ul>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
+
+
+
+
