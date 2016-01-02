@@ -125,7 +125,7 @@ input[type="button"],input[type="submit"]{ cursor:pointer; font-weight:bold}
 .wizardTabs .icon_interest:hover img,.wizardTabs .icon_interest.active img{ background-position:0px -800px}
 .wizardTabs .icon_learningStyle:hover img,.wizardTabs .icon_learningStyle.active img{ background-position:0px -900px}
 .wizardTabs .icon_badges:hover img,.wizardTabs .icon_badges.active img{ background-position:0px -1000px}
-.sectionContent{ margin-left:200px; margin-top:15px; transition:margin 0.3s ease-in-out; -webkit-transition:margin 0.3s ease-in-out; -moz-transition:margin 0.3s ease-in-out}
+.sectionContent{ margin-left:200px;  transition:margin 0.3s ease-in-out; -webkit-transition:margin 0.3s ease-in-out; -moz-transition:margin 0.3s ease-in-out}
 .sectionContent.active{ margin-left:76px}
 
 .contentArea{background-color: #6eb8b7; margin-bottom:100px; margin-left: 3%; margin-right: 3%}
@@ -203,9 +203,6 @@ input[type="button"],input[type="submit"]{ cursor:pointer; font-weight:bold}
   border-top: 0px solid transparent;
 }
 
-body {
-  padding-top: 60px;
-}
 
 .sidebar {
   position: fixed;

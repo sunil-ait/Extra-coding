@@ -1,7 +1,7 @@
 angular.module("app.services", ["ngResource"])
 
 .factory('Areas', function($resource) {
-    return Areas = $resource('http://192.168.1.12:8080/area',{
+    return Areas = $resource('http://192.168.1.5:8080/area',{
       areaId: '@id'
       },{
       update : {
@@ -14,7 +14,7 @@ angular.module("app.services", ["ngResource"])
 })
 
 .factory('AreaCourse', function($resource) {
-    return AreaCourse = $resource('http://192.168.1.12:8080/area/course/:areaId',{
+    return AreaCourse = $resource('http://192.168.1.5:8080/area/course/:areaId',{
     areaId: '@id'
     },{
 	  method: 'GET'
@@ -25,7 +25,7 @@ angular.module("app.services", ["ngResource"])
 })
 
 .factory('Area', function($resource) {
-    var Area = $resource('http://192.168.1.12:8080/area/:areaId',{
+    var Area = $resource('http://192.168.1.5:8080/area/:areaId',{
       areaId: '@id'
       },{
       update : {
@@ -40,7 +40,7 @@ angular.module("app.services", ["ngResource"])
 })
 
 .factory('Courses', function($resource) {
-    return Courses = $resource('http://192.168.1.12:8080/area/:areaId/course',{
+    return Courses = $resource('http://192.168.1.5:8080/area/:areaId/course',{
       areaId: '@id'
       },{
       update : {
@@ -53,7 +53,7 @@ angular.module("app.services", ["ngResource"])
 })
 
 .factory('Course', function($resource) {
-    return Course = $resource('http://192.168.1.12:8080/course/:courseId',{
+    return Course = $resource('http://192.168.1.5:8080/course/:courseId',{
       courseId: '@id'
       },{
       update : {
@@ -68,7 +68,7 @@ angular.module("app.services", ["ngResource"])
 
 .factory('Coursemodules', function($resource) {
     
-    return Coursemodules = $resource('http://192.168.1.12:8080/course/module/:courseId',{
+    return Coursemodules = $resource('http://192.168.1.5:8080/course/module/:courseId',{
       courseId: '@id'
     },{
       method: 'GET'
@@ -79,7 +79,7 @@ angular.module("app.services", ["ngResource"])
 })
 
 .factory('Modules', function($resource) {
-    return Modules = $resource('http://192.168.1.12:8080/course/:courseId/module',{
+    return Modules = $resource('http://192.168.1.5:8080/course/:courseId/module',{
       courseId: '@id'
       },{
       update : {
@@ -92,7 +92,7 @@ angular.module("app.services", ["ngResource"])
 })
 
 .factory('Module', function($resource) {
-    return Module = $resource('http://192.168.1.12:8080/module/:moduleId',{
+    return Module = $resource('http://192.168.1.5:8080/module/:moduleId',{
       moduleId: '@id'
       },{
       update : {
@@ -105,7 +105,7 @@ angular.module("app.services", ["ngResource"])
 })
 
 .factory('ModuleLessons', function($resource) {
-    return ModuleLessons = $resource('http://192.168.1.12:8080/module/lesson/:moduleId',{
+    return ModuleLessons = $resource('http://192.168.1.5:8080/module/lesson/:moduleId',{
       moduleId: '@id'
     },{
       method: 'GET'
@@ -116,7 +116,7 @@ angular.module("app.services", ["ngResource"])
  })
 
 .factory('LessonLos', function($resource) {
-    return LessonLos = $resource('http://192.168.1.12:8080/lesson/lo/:lessonId',{
+    return LessonLos = $resource('http://192.168.1.5:8080/lesson/lo/:lessonId',{
       lessonId: '@id'
     },{
       method: 'GET'
@@ -127,7 +127,7 @@ angular.module("app.services", ["ngResource"])
 })
 
 .factory('Lesson', function($resource) {
-    return Lesson = $resource('http://192.168.1.12:8080/lesson/:lessonId',{
+    return Lesson = $resource('http://192.168.1.5:8080/lesson/:lessonId',{
       lessonId: '@id'
       },{
       update : {
@@ -140,7 +140,7 @@ angular.module("app.services", ["ngResource"])
 })
 
 .factory('Lessons', function($resource) {
-    return Lessons = $resource('http://192.168.1.12:8080/module/:moduleId/lesson',{
+    return Lessons = $resource('http://192.168.1.5:8080/module/:moduleId/lesson',{
       moduleId: '@id'
       },{
       update : {
@@ -153,7 +153,7 @@ angular.module("app.services", ["ngResource"])
 })
 
 .factory('Lo', function($resource) {
-    return Lo = $resource('http://192.168.1.12:8080/lo/:loId',{
+    return Lo = $resource('http://192.168.1.5:8080/lo/:loId',{
       loId: '@id'
       },{
       update : {
@@ -166,7 +166,7 @@ angular.module("app.services", ["ngResource"])
 })
 
 .factory('Los', function($resource) {
-    return Los = $resource('http://192.168.1.12:8080/lesson/:lessonId/lo',{
+    return Los = $resource('http://192.168.1.5:8080/lesson/:lessonId/lo',{
       lessonId: '@id'
       },{
       update : {
@@ -179,7 +179,7 @@ angular.module("app.services", ["ngResource"])
 })
 
 .factory('LoSkills', function($resource) {
-    return LoSkills = $resource('http://192.168.1.12:8080/lo/skill/:loId',{
+    return LoSkills = $resource('http://192.168.1.5:8080/lo/skill/:loId',{
       loId: '@id'
     },{
       method: 'GET'
@@ -190,7 +190,7 @@ angular.module("app.services", ["ngResource"])
 })
 
 .factory('Skill', function($resource) {
-    return Skill = $resource('http://192.168.1.12:8080/skill/:skillId',{
+    return Skill = $resource('http://192.168.1.5:8080/skill/:skillId',{
       skillId: '@id'
       },{
       update : {
@@ -203,7 +203,7 @@ angular.module("app.services", ["ngResource"])
 })
 
 .factory('Skills', function($resource) {
-    return Skills = $resource('http://192.168.1.12:8080/lo/:loId/skill',{
+    return Skills = $resource('http://192.168.1.5:8080/lo/:loId/skill',{
       loId: '@id'
       },{
       update : {
@@ -216,7 +216,7 @@ angular.module("app.services", ["ngResource"])
 })
 
 .factory('Item', function($resource) {
-    return Items = $resource('http://192.168.1.12:8080/item/:itemId',{
+    return Items = $resource('http://192.168.1.5:8080/item/:itemId',{
       itemId: '@id'
       },{
       update : {
@@ -229,7 +229,7 @@ angular.module("app.services", ["ngResource"])
 })
 
 .factory('Items', function($resource) {
-  return Items = $resource('http://192.168.1.12:8080/lesson/:lessonId/item',{
+  return Items = $resource('http://192.168.1.5:8080/lesson/:lessonId/item',{
     lessonId: '@id'
     },{
     update : {
@@ -242,5 +242,5 @@ angular.module("app.services", ["ngResource"])
 })
 
 .factory('AllItems', function($resource) {
-  return AllItems = $resource('http://192.168.1.12:8080/item');  
+  return AllItems = $resource('http://192.168.1.5:8080/item');  
 });
