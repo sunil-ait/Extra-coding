@@ -243,4 +243,34 @@ angular.module("app.services", ["ngResource"])
 
 .factory('AllItems', function($resource) {
   return AllItems = $resource('http://192.168.1.5:8080/item');  
-});
+})
+
+.factory('AllCourseTests', function($resource) {
+  return AllCourseTests = $resource('http://192.168.1.5:8080/course/test');
+})
+
+.factory('Test', function($resource) {
+    return Test = $resource('http://192.168.1.5:8080/test/:TestId',{
+      TestId: '@id'
+      },{
+      update : {
+        method: 'PUT'
+      }
+   })
+   Test.prototype.isNew = function() {
+    return (typeof (this.id) === 'undefined');
+  };  
+})
+
+.factory('Tests', function($resource) {
+    return Tests = $resource('http://192.168.1.5:8080/course/:courseId/test',{
+      courseId: '@id'
+      },{
+      update : {
+      method: 'PUT'
+      }
+    })
+    Tests.prototype.isNew = function() {
+      return (typeof (this.id) === 'undefined');
+    };  
+})

@@ -284,3 +284,43 @@ app.controller('itemcontroller', ['$rootScope','$stateParams','$scope','Item','I
     $scope.datajsons.push($scope.inserted);
   }
 }]);
+
+app.controller('coursetestcontroller', ["$scope","AllCourseTests","Test","$stateParams","$rootScope", function($scope,AllCourseTests,Test,$stateParams,$rootScope){
+  $scope.courseid = $stateParams.courseId;
+  console.log($scope.courseid);
+
+  var testid = $stateParams.TestId;  
+  $scope.CourseTests = AllCourseTests.query();
+  $scope.Testdetails = Test.get({TestId: testid});
+
+  $scope.deleteTest = function(CourseTest){
+    $scope.CourseTests.splice($scope.CourseTests.indexOf(CourseTest), 1);
+    Test.delete({TestId: CourseTest.id});
+  }
+}]);
+
+app.controller('coursetestdetailcontroller', ["$scope","AllCourseTests","Test","Tests","$stateParams","$rootScope", function($scope,AllCourseTests,Test,Tests,$stateParams,$rootScope){
+  var courseid = $stateParams.courseId;
+  
+  var Id = $stateParams.TestId;
+
+  if(typeof(Id) === 'undefined'){
+    $scope.CourseTest = new Tests({
+      courseId: courseid
+    });
+  }
+  else{
+    $scope.CourseTest= Test.get({
+      TestId: Id
+    });
+  }
+
+  $scope.save = function(id){
+    if (id ===1) {
+      $scope.CourseTest.$save({courseId: courseid});
+    }
+    else{
+      $scope.CourseTest.$update();
+    }
+  };
+}]);

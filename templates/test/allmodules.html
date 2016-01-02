@@ -1,0 +1,21 @@
+<div class="curriculum-listings">
+  <div class="container_div">
+    <ul>
+      <a>
+        <li ng-repeat="module in allModules">   
+          <div class="curriculum-title">
+          <br/>
+            <span align="center">{{module.title}}</span>
+          </div>
+          <div class="curriculum-desc">{{module.description}}</div>
+          <div align="center">
+            <a class="btn btn-primary" ui-sref="app.modulelessons({moduleId: module.id})">View Test</a>
+            <a class="btn btn-primary" ui-sref="app.testlessons({moduleId: module.id})">
+              View Lessons</a>
+          </div>
+          <br>
+        </li>
+      </a>
+    </ul>
+  </div>
+</div>
