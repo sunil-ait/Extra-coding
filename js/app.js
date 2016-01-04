@@ -12,7 +12,7 @@ $stateProvider
      url: "/content",
      templateUrl: 'templates/others/content.html'
     })
-  .state("app.contentarea",{  
+  .state("app.contentarea",{
      url: "/allareas",
      templateUrl: 'templates/areas/allarea.html',
      controller: 'areascontroller'
@@ -46,7 +46,7 @@ $stateProvider
      url: "/allmodules/{courseId:[0-9a-fA-F]{1,8}}",
      templateUrl: 'templates/modules/allmodule.html',
      controller: 'modulecontroller'
-    })  
+    })
   .state("app.modulepopup",{
      url: "/newmodule",
      templateUrl: 'templates/modules/modulepopup.html',
@@ -312,15 +312,55 @@ $stateProvider
       controller: 'coursescontroller'
     })
   .state("app.testmodules",{
-     url: "/alltestmoodules/{courseId:[0-9a-fA-F]{1,8}}",
+     url: "/alltestmodules/{courseId:[0-9a-fA-F]{1,8}}",
      templateUrl: 'templates/test/allmodules.html',
      controller: 'modulecontroller'
+    })
+  .state("app.moduletest",{
+     url: "/alltestmodules/{moduleId:[0-9a-fA-F]{1,8}}",
+     templateUrl: 'templates/test/moduletest.html',
+     controller: 'moduletestcontroller'
+    })
+  .state("app.viewmoduletest",{
+     url: "/Testdetails/{TestId:[0-9a-fA-F]{1,8}}",
+     templateUrl: 'templates/test/moduletestdetails.html',
+     controller: 'moduletestcontroller'
+    })
+  .state("app.newmoduletest",{
+     url: "/NewModuleTest/{moduleId:[0-9a-fA-F]{1,8}}",
+     templateUrl: 'templates/test/newmoduletest.html',
+     controller: 'moduletestdetailcontroller'
+    })
+  .state("app.editmoduletest",{
+     url: "/EditModuleTest/{TestId:[0-9a-fA-F]{1,8}}",
+     templateUrl: 'templates/test/editmoduletest.html',
+     controller: 'moduletestdetailcontroller'
     })
   .state("app.testlessons",{
      url: "/alltestlessons/{moduleId:[0-9a-fA-F]{1,8}}",
      templateUrl: 'templates/test/alllessons.html',
      controller: 'lessoncontroller'
-    }) 
+    })
+  .state("app.lessontest",{
+     url: "/alltestlesson/{lessonId:[0-9a-fA-F]{1,8}}",
+     templateUrl: 'templates/test/lessontest.html',
+     controller: 'lessontestcontroller'
+    })
+  .state("app.viewlessontest",{
+     url: "/Testdetails/{TestId:[0-9a-fA-F]{1,8}}",
+     templateUrl: 'templates/test/lessontestdetails.html',
+     controller: 'lessontestcontroller'
+    })
+  .state("app.newlessontest",{
+     url: "/NewLessonTest/{lessonId:[0-9a-fA-F]{1,8}}",
+     templateUrl: 'templates/test/newlessontest.html',
+     controller: 'lessontestdetailcontroller'
+    })
+  .state("app.editlessontest",{
+     url: "/EditLessonTest/{TestId:[0-9a-fA-F]{1,8}}",
+     templateUrl: 'templates/test/editlessontest.html',
+     controller: 'lessontestdetailcontroller'
+    })
   .state("app.coursetest",{
      url: "/coursetests/{courseId:[0-9a-fA-F]{1,8}}",
      templateUrl: 'templates/test/coursetest.html',

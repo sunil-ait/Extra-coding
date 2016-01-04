@@ -237,10 +237,13 @@ app.controller('itemcontroller', ['$rootScope','$stateParams','$scope','Item','I
 
   $scope.save = function(id){
     if(id === 1){
-      var item1 = angular.toJson($scope.item.question);
+      console.log($scope.item.question.items[0]);
+      var item1 = angular.toJson($scope.item.question.items[0]);
+
       var item2 = "["+ item1 + "]";
-      $scope.item.question = item2;
+      $scope.item.question.items = item2;
       console.log($scope.item);
+
       $scope.item.$save({lessonId: lessonid2});
     }
   };
@@ -321,6 +324,84 @@ app.controller('coursetestdetailcontroller', ["$scope","AllCourseTests","Test","
     }
     else{
       $scope.CourseTest.$update();
+    }
+  };
+}]);
+
+app.controller('moduletestcontroller', ["$scope","AllModuleTests","MTest","$stateParams","$rootScope", function($scope,AllModuleTests,MTest,$stateParams,$rootScope){
+  $scope.moduleid = $stateParams.moduleId;
+
+  var testid = $stateParams.TestId;  
+  $scope.ModuleTests = AllModuleTests.query();
+  $scope.Testdetails = MTest.get({TestId: testid});
+
+  $scope.deleteTest = function(ModuleTest){
+    $scope.ModuleTests.splice($scope.ModuleTests.indexOf(ModuleTest), 1);
+    MTest.delete({TestId: ModuleTest.id});
+  }
+}]);
+
+app.controller('moduletestdetailcontroller', ["$scope","AllModuleTests","MTest","MTests","$stateParams","$rootScope", function($scope,AllModuleTests,MTest,MTests,$stateParams,$rootScope){
+  var moduleid = $stateParams.moduleId;
+  
+  var Id = $stateParams.TestId;
+
+  if(typeof(Id) === 'undefined'){
+    $scope.ModuleTest = new MTests({
+      moduleId: moduleid
+    });
+  }
+  else{
+    $scope.ModuleTest= MTest.get({
+      TestId: Id
+    });
+  }
+
+  $scope.save = function(id){
+    if (id ===1) {
+      $scope.ModuleTest.$save({moduleId: moduleid});
+    }
+    else{
+      $scope.ModuleTest.$update();
+    }
+  };
+}]);
+
+app.controller('lessontestcontroller', ["$scope","AllLessonTests","LTest","$stateParams","$rootScope", function($scope,AllLessonTests,LTest,$stateParams,$rootScope){
+  $scope.lessonid = $stateParams.lessonId;
+
+  var testid = $stateParams.TestId;  
+  $scope.LessonTests = AllLessonTests.query();
+  $scope.Testdetails = LTest.get({TestId: testid});
+
+  $scope.deleteTest = function(LessonTest){
+    $scope.LessonTests.splice($scope.LessonTests.indexOf(LessonTest), 1);
+    LTest.delete({TestId: LessonTest.id});
+  }
+}]);
+
+app.controller('lessontestdetailcontroller', ["$scope","AllLessonTests","LTest","LTests","$stateParams","$rootScope", function($scope,AllLessonTests,LTest,LTests,$stateParams,$rootScope){
+  var lessonid = $stateParams.lessonId;
+  
+  var Id = $stateParams.TestId;
+
+  if(typeof(Id) === 'undefined'){
+    $scope.LessonTest = new LTests({
+      lessonId: lessonid
+    });
+  }
+  else{
+    $scope.LessonTest= LTest.get({
+      TestId: Id
+    });
+  }
+
+  $scope.save = function(id){
+    if (id ===1) {
+      $scope.LessonTest.$save({lessonId: lessonid});
+    }
+    else{
+      $scope.LessonTest.$update();
     }
   };
 }]);

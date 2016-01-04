@@ -274,3 +274,63 @@ angular.module("app.services", ["ngResource"])
       return (typeof (this.id) === 'undefined');
     };  
 })
+
+.factory('AllModuleTests', function($resource) {
+  return AllModuleTests = $resource('http://192.168.1.5:8080/module/test');
+})
+
+.factory('MTest', function($resource) {
+    return Test = $resource('http://192.168.1.5:8080/test/:TestId',{
+      TestId: '@id'
+      },{
+      update : {
+        method: 'PUT'
+      }
+   })
+   MTest.prototype.isNew = function() {
+    return (typeof (this.id) === 'undefined');
+  };  
+})
+
+.factory('MTests', function($resource) {
+    return MTests = $resource('http://192.168.1.5:8080/module/:moduleId/test',{
+      moduleId: '@id'
+      },{
+      update : {
+      method: 'PUT'
+      }
+    })
+    MTests.prototype.isNew = function() {
+      return (typeof (this.id) === 'undefined');
+    };  
+})
+
+.factory('AllLessonTests', function($resource) {
+  return AllLessonTests = $resource('http://192.168.1.5:8080/lesson/test');
+})
+
+.factory('LTest', function($resource) {
+    return LTest = $resource('http://192.168.1.5:8080/test/:TestId',{
+      TestId: '@id'
+      },{
+      update : {
+        method: 'PUT'
+      }
+   })
+   LTest.prototype.isNew = function() {
+    return (typeof (this.id) === 'undefined');
+  };  
+})
+
+.factory('LTests', function($resource) {
+    return Tests = $resource('http://192.168.1.5:8080/lesson/:lessonId/test',{
+      lessonId: '@id'
+      },{
+      update : {
+      method: 'PUT'
+      }
+    })
+    LTests.prototype.isNew = function() {
+      return (typeof (this.id) === 'undefined');
+    };  
+})

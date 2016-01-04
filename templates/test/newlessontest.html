@@ -1,0 +1,61 @@
+<div class="customizing">
+  <h1>New Lesson Test</h1>
+  <br/>
+  <form novalidate name="coursetest" role="form">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <br/>
+          <br/>
+          <div class="input-group">
+            <input type="text" class="form-control" name="name" id="name" placeholder="Enter Name" ng-model="LessonTest.name" required>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="Duration">Duration</label>
+          <br/>
+          <br/>
+          <div class="input-group">
+            <input type="text" ng-model="LessonTest.duration" class="form-control" name="Duration" id="Duration" placeholder="Enter Duration" required>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="Maximum Marks">Maximum Marks</label>
+          <br/>
+          <br/>
+          <div class="input-group">
+            <input type="text" ng-model="LessonTest.maximumMarks"class="form-control" name="Maximum Marks" id="Maximum Marks" placeholder="Enter Maximum Marks" required>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="Number of Questions">Number of Questions</label>
+          <br/>
+          <br/>
+          <div class="input-group">
+            <input type="text" ng-model="LessonTest.numberOfQuestions"class="form-control" name="Number of Questions" id="Number of Questions" placeholder="Enter Number of Questions" required>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <br/>
+            <a>
+              <input type="button" class="btn btn-primary" ng-click="save(1)"  ui-sref="app.test" value="Save"/>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>

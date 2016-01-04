@@ -1,0 +1,40 @@
+<div class="customizing">
+  <input type="button" class= "btn btn-primary" value="Add Test" ui-sref= "app.newlessontest({lessonId: lessonid})">
+  <br/>
+  <br/>
+  <div class="row">
+    <div class="col-md-2">
+      <h4><b>Name</b></h4>
+    </div>
+    <div class="col-md-2">
+      <h4><b>Duration</b></h4>
+    </div>
+    <div class="col-md-2">
+      <h4><b>No Of Questions</b></h4>
+    </div>
+     <div class="col-md-4">
+      <h4><b>Operations</b></h4>
+    </div>
+  </div>
+  <br/>
+  <div class="row" ng-repeat="LessonTest in LessonTests">
+    <div class="col-md-2" >
+      {{LessonTest.name}}
+    </div>
+    <div class="col-md-2">
+      {{LessonTest.duration}}
+    </div>
+    <div class="col-md-2">
+      {{LessonTest.maximumMarks}}
+    </div>
+    <div class="col-md-4">
+      <button type="button" class="btn btn-primary">Publish</button>
+      <button type="button" class="btn btn-primary" ui-sref="app.viewlessontest({TestId: LessonTest.id})">View</button>
+      <button type="button" class="btn btn-primary" ui-sref="app.editlessontest({TestId: LessonTest.id})">Edit</button>
+      <button type="button" class="btn btn-primary" ng-click="deleteTest(LessonTest)">Delete</button>
+      <br/>
+    </div>
+    <br/>
+  </div>
+  <br/>
+</div>
