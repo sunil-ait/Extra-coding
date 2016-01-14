@@ -28,7 +28,7 @@
       {{CourseTest.maximumMarks}}
     </div>
     <div class="col-md-4">
-      <button type="button" class="btn btn-primary">Publish</button>
+      <button type="button" class="btn btn-primary" ng-click="publish(CourseTest.id)">Publish</button>
       <button type="button" class="btn btn-primary" ui-sref="app.viewcoursetest({TestId: CourseTest.id})">View</button>
       <button type="button" class="btn btn-primary" ui-sref="app.editcoursetest({TestId: CourseTest.id})">Edit</button>
       <button type="button" class="btn btn-primary" ng-click="deleteTest(CourseTest)">Delete</button>

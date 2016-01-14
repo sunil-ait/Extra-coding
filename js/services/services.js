@@ -334,3 +334,55 @@ angular.module("app.services", ["ngResource"])
       return (typeof (this.id) === 'undefined');
     };  
 })
+
+.factory('TestItems', function($resource) {
+    return TestItems = $resource('http://192.168.1.5:8080/test/:TestId/testitem',{
+      TestId: '@id'
+      },{
+      update : {
+      method: 'GET'
+      }
+    })
+    TestItems.prototype.isNew = function() {
+      return (typeof (this.id) === 'undefined');
+    };  
+})
+
+.factory('CourseTestItems', function($resource) {
+    return CourseTestItems = $resource('http://192.168.1.5:8080/testitem',{
+      TestId: '@id'
+      },{
+      update : {
+      method: 'PUT'
+      }
+    })
+    TestItems.prototype.isNew = function() {
+      return (typeof (this.id) === 'undefined');
+    };  
+})
+
+.factory('CourseTestItem', function($resource) {
+    return CourseTestItem = $resource('http://192.168.1.5:8080/testitem/:ItemId',{
+      ItemId: '@id'
+      },{
+      update : {
+        method: 'PUT'
+      }
+   })
+   CourseTestItem.prototype.isNew = function() {
+    return (typeof (this.id) === 'undefined');
+  };  
+})
+
+.factory('CoursePostTestItem', function($resource) {
+    return CoursePostTestItem = $resource('http://192.168.1.5:8080/publish/test/:TestId',{
+      TestId: '@id'
+      },{
+      update : {
+        method: 'PUT'
+      }
+   })
+   CoursePostTestItem.prototype.isNew = function() {
+    return (typeof (this.id) === 'undefined');
+  };  
+})

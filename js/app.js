@@ -9,8 +9,38 @@ app.run(function(editableOptions) {
 app.config(function($stateProvider,$urlRouterProvider){
 $stateProvider
   .state("app.content",{
-     url: "/content",
-     templateUrl: 'templates/others/content.html'
+     url: "/contentareas",
+     templateUrl: 'templates/areas/contentareas.html',
+     controller: 'areascontroller'
+    })
+  .state("app.contentareacourses",{  
+     url: "/Contentareacourses/{areaId:[0-9a-fA-F]{1,8}}",
+     templateUrl: 'templates/courses/contentcourses.html',
+     controller: 'coursescontroller'
+    })
+  .state("app.contentcoursemodules",{  
+     url: "/Contentsallmodules/{courseId:[0-9a-fA-F]{1,8}}",
+     templateUrl: 'templates/modules/contentmodules.html',
+     controller: 'modulecontroller'
+    })
+  .state("app.contentmodulelessons",{
+     url: "/Contentsalllessons/{moduleId:[0-9a-fA-F]{1,8}}",
+     templateUrl: 'templates/lessons/contentlessons.html',
+     controller: 'lessoncontroller'
+    })
+  .state("app.contentlessonlos",{
+     url: "/contentsalllos/{lessonId:[0-9a-fA-F]{1,8}}",
+     templateUrl: 'templates/los/contentlos.html',
+     controller: 'locontroller'
+    })
+  .state("app.contentloskills",{
+     url: "/contentsallskills/{loId:[0-9a-fA-F]{1,8}}",
+     templateUrl: 'templates/skills/contentskills.html',
+     controller: 'skillcontroller'
+    })
+    .state("app.skillcontents",{
+     url: "/skillcontents/{skillId:[0-9a-fA-F]{1,8}}",
+     templateUrl: 'templates/skills/skillcontentsckeditor.html'
     })
   .state("app.contentarea",{
      url: "/allareas",
@@ -102,16 +132,21 @@ $stateProvider
      templateUrl: 'templates/skills/editskillpopup.html',
      controller: 'skilldetailcontroller'
     })
+  .state("app.skillpopupeditckeditor",{
+     url: "/editskillcontent/{skillId:[0-9a-fA-F]{1,8}}",
+     templateUrl: 'templates/skills/ckeditor.html',
+     controller: 'skilldetailcontroller'
+    })
 
   /*TILL HERE CIRRCULUM PLAYER*/
 
   /*NOW ITEM RLUTING*/
-
+/*
   .state('app.itemarea',{
       url: "/itemareas",
       templateUrl: 'templates/areas/itemareas.html',
       controller : 'areascontroller'
-    })
+    })*/
   .state('app.item',{
       url: "/itemareas",
       templateUrl: 'templates/areas/itemareas.html',
@@ -136,6 +171,11 @@ $stateProvider
       url: "/itemlos/{lessonId:[0-9a-fA-F]{1,8}}",
       templateUrl: 'templates/los/itemlos.html',
       controller : 'locontroller'
+    })
+  .state('app.itemskills',{
+      url: "/itemskills/{loId:[0-9a-fA-F]{1,8}}",
+      templateUrl: 'templates/skills/itemskills.html',
+      controller : 'skillcontroller'
     })
   .state('app.itemtree',{
       url: "/itemtree",
@@ -278,16 +318,6 @@ $stateProvider
      url: "/app",
      templateUrl: 'templates/others/landingpage.html'
     })
-  .state('app.curriculum',{
-     url: "/Curriculum",
-     templateUrl: 'templates/others/curriculum.html',
-     controller: ''
-    })
-  .state('app.newcourse',{
-      url: "/Newcourse",
-     templateUrl: 'templates/others/newcourse.html',    
-     controller: '' 
-    })
   .state('logout',{
       url: "/logout",
       templateUrl: 'templates/others/logout.html' 
@@ -296,11 +326,9 @@ $stateProvider
       url: "/dashboard",
       templateUrl: 'templates/others/Dashboard.html'
     })
-  .state('app.coursemodel',{
-      url: "/coursemodel",
-      templateUrl: 'templates/others/coursemodel.html',
-      controller: 'areascontroller'
-    })
+  
+  /*TEST MANAGER*/
+
   .state('app.test',{
       url: "/alltestareas",
       templateUrl: 'templates/test/allareas.html',
@@ -381,4 +409,32 @@ $stateProvider
      templateUrl: 'templates/test/editcoursetest.html',
      controller: 'coursetestdetailcontroller'
     })
+  .state("app.testsimplequestion",{
+     url: "/Addsimplequestion/{TestId:[0-9a-fA-F]{1,8}}",
+     templateUrl: 'templates/test/newcoursetestsimplequestion.html',
+     controller: 'coursetestitemdetailcontroller'
+    })
+  .state("app.edittestsimplequestion",{
+     url: "/Editsimplequestion/{ItemId:[0-9a-fA-F]{1,8}}",
+     templateUrl: 'templates/test/edittestsimplequestion.html',
+     controller: 'coursetestitemdetailcontroller'
+    })
+    .state("app.comprehensiontestitem",{
+     url: "/comprehensiontestitem/{TestId:[0-9a-fA-F]{1,8}}",
+     templateUrl: 'templates/test/newcomprehesionquestions.html'
+    })
+    .state("app.comprehension.1",{
+     url: "/Matchtype",
+     templateUrl: 'templates/others/matchtype.html'
+    })
+    .state("app.comprehension.matchtype.2",{
+     url: "/Matchtype",
+     templateUrl: 'templates/others/filltype.html'
+    })
 });
+
+
+
+
+
+

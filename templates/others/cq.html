@@ -1,0 +1,31 @@
+<div class="help">
+  <form class="form-vertical" name="myForm">
+    <div class="row">
+      <div class="col-md-4">
+        <h3>Passage:</h3>
+        <p editable-text="passage" ng-model="passage" e-name="passage" e-form="editableForm" e-required>     {{passage}}
+        </p>
+      </div>
+    </div>
+    <h3>Select Question Type</h3>
+      <div class="managment">
+        <select id="subject" ng-model="quetype"name="subject" class="form-control">
+         <option value="">Select Question Type</option>
+         <option>1</option>
+         <option>2</option>
+         <option>3</option>
+         <option>4</option>
+         <option>5</option>
+        </select>
+        <br/>
+      <a ui-sref="app.comprehension.1">
+        <button type="button" ng-click="addQuestion()" class="btn btn-primary">
+          Add
+        </button>
+      </a>
+    </div>
+    <div ui-view></div>
+    <br/>
+    <br/>
+  </form>
+</div>

@@ -1,4 +1,12 @@
 <div class="customizing">
+  <ul class="nav nav-tabs" role="tablist">
+  <br/>
+    <li ui-sref-active="active"  class="active"><a ui-sref="app.testsimplequestion({TestId: testid})" class="btn btn-info">Add S.Q.</a>
+    </li>
+    <li ui-sref-active="active" class="active">
+      <a ui-sref="app.comprehensiontestitem({TestId: testid})" class="btn btn-info">Add C.Q.</a>
+    </li>
+  </ul>
   <br/>
   <h1>Test Details</h1>
   <br/>
@@ -27,4 +35,40 @@
     <br/>
   </div>
   <br/>
+  <!-- HERE IS THE LIST OF QUESTIONS OF TEST -->
+  <br/>
+  <h1> Details of Test Questions</h1>
+  <hr/>
+  <div class="row">
+    <div class="col-md-2">
+      <h4><b>QType</b></h4>
+    </div>
+    <div class="col-md-2">
+      <h4><b>Type</b></h4>
+    </div>
+    <div class="col-md-2">
+      <h4><b>Operations</b></h4>
+    </div>
+  </div>
+  <br/>
+  <div class="row" ng-repeat="ItemdetailsofCourseTest in ItemdetailsofCourseTests">
+    <div class="col-md-2" >
+      {{ItemdetailsofCourseTest.qtype}}
+    </div>
+    <div class="col-md-2">
+      {{ItemdetailsofCourseTest.type}}
+    </div>
+    <div class="col-md-2">
+      <button type="button" class= "btn btn-primary" ui-sref= "app.edittestsimplequestion({ItemId: ItemdetailsofCourseTest.id})">Edit</button>
+      <button type="button" class= "btn btn-primary"  ng-click= "deleteTestItem(ItemdetailsofCourseTest)">Delete</button>
+    </div>
+    <br/>
+  </div>
 </div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>

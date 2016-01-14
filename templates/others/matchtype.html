@@ -1,0 +1,114 @@
+<div style="margin-left: 8%; margin-right: 20%; background-color: yellow;">
+  <br/>
+  <div style="margin-left: 5%;">
+  <span class="title">Question :</span>
+  <br/>
+    <p editable-text="datas[0].question" e-name="datas[0].question" e-form="editableForm" e-required>{{datas[0].question}}
+  </p>
+  <br/>
+  <span class="title">Options :</span>
+  <br>    
+  <table border="0">
+    <tr>
+    <td width="30%">
+      <p editable-text = "datas[0].option1" e-form="editableForm">
+        <input  type="radio" name="option" value="{{datas[0].option1}}"/>&nbsp;&nbsp;<b>A.</b>&nbsp; {{datas[0].option1}}
+      </p>
+    </td>
+      <td width="30%">
+      <p editable-text="datas[0].matcha" e-form="editableForm">
+        <input type="radio" name="match" value="{{datas[0].matcha">&nbsp;&nbsp;<b>1.</b>&nbsp;
+        {{datas[0].matcha}}
+      </p>
+    </td>
+    </tr>
+    <tr>
+    <td>
+      <p editable-text="datas[0].option2" e-form="editableForm">
+        <input type="radio" name="option" value="{{datas[0].option2}}" />&nbsp;&nbsp;<b>B.</b>&nbsp; {{datas[0].option2}}
+      </p>
+    </td>
+    <td>
+      <p editable-text="datas[0].matchb" e-form="editableForm">
+        <input type="radio" name="match" value="{{datas[0].matchb}}" />&nbsp;&nbsp;<b>2.</b>&nbsp; {{datas[0].matchb}}
+      </p>
+    </td>
+    </tr>
+    <tr>
+    <td>
+      <p editable-text="datas[0].option3" e-form="editableForm">
+        <input type="radio" name="option" value="{{datas[0].questio.option3}}" />&nbsp;&nbsp;<b>C.</b>&nbsp; {{datas[0].option3}}
+      </p>
+    </td>
+    <td>
+      <p editable-text="datas[0].matchc" e-form="editableForm">
+        <input type="radio" name="match" value="{{datas[0].matchc}}" />&nbsp;&nbsp;<b>3.</b>&nbsp; {{datas[0].matchc}}
+      </p>
+    </td>
+    </tr>
+    <tr>
+    <td>
+      <p editable-text="datas[0].option4" e-form="editableForm">
+        <input type="radio" name="option" value="{{datas[0].option4}}" />&nbsp;&nbsp;<b>D.</b>&nbsp; {{datas[0].option4}}
+      </p>    
+    </td>
+    <td>
+      <p editable-text="datas[0].matchd" e-form="editableForm">
+        <input type="radio" name="match" value="{{datas[0].matchd}}" />&nbsp;&nbsp;<b>4.</b>&nbsp; {{datas[0].matchd}}
+      </p>
+    </td>
+    </tr>
+  </table>
+  <br/>
+  <span class="title">Answer :</span>
+    <p editable-text="datas[0].answer" e-form="editableForm">{{datas[0].answer}}</p>
+  <br/>
+  <br/>
+  <span class="title">Solution :</span>
+    <p editable-textarea="datas[0].solution" e-form="editableForm" e-rows="10" e-cols="80">{{datas[0].solution}}
+  </p>
+  <br/>
+  <br/>
+  <span class="title">Grit :</span>
+    <p editable-text="datas[0].grit" e-form="editableForm">{{datas[0].grit}}</p>
+  <br/>
+  <br/>
+  <span class="title">Level :</span>
+    <p editable-text="datas[0].level" e-form="editableForm">{{datas[0].level}}</p>
+  </span>
+  <button type="button" class="btn btn-primary" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
+    Edit
+  </button>
+  <button type="button" class="btn btn-primary" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
+    Publish
+  </button>
+  <span ng-show="editableForm.$visible">
+    <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
+      Save
+    </button>
+    <button type="button" class="btn btn-Danger" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+      Cancel
+    </button>
+  </span>
+  <br/>
+  <br/>
+ </div>
+</div>
+<h3>Select Question Type</h3>
+  <div class="managment">
+    <select id="subject" ng-model="quetype1"name="subject" class="form-control">
+     <option value="">Select Question Type</option>
+     <option>1</option>
+     <option>2</option>
+     <option>3</option>
+     <option>4</option>
+     <option>5</option>
+    </select>
+    <br/>
+  <a ui-sref="app.comprehension.matchtype.2">
+    <button type="button" ng-click="addQuestion()" class="btn btn-primary">
+      Add
+    </button>
+  </a>
+</div>
+<div ui-view></div>
