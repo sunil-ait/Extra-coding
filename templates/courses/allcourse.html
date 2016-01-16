@@ -9,10 +9,9 @@
           </div>
           <div class="curriculum-desc">{{course.description}}</div>  
           <div align="center">
-          
+          <a class="btn btn-primary" ui-sref="app.areacourses({areaId: area.id})">Graph</a>
           <a class="btn btn-primary" ui-sref="app.coursemodules({courseId: course.id})">View</a>
-          <a class="btn btn-primary" ui-sref="app.coursepopupedit({courseId: course.id})">
-               Edit</a>
+          <a class="btn btn-primary" ui-sref="app.coursepopupedit({courseId: course.id})">Edit</a>
           <a class="btn btn-primary" ng-click="deletecourse(course)">Delete</a>
           </div>
           <br>

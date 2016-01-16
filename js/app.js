@@ -286,7 +286,7 @@ $stateProvider
       controller: 'simplecontroller'
     })
   .state('app.comprehension',{
-      url: "/comprehension",
+      url: "/comprehension/{lessonId2:[0-9a-fA-F]{1,8}}",
       templateUrl: 'templates/others/comprehension.html',
       controller: 'simplecontroller'
     })
@@ -423,9 +423,10 @@ $stateProvider
      url: "/comprehensiontestitem/{TestId:[0-9a-fA-F]{1,8}}",
      templateUrl: 'templates/test/newcomprehesionquestions.html'
     })
-    .state("app.comprehension.1",{
-     url: "/Matchtype",
-     templateUrl: 'templates/others/matchtype.html'
+    .state("app.comprehension.views",{
+     url: "Item/{Itemtype:[0-9a-fA-F]{1,8}}",
+     templateUrl: 'templates/items/template.html',
+     controller: "itemcontroller"
     })
     .state("app.comprehension.matchtype.2",{
      url: "/Matchtype",

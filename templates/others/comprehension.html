@@ -1,217 +1,72 @@
 <form editable-form name="editableForm">
-<ul ng-repeat= "item in items">
-			<li>{{item.itype}}</li>
-		</ul>
-	<div style="margin-left: 8%; margin-right: 20%; background-color: yellow;">
-	  <div style="margin-left: 5%;">
+	<div style="margin-left: 8%; margin-right: 20%; background-color: yellow;" class="row">
+	  <div style="margin-left: 5%;" class="col-md-4">
 		  <br/>
 	  	<span class="title">Passage :</span>
 	  	<br/>
-	  	<p ng-model="data.passage" editable-text="passage" e-name="passage" e-form="editableForm" e-required>{{data.passage}}
+	  	<p ng-model="item.question.items[0].passage" editable-text="item.question.items[0].passage" e-name="item.question.items[0].passage" e-form="editableForm" e-required>{{item.question.items[0].passage}}
 	    </p>
     	<br/>
     	<span class="title">Grit :</span>
     	<br/>
-    	<p ng-model="data.grit" editable-text="passage" e-name="passage" e-form="editableForm" e-required>{{data.grit}}
+    	<p ng-model="item.grit" editable-text="item.grit" e-name="item.grit" e-form="editableForm" e-required>	{{item.grit}}
+	    </p>
+	    <br/>
+	    <span class="title">Diff :</span>
+    	<br/>
+    	<p ng-model="item.diff" editable-text="item.diff" e-name="item.diff" e-form="editableForm" e-required>	{{item.diff}}
 	    </p>
 	    <br/>
 	    <span class="title">Level :</span>
 	    <br/>
-	    <p ng-model="data.level" editable-text="passage" e-name="passage" e-form="editableForm" e-required>{{data.level}}
+	    <p ng-model="item.level" editable-text="item.level" e-name="item.level" e-form="editableForm" e-required>{{item.level}}
 	    </p>
 	    <br/>
 	    <span class="title">Skill :</span>
 	    <br/>
-	    <p ng-model="data.skill" editable-text="passage" e-name="passage" e-form="editableForm" e-required>{{data.skill}}
+	    <p ng-model="item.skill" editable-text="item.skill" e-name="item.skill" e-form="editableForm" e-required>{{item.skill}}
 	    </p>
 	    <br/>
 	    <span class="title">Qtype :</span>
 	    <br/>
-	    <p ng-model="data.qtype" editable-text="passage" e-name="passage" e-form="editableForm" e-required>{{data.qtype}}
+	    <p ng-model="item.qtype" editable-text="item.qtype" e-name="item.qtype" e-form="editableForm" e-required>{{item.qtype}}
 	    </p>
 	    <br/>
 	    <span class="title">Type :</span>
 	    <br/>
-	    <p ng-model="data.type" editable-text="passage" e-name="passage" e-form="editableForm" e-required>{{data.type}}
+	    <p ng-model="item.type" editable-text="item.type" e-name="item.type" e-form="editableForm" e-required>{{item.type}}
 	    </p>
 	    <br/>
-    	<h3>Select Question Type</h3>
-  		<div class="managment">
-	      <select id="subject" ng-model="quetype"name="subject" class="form-control">
-         <option value="">Select Question Type</option>
-         <option>Matching Type</option>
-         <option>Fill Type</option>
-         <option>True False</option>
-         <option>Highlight</option>
-         <option>Objective</option>
-	      </select>
-	      <br/>
-			  <button type="button" ng-click="addQuestion()" class="btn btn-primary">
-		      Add
-		    </button>
-	    </div>
-      <br/>
-      <br/>        
-	  </div>		
-  </div>
-  {{datas}}
-  <div ng-repeat="c in counter">
-{{que[i]}}
-</div>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-</form>
-<br/>
-<p ng-repeat="c in counter">
-{{que[c]}}
-		<div ng-if="que[c]== 'Matching Type'"> <!-- MATCHING TYPE DIV -->
-	    <div style="margin-left: 8%; margin-right: 20%; background-color: yellow;">
-		  <br/>
-		  <div style="margin-left: 5%;">
-			<span class="title">Question :</span>
-			<br/>
-				<p editable-text="items[0].question" e-name="items[0].question" e-form="editableForm" e-required>{{items[0].question}}
-			</p>
-			<br/>
-			<span class="title">Options :</span>
-			<br>		
-			<table border="0">
-			  <tr>
-				<td width="30%">
-					<p editable-text = "items[0].option1" e-form="editableForm">
-						<input  type="radio" name="option" value="{{items[0].option1}}"/>&nbsp;&nbsp;<b>A.</b>&nbsp; {{items[0].option1}}
-			    </p>
-				</td>
-			    <td width="30%">
-					<p editable-text="items[0].matcha" e-form="editableForm">
-						<input type="radio" name="match" value="{{items[0].matcha">&nbsp;&nbsp;<b>1.</b>&nbsp;
-						{{items[0].matcha}}
-					</p>
-				</td>
-			  </tr>
-			  <tr>
-				<td>
-					<p editable-text="items[0].option2" e-form="editableForm">
-						<input type="radio" name="option" value="{{items[0].option2}}" />&nbsp;&nbsp;<b>B.</b>&nbsp; {{items[0].option2}}
-					</p>
-				</td>
-				<td>
-					<p editable-text="items[0].matchb" e-form="editableForm">
-						<input type="radio" name="match" value="{{items[0].matchb}}" />&nbsp;&nbsp;<b>2.</b>&nbsp; {{items[0].matchb}}
-					</p>
-				</td>
-			  </tr>
-			  <tr>
-				<td>
-					<p editable-text="items[0].option3" e-form="editableForm">
-						<input type="radio" name="option" value="{{items[0].questio.option3}}" />&nbsp;&nbsp;<b>C.</b>&nbsp; {{items[0].option3}}
-					</p>
-				</td>
-				<td>
-					<p editable-text="items[0].matchc" e-form="editableForm">
-						<input type="radio" name="match" value="{{items[0].matchc}}" />&nbsp;&nbsp;<b>3.</b>&nbsp; {{items[0].matchc}}
-					</p>
-				</td>
-			  </tr>
-			  <tr>
-				<td>
-					<p editable-text="items[0].option4" e-form="editableForm">
-						<input type="radio" name="option" value="{{items[0].option4}}" />&nbsp;&nbsp;<b>D.</b>&nbsp; {{items[0].option4}}
-					</p>		
-				</td>
-				<td>
-					<p editable-text="items[0].matchd" e-form="editableForm">
-						<input type="radio" name="match" value="{{items[0].matchd}}" />&nbsp;&nbsp;<b>4.</b>&nbsp; {{items[0].matchd}}
-					</p>
-				</td>
-			  </tr>
-			</table>
-			<br/>
-			<span class="title">Answer :</span>
-				<p editable-text="items[0].answer" e-form="editableForm">{{items[0].answer}}</p>
-			<br/>
-			<br/>
-			<span class="title">Solution :</span>
-				<p editable-textarea="items[0].solution" e-form="editableForm" e-rows="10" e-cols="80">{{items[0].solution}}
-			</p>
-			<br/>
-			<br/>
-			<span class="title">Grit :</span>
-				<p editable-text="items[0].grit" e-form="editableForm">{{items[0].grit}}</p>
-			<br/>
-			<br/>
-			<span class="title">Level :</span>
-				<p editable-text="items[0].level" e-form="editableForm">{{items[0].level}}</p>
-			</span>
-			<br/>
-			<br/>
-     </div>
+	    <br/>
 	  </div>
-    <br/>
-  </div>  <!-- ENDING MATCH TYPE DIV -->
-
-	  <!-- FILL TYPE DIV -->
-	  <div ng-if= "que== 'Fill Type'">
-	  	<div style="margin-left: 8%; margin-right: 20%; background-color: yellow;">
-		  <br/>
-		  <div style="margin-left: 5%;">
-			<span class="title">Question :</span>
-			<br/>
-			<br/>
-			<p editable-text="datajsons[0].questions[0].question" e-name="datajsons[0].questions[0].question" e-form="editableForm" e-required>{{datajsons[0].questions[0].question}}
-			</p>
-			<br/>
-			<br/>
-			<span class="title">Answer</span>
-			<p editable-text="datajsons[0].questions[0].answer" e-name="datajsons[0].questions[0].answer" e-form="editableForm" e-required>{{datajsons[0].questions[0].answer}}
-			</p>
-			<br/>
-			<br/>
-      <br/>
-      <br/>
-		  </div>
-		</div>
-		<!-- ENDING FILL TYPE -->
-
-		<div ng-if="que =='True False'">
-			<div style="margin-left: 8%; margin-right: 20%; background-color: yellow;">
-			  <br/>
-			  <div style="margin-left: 5%;">
-				<span class="title">Question :</span>
-				<br/>
-				<br/>
-				<p editable-text="datajsons[0].questions[0].question" e-name="datajsons[0].questions[0].question" e-form="editableForm" e-required>{{datajsons[0].questions[0].question}}
-				</p>
-				<br/>
-				<br/>
-				<span class="title">Answer</span>
-				<br/>
-				<br/>
-				<p editable-text="datajsons[0].questions[0].answer" e-name="datajsons[0].questions[0].answer" e-form="editableForm" e-required><input type="radio" name="boolean">&nbsp;True
-				</p>
-				<p editable-text="datajsons[0].questions[0].answer" e-name="datajsons[0].questions[0].answer" e-form="editableForm" e-required><input type="radio" name="boolean">&nbsp;False
-				</p>
-				<button type="button" class="btn btn-primary" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
-		 			Edit
-      	</button>
-      	<button type="button" class="btn btn-primary" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
-		 			Publish
-      	</button>
-        <span ng-show="editableForm.$visible">
-	        <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
-	          Save
-	        </button>
-	        <button type="button" class="btn btn-Danger" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
-	          Cancel
-	        </button>
-	      </span>
-				<br/>
-				<br/>
-	      <br/>
- </form>
-</p>
+	  <div class="col-md-4">
+	  	<br/>
+  		<h3>Questions</h3>
+      	<select id="subject" ng-model="quetype" name="subject" class="form-control">
+	       <option value="">Select Question</option>
+         <option ng-repeat= "item in items"><span i in item.question.items>{{$index + 1}}</option>
+         <option>New</option>
+	     </select>
+		  <div ng-if="quetype=='New'">
+	  		<h3>Question Type</h3>
+	      	<select ng-model="itemtype" id="subject" name="subject" class="form-control">
+		       <option value="">Select Question Type</option>
+	         <!-- <option ng-repeat= "item in items">{{item.question.item.question.items[0].itype}}</option> -->
+	         <option>Matching Type</option>
+	         <option>Fill-Type</option>
+	         <option>True-False</option>
+	         <option>Highlight</option>
+	         <option>Objective</option>
+		     </select>
+		     <br/>
+		     <a ui-sref="app.comprehension.views({Itemtype: itemt})">
+			     <button type="button" ng-click="addQuestion(itemtype)" class="btn btn-primary">
+				    Go
+				  </button>
+			  </a>
+	  	</div>		
+    </div>
+	</div>
+	<div ui-view></div>
+	<br/>
+</form>

@@ -210,123 +210,55 @@ app.controller('skilldetailcontroller', ['$scope','Skill','Skills','$stateParams
 }]);
 
 app.controller('simplecontroller', ['$rootScope','$stateParams','$scope','Item','Items','AllItems', function($rootScope,$stateParams,$scope,Item,Items,AllItems){
+
+  // Getting the All items as simple and comprehension
+
   $scope.items = AllItems.query();
+
   $scope.lessonid11= $stateParams.lessonId;
+  $rootScope.lessonIds = $stateParams.lessonId2;
   
+  // Deleting the Item as Simple question
+
   $scope.delete = function(item){
     $scope.items.splice($scope.items.indexOf(item), 1);
     Item.delete({itemId: item.id});
   }
 
-  $scope.data = {
-    "passage" : "This is the passege",
-    "grit" :  "cfhjhf",
-    "level" : "jkfng",
-    "qtype" : "fdjfbs",
-    "type" : "fnjnfd",
-    "skill" : "dshjfbsf"
-  };
+// Comprehension question creation code and saving 
+  
+ $scope.addQuestion = function(itemtype) {
+   $scope.itemt = itemtype;
+ };
 
-  $scope.datas = [];
-  /*[{
-    "qtype": "HARE RAMA",
-    "grit": "iigfigigfigf",
-    "level": "igfigigfidgf",
-    "diff": "igigigigfi",
-    "type": "CHANT and BE HAPPY",
-    "question": {
-      "items": [
-        {
-          "itype": "0",
-          "passage": null,
-          "question": "question",
-          "answer": "answer",
-          "solution": "solution",
-          "option1": "op1",
-          "option2": "op2",
-          "option3": "op3",
-          "option4": "op4",
-          "option5": null,
-          "option6": null,
-          "matcha": null,
-          "matchb": null,
-          "matchc": null,
-          "matchd": null,
-          "matche": null,
-          "matchf": null,
-          "hint1": null,
-          "hint2": null,
-          "hint3": null,
-          "hintcheck": null,
-          "grit": "krsna",
-          "level": "krsna",
-          "difficulty": "krsna",
-          "skill": "krsna"
-        }
-      ]
-    }
-  }];
-*/
+ var lessonid12= $rootScope.lessonIds;
 
-  $scope.addQuestion = function() {
-
-  var item = {
-      "itype": $scope.quetype,
-      "passage": null,
-      "question": "question",
-      "answer": "answer",
-      "solution": "solution",
-      "option1": "op1",
-      "option2": "op2",
-      "option3": "op3",
-      "option4": "op4",
-      "option5": null,
-      "option6": null,
-      "matcha": null,
-      "matchb": null,
-      "matchc": null,
-      "matchd": null,
-      "matche": null,
-      "matchf": null,
-      "hint1": null,
-      "hint2": null,
-      "hint3": null,
-      "hintcheck": null,
-      "grit": "krsna",
-      "level": "krsna",
-      "difficulty": "krsna",
-      "skill": "krsna"
-    }
-      
-    $scope.datas.push(item);   
-    $scope.counter = $scope.datas.length;
-    for(var i=0; i<= $scope.counter ; i++){
-      $scope.que[i] = $scope.datas[i].itype;  
-    }
-/*
-    for(var i=0; i<= 3 ; i++){
-      $scope.que = $scope.items[i].itype;  
-    }
-
-    $scope.save= function(id){
-    
-    if(id=== 1)
-    {
-      $scope.item.question.push($scope.data);
-      var item1 = angular.toJson($scope.item);
+ if(typeof(itemid) === 'undefined'){
+   $scope.item = new Items({
+    lessonId : lessonid12
+   });
+  }
+  $scope.savecq = function(id,itemt){
+    if (id == 1) {
+      $scope.item.question.items[0].itype = itemt;
+      var item1 = angular.toJson($scope.item.question.items[0]);
       var item2 = "["+ item1 + "]";
       $scope.item.question.items = item2;
+      $scope.item.$save({lessonId: lessonid12});
     }
-   }
-*/
-  };
-
+  }
 }]);
 
 app.controller('itemcontroller', ['$rootScope','$stateParams','$scope','Item','Items','AllItems', function($rootScope,$stateParams,$scope,Item,Items,AllItems){
+ 
   var lessonid2 = $stateParams.lessonId1;
   var itemid = $stateParams.itemId;
 
+  // the creating item for comprehension code for navigating the template
+
+  $scope.itype =$stateParams.Itemtype;
+
+// the code of simple question item saving and editing
  
   if(typeof(itemid) === 'undefined'){
      $scope.item = new Items({
@@ -343,7 +275,7 @@ app.controller('itemcontroller', ['$rootScope','$stateParams','$scope','Item','I
     if(id === 1){
       var item1 = angular.toJson($scope.item.question.items[0]);
       var item2 = "["+ item1 + "]";
-      $scope.item.question.items = item2;
+      $scope.item.question.items[0] = item2;
       console.log($scope.item);
       $scope.item.$save({lessonId: lessonid2});
     }
@@ -495,7 +427,7 @@ app.controller('coursetestitemcontroller', ["$scope","AllLessonTests","LTest","$
 }]);
 
 app.controller('coursetestitemdetailcontroller', ["$scope","$stateParams","TestItems","CourseTestItem",function($scope,$stateParams,TestItems,CourseTestItem){
-  //var lessonid = $stateParams.lessonId;
+  
   var Id = $stateParams.ItemId;
   var testid =$stateParams.TestId;
 
