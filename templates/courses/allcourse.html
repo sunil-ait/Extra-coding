@@ -1,6 +1,6 @@
 <div class="curriculum-listings">
   <div class="container_div">
-    <ul>
+    <ul class="scrolling">
       <a>
         <li ng-repeat="course in allCourses">   
           <div class="curriculum-title">
@@ -16,10 +16,12 @@
           </div>
           <br>
         </li>
+        <li>
+          <div align="center" style="margin-top: 25%;" ui-sref="app.coursepopup">
+            <input type="button" class="btn btn-primary" value="New Course"data-toggle="modal" data-target="#myModal">
+          </div>
+        </li>
       </a>
     </ul>
   </div>
 </div>
-<a align="right" ui-sref="app.coursepopup">
-    <input type="button" class="btn btn-primary" value="New Course"data-toggle="modal" data-target="#myModal">
-  </a>

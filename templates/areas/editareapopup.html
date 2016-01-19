@@ -1,40 +1,39 @@
 
   <form  nonvalidate role="form" class="management">
-  <br/>
-  <br/>
-      <div class="control-group">
-          <label class="control-label" align="center">Edit Area</label>
-          <br/>
-          <br/>
-          <div class="controls">
-              <input type="text" placeholder="Area Id" class="form-control" id="id" ng-model="area.id">
-          </div>
-          
-          <br/>
-          <div class="controls">
-              <input type="text" placeholder="Area Ttile" class="form-control" id="title" ng-model="area.title">
-          </div>
-          
-          <br/>
-          <div class="controls">
-              <input type="text" placeholder="Area Image" class="form-control" id="image" ng-model="area.image">
-          </div>
-          <br/>
-          
-          <div class="controls">
-              <textarea name="message" id="message" class="form-control" rows="6" Placeholder="Description" id ="description" ng-model="area.description"></textarea>
-          </div>
-          <br/>
-          <div class="controls">
-             <a>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" ui-sref="app.contentarea" ng-click="save(2)">Save</button>
-              <a>
-          </div>
+
+  <div class="control-group">
+      <label class="control-label" align="center">Edit Area</label>
+      <br/>
+      <br/>
+      <div class="controls">
+          <input type="text" placeholder="Area Id" class="form-control" id="id" ng-model="area.id">
+      </div>
+      
+      <br/>
+      <div class="controls">
+          <input type="text" placeholder="Area Ttile" class="form-control" id="title" ng-model="area.title">
+      </div>
+      
+      <br/>
+      <div class="controls">
+          <input type="text" placeholder="Area Image" class="form-control" id="image" ng-model="area.image">
       </div>
       <br/>
+      
+      <div class="controls">
+          <textarea name="message" id="message" class="form-control" rows="6" Placeholder="Description" id ="description" ng-model="area.description"></textarea>
+      </div>
       <br/>
-      <br/>
-  </form>
+      <div class="controls">
+         <a ui-sref="app.contentarea">
+            <button type="button" class="btn btn-primary" data-dismiss="modal"  ng-click="save(1)">Save</button>
+          <a>
+      </div>
+  </div>
+  <br/>
+  <br/>
+  <br/>
+</form>
 
 <style type="text/css">
   .management

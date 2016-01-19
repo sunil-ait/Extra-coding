@@ -1,40 +1,35 @@
 
-  <form  nonvalidate role="form" class="management">
-  <br/>
-  <br/>
-      <div class="control-group">
-          <label class="control-label" align="center">New Course</label>
-          <br/>
-          <br/>
-          <div class="controls">
-              <input type="text" placeholder="Course Id" class="form-control" id="id" ng-model="course.id">
-          </div>
-          
-          <br/>
-          <div class="controls">
-              <input type="text" placeholder="Course Ttile" class="form-control" id="title" ng-model="course.title">
-          </div>
-          
-          <br/>
-          <div class="controls">
-              <input type="text" placeholder="Course Image" class="form-control" id="image" ng-model="course.image">
-          </div>
-          <br/>
-          
-          <div class="controls">
-              <textarea name="message" id="message" class="form-control" rows="6" Placeholder="Description" id ="description" ng-model="course.description"></textarea>
-          </div>
-          <br/>
-          <div class="controls">
-             <a ui-sref="app.contentarea">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="save(1)">Save</button>
-              <a>
-          </div>
+<form  nonvalidate role="form" class="management">
+  <div class="control-group">
+      <label class="control-label" align="center"><h3><b>New Course</b></h3></label>
+      <br/>
+      <br/>
+      <div class="controls">
+          <input type="text" placeholder="Course Id" class="form-control" id="id" ng-model="course.id">
       </div>
       <br/>
+      <div class="controls">
+          <input type="text" placeholder="Course Ttile" class="form-control" id="title" ng-model="course.title">
+      </div>
       <br/>
+      <div class="controls">
+          <input type="text" placeholder="Course Image" class="form-control" id="image" ng-model="course.image">
+      </div>
       <br/>
-  </form>
+      <div class="controls">
+          <textarea name="message" id="message" class="form-control" rows="6" Placeholder="Description" id ="description" ng-model="course.description"></textarea>
+      </div>
+      <br/>
+      <div class="controls">
+         <a ui-sref="app.contentarea">
+            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="save(1)">Save</button>
+          <a>
+      </div>
+  </div>
+  <br/>
+  <br/>
+  <br/>
+</form>
 
 <style type="text/css">
   .management

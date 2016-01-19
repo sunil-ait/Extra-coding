@@ -1,6 +1,6 @@
 <div class="curriculum-listings">
   <div class="container_div">
-    <ul>
+    <ul class="scrolling">
       <a>
         <li ng-repeat="area in allAreas"> 
           <input type="hidden" ng-model="area.id">  
@@ -17,7 +17,12 @@
           </div>
           <br>
         </li>
+        <li>
+          <div align="center" style="margin-top: 25%;">
+            <input type="button" class="btn btn-primary" ui-sref="app.areapopup" value="New Area">
+          </div>
+        </li>
       </a>
     </ul>
   </div>
-</div>
+  </div>

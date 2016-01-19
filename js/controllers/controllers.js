@@ -10,7 +10,7 @@ app.controller('areascontroller', ['$scope','Areas','Area','$stateParams','$stat
   }
 }]);
 
-app.controller('areadetailcontroller', ['$scope','Area','$stateParams', function($scope,Area,$stateParams){
+app.controller('areadetailcontroller', ['$scope','Area','Areas','$stateParams', function($scope,Area,Areas,$stateParams){
   var Id = $stateParams.areaId;
 
   if(typeof(Id) === 'undefined'){
@@ -460,4 +460,8 @@ app.controller('coursetestitemdetailcontroller', ["$scope","$stateParams","TestI
       $scope.item.$update();
     }
   };
+}]);
+
+app.controller('Skilladdingcontroller', ["$scope","$stateParams",function($scope,$stateParams){
+  
 }]);

@@ -133,6 +133,10 @@ input[type="button"],input[type="submit"]{ cursor:pointer; font-weight:bold}
 .container_div{
     margin-left: 5%;
 }
+.scrolling{
+  overflow-y: scroll;
+  height: 500px;
+}
 .footer{
  position: fixed;
   left: 0px;
