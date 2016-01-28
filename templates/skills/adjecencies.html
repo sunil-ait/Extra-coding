@@ -1,0 +1,75 @@
+<form name="adjecencies" class="management" novalidate>
+  <label class="control-label" align="center"><h3><b>Adjecencies</b></h3></label>
+  <br/>
+  <br/>
+  <div class="row">
+    <div class="col-md-4">
+      <select ng-model="areatitle" class="form-control"  id="selectOpt">
+        <option value="">Select Area</option>
+        <option ng-repeat="area in areas">{{area.title}}</option>
+      </select>
+      <br/>
+      <select ng-model="course" class="form-control">
+        <option value="">Select Course</option>
+        <option>1</option>
+        <option>1</option>
+        <option>1</option>
+        <option>1</option>
+        <option>1</option>
+        <option>1</option>
+        <option>1</option>
+      </select>
+      <br/>
+      <select ng-model="module" class="form-control">
+        <option value="">Select Module</option>
+        <option>1</option>
+        <option>1</option>
+        <option>1</option>
+        <option>1</option>
+        <option>1</option>
+        <option>1</option>
+        <option>1</option>
+      </select>
+      <br/>
+      <select ng-model="lesson" class="form-control">
+        <option value="">Select Lesson</option>
+        <option>1</option>
+        <option>1</option>
+        <option>1</option>
+        <option>1</option>
+        <option>1</option>
+        <option>1</option>
+        <option>1</option>
+      </select>
+      <br/>
+      <select ng-model="lo" class="form-control">
+        <option value="">Select LO</option>
+        <option>1</option>
+        <option>1</option>
+        <option>1</option>
+        <option>1</option>
+        <option>1</option>
+        <option>1</option>
+        <option>1</option>
+      </select>
+      <br/>
+      <select ng-model="area.title" class="form-control">
+        <option value="">Select Skill</option>
+        <option>1</option>
+        <option>11</option>
+        <option>111</option>
+        <option>1111</option>
+        <option>12</option>
+        <option>113</option>
+        <option>114</option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <select id="myselection"  class="form-control" multiple="true" ng-model="selectedColors" ng-options="a.title for a in areas">
+      </select>
+      <br/>
+      <button type="button" ng-click="save()" class="btn btn-primary">Add</button>
+      <button type="button" ng-click= "Delete()" class="btn btn-primary">Delete</button>
+    </div>
+  </div>
+</form>

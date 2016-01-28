@@ -1,39 +1,38 @@
-
-  <form  nonvalidate role="form" class="management">
-  <br/>
-  <br/>
-    <div class="control-group">
-      <label class="control-label" align="center">New Module</label>
-      <br/>
-      <br/>
-      <div class="controls">
-          <input type="text" placeholder="module Id" class="form-control" id="id" ng-model="module.id">
-      </div>
-      
-      <br/>
-      <div class="controls">
-          <input type="text" placeholder="module Ttile" class="form-control" id="title" ng-model="module.title">
-      </div>
-      
-      <br/>
-      <div class="controls">
-          <input type="text" placeholder="module Image" class="form-control" id="image" ng-model="module.image">
-      </div>
-      <br/>
-      
-      <div class="controls">
-          <textarea name="message" id="message" class="form-control" rows="6" Placeholder="Description" id ="description" ng-model="module.description"></textarea>
-      </div>
-      <br/>
-      <div class="controls">
-         <a ui-sref="app.contentarea">
-           <button type="button" class="btn btn-primary" data-dismiss="modal"  ng-click="save(1)">Save</button>
-         <a>
-      </div>
+<form name="createmodule" class="management" novalidate>
+  <div class="control-group">
+    <label class="control-label" align="center"><h3><b>New Module</b></h3></label>
+    <br/>
+    <div class="form-group" ng-class="{ 'has-error' : createmodule.id.$invalid && !createmodule.id.$pristine }">
+      <input type="text" placeholder="Module Id" class="form-control" name="id" ng-model="module.id" ng-minlength="3" ng-maxlength="8" required>
+      <!-- <p ng-show="createarea.id.$invalid && !createarea.id.$pristine" class="help-block">You should enter id properly</p> -->
+      <p ng-show="createmodule.id.$error.minlength" class="help-block">Id is too short.</p>
+      <p ng-show="createmodule.id.$error.maxlength" class="help-block">Id is too long.</p>
     </div>
-    <br/>
-    <br/>
-    <br/>
+
+    <div class="form-group" ng-class="{'has-error' : createmodule.title.$invalid && !createmodule.title.$pristine }">
+      <input type="text" placeholder="Module title" class="form-control" name="title" ng-model="module.title" ng-minlength="3" ng-maxlength="8" required>
+      <p ng-show="createmodule.title.$error.minlength" class="help-block">Title is too short.</p>
+      <p ng-show="createmodule.title.$error.maxlength" class="help-block">Title is too long.</p>
+    </div>
+    <div class="form-group" ng-class="{'has-error' : createmodule.image.$invalid && !createmodule.image.$pristine }">
+        <input type="text" placeholder="Module Image" class="form-control" name="image" ng-model="module.image" ng-minlength="10" ng-maxlength="20" required>
+        <p ng-show="createmodule.image.$error.minlength" class="help-block">Image is too short.</p>
+        <p ng-show="createmodule.image.$error.maxlength" class="help-block">Image is too long.</p>
+    </div>
+        <textarea name="description" class="form-control" rows="6" Placeholder="Description" id ="description" ng-model="module.description" ng-minlength="10" ng-maxlength="20" required>
+    <div class="form-group" ng-class="{'has-error' : createmodule.description.$invalid && !createmodule.description.$pristine }">
+        </textarea>          
+        <p ng-show="createmodule.description.$error.minlength" class="help-block">description is too short.</p>
+        <p ng-show="createmodule.description.$error.maxlength" class="help-block">description is too long.</p>
+    </div>
+    <div class="controls" ng-disabled="createmodule.$invalid">
+      <p ng-show="!createmodule.$valid"> You are missing some Field</p>
+      <button type="button" class="btn btn-primary" data-dismiss="modal" ng-disabled="createmodule.$invalid" ng-click="save(1)" ui-sref="app.contentarea">Save</button>
+    </div>
+</div>
+  <br/>
+  <br/>
+  <br/>
 </form>
 
 <style type="text/css">

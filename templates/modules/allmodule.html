@@ -9,18 +9,19 @@
           </div>
           <div class="curriculum-desc">{{module.description}}</div>
           <div align="center">
-          <a class="btn btn-primary" ui-sref="app.areacourses({areaId: area.id})">Graph</a>
+            <a class="btn btn-primary" ui-sref="app.areacourses({areaId: area.id})">Graph</a>
             <a class="btn btn-primary" ui-sref="app.modulelessons({moduleId: module.id})">View</a>
-            <a class="btn btn-primary" ui-sref="app.modulepopupedit({moduleId: module.id})">
-              Edit</a>
+            <a class="btn btn-primary" ui-sref="app.modulepopupedit({moduleId: module.id})">Edit</a>
             <a class="btn btn-primary" ng-click="deletemodule(module)">Delete</a>
           </div>
           <br>
+        </li>
+        <li>
+         <div align="center" style="margin-top: 25%;" ui-sref="app.modulepopup">
+          <input type="button" class="btn btn-primary" value="New Module"data-toggle="modal" data-target="#myModal">
+        </div>
         </li>
       </a>
     </ul>
   </div>
 </div>
-<a align="right" ui-sref="app.modulepopup">
-  <input type="button" class="btn btn-primary" value="New Module"data-toggle="modal" data-target="#myModal">
-</a>

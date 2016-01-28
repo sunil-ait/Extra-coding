@@ -1,40 +1,39 @@
+<form name="createlo" class="management" novalidate>
+  <div class="control-group">
+    <label class="control-label" align="center"><h3><b>New Learning Objective</b></h3></label>
+    <br/>
+    <div class="form-group" ng-class="{ 'has-error' : createlo.id.$invalid && !createlo.id.$pristine }">
+      <input type="text" placeholder="LO Id" class="form-control" name="id" ng-model="lo.id" ng-minlength="3" ng-maxlength="8" required>
+      <!-- <p ng-show="createarea.id.$invalid && !createarea.id.$pristine" class="help-block">You should enter id properly</p> -->
+      <p ng-show="createlo.id.$error.minlength" class="help-block">Id is too short.</p>
+      <p ng-show="createlo.id.$error.maxlength" class="help-block">Id is too long.</p>
+    </div>
 
-  <form  nonvalidate role="form" class="management">
+    <div class="form-group" ng-class="{'has-error' : createlo.title.$invalid && !createlo.title.$pristine }">
+      <input type="text" placeholder="Lo title" class="form-control" name="title" ng-model="lesson.title" ng-minlength="3" ng-maxlength="8" required>
+      <p ng-show="createlo.title.$error.minlength" class="help-block">Title is too short.</p>
+      <p ng-show="createlo.title.$error.maxlength" class="help-block">Title is too long.</p>
+    </div>
+    <div class="form-group" ng-class="{'has-error' : createlo.image.$invalid && !createlo.image.$pristine }">
+        <input type="text" placeholder="Lo Image" class="form-control" name="image" ng-model="lo.image" ng-minlength="10" ng-maxlength="20" required>
+        <p ng-show="createlo.image.$error.minlength" class="help-block">Image is too short.</p>
+        <p ng-show="createlo.image.$error.maxlength" class="help-block">Image is too long.</p>
+    </div>
+        <textarea name="description" class="form-control" rows="6" Placeholder="Description" id ="description" ng-model="lo.description" ng-minlength="10" ng-maxlength="20" required>
+    <div class="form-group" ng-class="{'has-error' : createlo.description.$invalid && !createlo.description.$pristine }">
+        </textarea>          
+        <p ng-show="createlo.description.$error.minlength" class="help-block">description is too short.</p>
+        <p ng-show="createlo.description.$error.maxlength" class="help-block">description is too long.</p>
+    </div>
+    <div class="controls" ng-disabled="createlo.$invalid">
+      <p ng-show="!createlo.$valid"> You are missing some Field</p>
+      <button type="button" class="btn btn-primary" data-dismiss="modal" ng-disabled="createlo.$invalid" ng-click="save(1)" ui-sref="app.contentarea">Save</button>
+    </div>
+</div>
   <br/>
   <br/>
-      <div class="control-group">
-          <label class="control-label" align="center">Create LO</label>
-          <br/>
-          <br/>
-          <div class="controls">
-              <input type="text" placeholder="lo Id" class="form-control" id="id" ng-model="lo.id">
-          </div>
-          
-          <br/>
-          <div class="controls">
-              <input type="text" placeholder="lo Ttile" class="form-control" id="title" ng-model="lo.title">
-          </div>
-          
-          <br/>
-          <div class="controls">
-              <input type="text" placeholder="lo Image" class="form-control" id="image" ng-model="lo.image">
-          </div>
-          <br/>
-          
-          <div class="controls">
-              <textarea name="message" id="message" class="form-control" rows="6" Placeholder="Description" id ="description" ng-model="lo.description"></textarea>
-          </div>
-          <br/>
-          <div class="controls">
-             <a>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" ui-sref="app.contentarea" ng-click="save(1)">Save</button>
-              <a>
-          </div>
-      </div>
-      <br/>
-      <br/>
-      <br/>
-  </form>
+  <br/>
+</form>
 
 <style type="text/css">
   .management

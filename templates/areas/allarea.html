@@ -1,5 +1,7 @@
 <div class="curriculum-listings">
   <div class="container_div">
+   <br/>
+  <br/>
     <ul class="scrolling">
       <a>
         <li ng-repeat="area in allAreas"> 
@@ -10,7 +12,7 @@
           </div>
           <div class="curriculum-desc" ng-model="area.description">{{area.description}}</div>
           <div align="center">
-            <a class="btn btn-primary" ui-sref="app.areacourses({areaId: area.id})">Graph</a>
+            <a class="btn btn-primary" ui-sref="app.areagraph">Graph</a>
             <a class="btn btn-primary" ui-sref="app.areacourses({areaId: area.id})">View</a>
             <a class="btn btn-primary" ui-sref="app.areapopupedit({areaId: area.id})">Edit</a>
             <a class="btn btn-primary" ng-click="deletearea(area)">Delete</a>
@@ -25,4 +27,4 @@
       </a>
     </ul>
   </div>
-  </div>
+</div>

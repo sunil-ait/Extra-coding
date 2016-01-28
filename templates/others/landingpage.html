@@ -1,73 +1,25 @@
 <nav class="navbar navbar-default navbar-fixed">
   <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <div class="dropdown">
         <a data-toggle="dropdown"><h2><span class="glyphicon glyphicon-menu-hamburger"></span></h2></a>
         <ul class="dropdown-menu">
-          <li ng-model="area"><a ui-sref="app.contentarea" ng-model="area">Circculum Manager</a></li>
-          <li><a ui-sref="app.content">Content Manager</a></li>
-          <li><a ui-sref="app.item">Item Manager</a></li>
-          <li><a ui-sref="app.test">Test Manager</a></li>
+          <li><a ui-sref="app.dashboard"><h5>Home</h5></a></li>
+          <li><a ui-sref="app.contentarea" ng-model="area"><h5>Curriculum Manager</h5></a></li>
+          <li><a ui-sref="app.content"><h5>Content Manager</h5></a></li>
+          <li><a ui-sref="app.item"><h5>Item Manager</h5></a></li>
+          <li><a ui-sref="app.test"><h5>Test Manager</h5></a></li>
+          <li><a ui-sref="app.image"><h5>Image Manager</h5></a></li>
+          <li><a ui-sref="app.video"><h5>Video Manager</h5></a></li>
+          <li role="separator" class="divider"></li>
+          <li><a ui-sref="/"><h5>Logout</h5></a></li>
         </ul>
-      </div>{{area}}
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-       <li><a type="button" ui-sref="/" class="btn btn-success"  >Logout</a></li>
-      </ul>
+      </div>
     </div>
-      
-    </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul>
-       <li><h2><span class="glyphicon glyphicon-chevron-left"></span></h2></li>
-      </ul>
-     
+    <div align="right" style="margin-right: 4%;">
+      <h2>Aspire Publisher</h2>
     </div>
   </div>
 </nav>
-<!-- 
-
-<nav class="navbar navbar-default navbar-fixed">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <div class="dropdown">
-        <a type="button" data-toggle="dropdown">
-        <h1 class="glyphicon glyphicon-menu-hamburger"></h1></a>
-        <ul class="dropdown-menu">
-          <li><a ui-sref="app.contentarea" ng-model="area">Circculum Manager</a></li>
-          <li><a ui-sref="app.content">Content Manager</a></li>
-          <li><a ui-sref="app.item">Item Manager</a></li>
-          <li><a ui-sref="app.test">Test Manager</a></li>
-        </ul>
-      </div>
-      {{area}}
-<!-- 
-      <select  type="hidden" id="area" ng-model="area" required name="area" class="form-control">
-        <option value="">Select Branch</option>
-        <option>Curriculum Manager</option>
-        <option>Content Manager</option>
-        <option>Item Manager</option>
-        <option>Test Manager</option>
-     </select>   -->
-    <!-- </div>
-    <div style="margin-left: 18%;">
-      <h4><b>{{area}}</b></h4>
-    </div>
-    <div align="right">
-      <button type="button" ui-sref="/" class="btn btn-primary">Logout</button>
-    </div>
-  </div>
-</nav>  -->
 
 <div ui-view></div>
-
-<script src="scripts/jquery-1.9.1.min.js"></script>
-<script type="text/javascript">
-$(function(){
-  $(".topBar-menu").click(function(){
-    $(".leftNavPane").toggleClass("active");
-    $(".sectionContent").toggleClass("active");
-  });
-});
-</script>

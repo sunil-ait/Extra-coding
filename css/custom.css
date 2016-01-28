@@ -137,6 +137,11 @@ input[type="button"],input[type="submit"]{ cursor:pointer; font-weight:bold}
   overflow-y: scroll;
   height: 500px;
 }
+ .management
+  {
+    margin-left: 40%;
+    margin-right: 20%;
+  }
 .footer{
  position: fixed;
   left: 0px;
@@ -234,9 +239,7 @@ input[type="button"],input[type="submit"]{ cursor:pointer; font-weight:bold}
     margin-right: 10%;
  }
 
-
-
- form[name="editableForm"] .title {
+form[name="editableForm"] .title {
   display: inline-block;
   font-weight: bold;
   padding-top: 5px;

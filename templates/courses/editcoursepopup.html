@@ -1,40 +1,39 @@
+<form name="createcourse" class="management" novalidate>
+  <div class="control-group">
+    <label class="control-label" align="center"><h3><b>Edit Course</b></h3></label>
+    <br/>
+    <div class="form-group" ng-class="{ 'has-error' : createcourse.id.$invalid && !createcourse.id.$pristine }">
+      <input type="text" placeholder="Course Id" class="form-control" name="id" ng-model="course.id" ng-minlength="3" ng-maxlength="8" required>
+      <!-- <p ng-show="createarea.id.$invalid && !createarea.id.$pristine" class="help-block">You should enter id properly</p> -->
+      <p ng-show="createcourse.id.$error.minlength" class="help-block">Id is too short.</p>
+      <p ng-show="createcourse.id.$error.maxlength" class="help-block">Id is too long.</p>
+    </div>
 
-  <form  nonvalidate role="form" class="management">
+    <div class="form-group" ng-class="{'has-error' : createcourse.title.$invalid && !createcourse.title.$pristine }">
+      <input type="text" placeholder="Course title" class="form-control" name="title" ng-model="course.title" ng-minlength="3" ng-maxlength="8" required>
+      <p ng-show="createcourse.title.$error.minlength" class="help-block">Username is too short.</p>
+      <p ng-show="createcourse.title.$error.maxlength" class="help-block">Username is too long.</p>
+    </div>
+    <div class="form-group" ng-class="{'has-error' : createcourse.image.$invalid && !createcourse.image.$pristine }">
+        <input type="text" placeholder="Course Image" class="form-control" name="image" ng-model="course.image" ng-minlength="10" ng-maxlength="20" required>
+        <p ng-show="createcourse.image.$error.minlength" class="help-block">Image is too short.</p>
+        <p ng-show="createcourse.image.$error.maxlength" class="help-block">Image is too long.</p>
+    </div>
+    <div class="form-group" ng-class="{'has-error' : createcourse.description.$invalid && !createcourse.description.$pristine }">
+        <textarea name="description" class="form-control" rows="6" Placeholder="Description" id ="description" ng-model="course.description" ng-minlength="10" ng-maxlength="20" required>
+        </textarea>          
+        <p ng-show="createcourse.description.$error.minlength" class="help-block">description is too short.</p>
+        <p ng-show="createcourse.description.$error.maxlength" class="help-block">description is too long.</p>
+    </div>
+    <div class="controls" ng-disabled="createcourse.$invalid">
+      <p ng-show="!createcourse.$valid"> You are missing some Field</p>
+      <button type="button" class="btn btn-primary" data-dismiss="modal" ng-disabled="createcourse.$invalid" ng-click="save(2)" ui-sref="app.contentarea">Save</button>
+    </div>
+</div>
   <br/>
   <br/>
-      <div class="control-group">
-          <label class="control-label" align="center">Edit Course</label>
-          <br/>
-          <br/>
-          <div class="controls">
-              <input type="text" placeholder="Course Id" class="form-control" id="id" ng-model="course.id">
-          </div>
-          
-          <br/>
-          <div class="controls">
-              <input type="text" placeholder="Course Ttile" class="form-control" id="title" ng-model="course.title">
-          </div>
-          
-          <br/>
-          <div class="controls">
-              <input type="text" placeholder="Course Image" class="form-control" id="image" ng-model="course.image">
-          </div>
-          <br/>
-          
-          <div class="controls">
-              <textarea name="message" id="message" class="form-control" rows="6" Placeholder="Description" id ="description" ng-model="course.description"></textarea>
-          </div>
-          <br/>
-          <div class="controls">
-             <a ui-sref="app.contentarea">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="save(2)">Save</button>
-              <a>
-          </div>
-      </div>
-      <br/>
-      <br/>
-      <br/>
-  </form>
+  <br/>
+</form>
 
 <style type="text/css">
   .management
