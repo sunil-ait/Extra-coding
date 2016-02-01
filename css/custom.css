@@ -264,3 +264,19 @@ form[name="editableForm"] > div {
     margin-left: 15%;
     margin-right: 15%;
   }
+#heading{
+  margin-left: 42%; 
+  margin-right: 42%;
+}
+.imagemanagerview{
+  margin-left: 40%; 
+  margin-right: 40%;
+}
+.detailview{
+  margin-left: 40%; 
+  margin-right: 20%;
+}
+.searchview{
+  margin-left: 28%; 
+  margin-right: 28%;
+}

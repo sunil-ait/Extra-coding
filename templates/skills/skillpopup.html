@@ -20,13 +20,12 @@
         <p ng-show="createskill.image.$error.maxlength" class="help-block">Image is too long.</p>
     </div>
         <textarea name="content" class="form-control" rows="6" Placeholder="Content" id ="content" ng-model="skill.content" ng-minlength="10" ng-maxlength="20" required>
-    <div class="form-group" ng-class="{'has-error' : createskill.description.$invalid && !createskill.description.$pristine }">
+    <div class="form-group" ng-class="{'has-error' : createskill.content.$invalid && !createskill.content.$pristine }">
         </textarea>          
-        <p ng-show="createskill.description.$error.minlength" class="help-block">description is too short.</p>
-        <p ng-show="createskill.description.$error.maxlength" class="help-block">description is too long.</p>
+        <p ng-show="createskill.content.$error.minlength" class="help-block">description is too short.</p>
+        <p ng-show="createskill.content.$error.maxlength" class="help-block">description is too long.</p>
     </div>
     <div class="controls" ng-disabled="createskill.$invalid">
-      <p ng-show="!createskill.$valid"> You are missing some Field</p>
       <button type="button" class="btn btn-primary" data-dismiss="modal" ng-disabled="createskill.$invalid" ng-click="save(1)" ui-sref="app.contentarea">Save</button>
     </div>
 </div>

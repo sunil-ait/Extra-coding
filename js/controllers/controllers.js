@@ -56,6 +56,7 @@ app.controller('coursescontroller', ['$scope','AreaCourse','Course','$stateParam
 
 app.controller('coursedetailcontroller', ['$scope','Course','Courses','$stateParams','$rootScope', function($scope,Course,Courses,$stateParams,$rootScope){
   var Id = $stateParams.courseId;
+  $rootScope.courseId =Id;
   var areaid1 = $rootScope.areaid;
 
   if(typeof(Id) === 'undefined'){
@@ -509,33 +510,25 @@ app.controller('coursetestitemdetailcontroller', ["$scope","$stateParams","TestI
 
 /*Skiil Adjecencies controller*/
 
-app.controller('Skilladdingcontroller', ["$scope","$rootScope","$stateParams","Areas","Adjecency",function($scope,$rootScope,$stateParams,Areas,Adjecency){
+app.controller('Skilladdingcontroller', ["$scope","$rootScope","$stateParams","Areas","AreaCourse","Adjecency",function($scope,$rootScope,$stateParams,Areas,AreaCourse,Adjecency){
+$scope.skillid = $stateParams.skillId;
 
-$scope.areaid = $rootScope.aid;
+/*Getting the all areas*/
 $scope.areas = Areas.query();
+
+/*Getting the all Courses*/
+$scope.passing= function(id){
+  var aid = id;
+  $scope.courses = AreaCourse.query({areaId: aid});
+  console.log($scope.courses);
+}
+
 
 $scope.getting = function(){
  var myselect = document.getElementById("selectOpt");
  console.log(myselect);
 }
 
-  /*$scope.colors = [{
-      name: 'black'
-     },
-     {
-      name: 'white'
-     },
-     {
-      name: 'red' 
-     },
-     {
-      name: 'blue'
-     },
-     {
-      name: 'yellow'
-     }
-     ];
-*/
   $scope.save= function(){
    $scope.areas.push($scope.area); 
   };
@@ -545,4 +538,40 @@ $scope.getting = function(){
     $scope.areas.splice($scope.areas.indexOf($scope.selectedColors), 1);
   };
 
+}]);
+
+/*Image LIsting controller*/
+
+
+app.controller('imagelistingcontroller', ['$scope','$stateParams','Allimages','ImageSearch', function($scope,$stateParams,Allimages,ImageSearch){
+  $scope.skillid = $stateParams.skillId;
+
+  /*Getting all images from AWS*/
+
+  $scope.images = Allimages.query();
+}]);
+
+/*Image Uploading Controller*/
+
+app.controller('Imageuploadcontroller', ['$scope','$stateParams','Upload', function($scope, $stateParams,Upload){
+  $scope.skillid = $stateParams.skillId;
+
+  $scope.uploadPic = function(file) {
+    file.upload = Upload.upload({
+      url: 'http://192.168.1.15:8080/files/upload/simage',
+      data: {file: file, name: $scope.username, tag1: $scope.tag1, tag2: $scope.tag2, tag3: $scope.tag3, skillid: $scope.skillid}
+    });
+  }
+}]);
+
+/*Searchiing Image Controller*/
+
+app.controller('imagesearchingcontroller', ['$scope','$stateParams','ImageSearch', function($scope,$stateParams,ImageSearch){
+  $scope.skillid = $stateParams.skillId;
+
+  /*Getting all images from Seaching*/
+
+  $scope.search= function(tag){
+    $scope.images = ImageSearch.get({tagname: tag});
+  }
 }]);

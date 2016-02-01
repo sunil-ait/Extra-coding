@@ -4,20 +4,14 @@
   <br/>
   <div class="row">
     <div class="col-md-4">
-      <select ng-model="areatitle" class="form-control"  id="selectOpt">
+      <select ng-model="areaid" ng-change="passing(area.id)"class="form-control"  id="selectOpt">
         <option value="">Select Area</option>
-        <option ng-repeat="area in areas">{{area.title}}</option>
+        <option ng-repeat="area in areas">{{area.id}}</option>
       </select>
       <br/>
       <select ng-model="course" class="form-control">
         <option value="">Select Course</option>
-        <option>1</option>
-        <option>1</option>
-        <option>1</option>
-        <option>1</option>
-        <option>1</option>
-        <option>1</option>
-        <option>1</option>
+        <option ng-repeat="course in courses">{{course.title}}</option>
       </select>
       <br/>
       <select ng-model="module" class="form-control">

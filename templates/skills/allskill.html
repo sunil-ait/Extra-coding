@@ -9,7 +9,7 @@
           </div>
           <div class="curriculum-desc">{{skill.content}}</div>  
           <div align="center">
-            <a class="btn btn-primary" ui-sref="app.adjecencies">Adjacencies</a>
+            <a class="btn btn-primary" ui-sref="app.adjecencies({skillId: skill.id})">Adjacencies</a>
             <a class="btn btn-primary" ui-sref="app.skillpopupedit({skillId: skill.id})">Edit</a>
             <a class="btn btn-primary" ng-click="deleteskill(skill)">Delete</a>
           </div>

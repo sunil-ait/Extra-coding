@@ -2,11 +2,11 @@
 
 /*Defining the Module*/
 
-var app = angular.module("app", ['app.controllers','app.services','xeditable','ui.router','ui.bootstrap','ngCkeditor']); /*Dependency Injection*/
+var app = angular.module("app", ['app.controllers','app.services','ngFileUpload','xeditable','ui.router','ui.bootstrap','ngCkeditor']); /*Dependency Injection*/
 
 /*xeditable bootstrap theme*/
 
-app.run(function(editableOptions) {
+app.run(function(editableOptions){
   editableOptions.theme = 'bs3';
 });
 
@@ -348,7 +348,7 @@ $stateProvider
     controller: "itemcontroller"
   })
   .state("app.adjecencies",{
-    url: "/adjecencies",
+    url: "/adjecencies/{skillId:[0-9a-fA-F]{1,8}}",
     templateUrl: 'templates/skills/adjecencies.html',
     controller: 'Skilladdingcontroller'
   })
@@ -356,8 +356,97 @@ $stateProvider
     url: "/areagraph",
     templateUrl: 'templates/areas/areagraph.html'
   })
+  .state("app.imagearea",{
+    url: "/imageareas",
+    templateUrl: 'templates/image/imageareas.html',
+    controller: 'areascontroller'
+  })
+  .state("app.imageareacourses",{
+    url: "/imagecourses/{areaId:[0-9a-fA-F]{1,8}}",
+    templateUrl: 'templates/image/imagecourses.html',
+    controller: 'coursescontroller'
+  })
+  .state("app.imagecoursemodules",{
+    url: "/imagecoursemodules/{courseId:[0-9a-fA-F]{1,8}}",
+    templateUrl: 'templates/image/imagecoursemodules.html',
+    controller: 'modulecontroller'
+  })
+  .state("app.imagemodulelessons",{
+    url: "/imagemodulelessons/{moduleId:[0-9a-fA-F]{1,8}}",
+    templateUrl: 'templates/image/imagemodulelessons.html',
+    controller: 'lessoncontroller'
+  })
+  .state("app.imagelessonlos",{
+    url: "/imagelessonlos/{lessonId:[0-9a-fA-F]{1,8}}",
+    templateUrl: 'templates/image/imagelessonlos.html',
+    controller: 'locontroller'
+  })
+  .state("app.imageloskills",{
+    url: "/imageloskills/{loId:[0-9a-fA-F]{1,8}}",
+    templateUrl: 'templates/image/imageloskills.html',
+    controller: 'skillcontroller'
+  })
+  .state("app.imagelisting",{
+    url: "/imagelisting/{skillId:[0-9a-fA-F]{1,8}}",
+    templateUrl: 'templates/image/imagelisting.html',
+    controller: 'imagelistingcontroller'
+  })
   .state("app.images",{
-    url: "/images",
-    templateUrl: 'templates/image/imagemanager.html'
+    url: "/images/{skillId:[0-9a-fA-F]{1,8}}",
+    templateUrl: 'templates/image/imagemanager.html',
+    controller: 'Imageuploadcontroller'
+  })
+  .state("app.searchresult",{
+    url: "/Imagesearchresults/{skillId:[0-9a-fA-F]{1,8}}",
+    templateUrl: 'templates/image/imagesearchresults.html',
+    controller: 'imagesearchingcontroller'
+  })
+
+  /*Its for videos*/
+
+  .state("app.videoareas",{
+    url: "/videoareas",
+    templateUrl: 'templates/video/videoareas.html',
+    controller: 'areascontroller'
+  })
+  .state("app.videoareacourses",{
+    url: "/videocourses/{areaId:[0-9a-fA-F]{1,8}}",
+    templateUrl: 'temlpates/video/imagvideocourses.html',
+    controller: 'coursescontroller'
+  })
+  .state("app.videocoursemodules",{
+    url: "/videocoursemodules/{courseId:[0-9a-fA-F]{1,8}}",
+    templateUrl: 'templates/video/videocoursemodules.html',
+    controller: 'modulecontroller'
+  })
+  .state("app.videomodulelessons",{
+    url: "/videomodulelessons/{moduleId:[0-9a-fA-F]{1,8}}",
+    templateUrl: 'templates/video/videomodulelessons.html',
+    controller: 'lessoncontroller'
+  })
+  .state("app.videolessonlos",{
+    url: "/videolessonlos/{lessonId:[0-9a-fA-F]{1,8}}",
+    templateUrl: 'templates/video/videolessonlos.html',
+    controller: 'locontroller'
+  })
+  .state("app.videoloskills",{
+    url: "/videoloskills/{loId:[0-9a-fA-F]{1,8}}",
+    templateUrl: 'templates/video/videoloskills.html',
+    controller: 'skillcontroller'
+  })
+  .state("app.videolisting",{
+    url: "/videolisting/{skillId:[0-9a-fA-F]{1,8}}",
+    templateUrl: 'templates/video/videolisting.html',
+    controller: 'videolistingcontroller'
+  })
+  .state("app.videos",{
+    url: "/videos/{skillId:[0-9a-fA-F]{1,8}}",
+    templateUrl: 'templates/video/imagemanager.html',
+    controller: 'videouploadcontroller'
+  })
+  .state("app.videosearchresult",{
+    url: "/videosearchresults/{skillId:[0-9a-fA-F]{1,8}}",
+    templateUrl: 'templates/video/videosearchresults.html',
+    controller: 'videosearchingcontroller'
   })
 });

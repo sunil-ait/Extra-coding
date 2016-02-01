@@ -1,0 +1,20 @@
+<div>
+  <h2 class="title" align="center">List of Search Images</h2>
+  <div align="right" style="margin-right: 8%;">
+    <a type="button" ui-sref="app.imagelisting({skillId: skillid})" class="btn btn-success">Back</a>
+  </div>
+  <br/>
+  <br/>
+  <div class="row" ng-repeat="image in images" style="margin-left: 28%;">
+    <div class="col-md-3">
+      <image src="https://s3-us-west-2.amazonaws.com/com.nikhil.developer.cloud.images/nikhil/{{image.name}}" height="100" width="200" />
+    </div>
+    <div class="col-md-3">
+      {{image.tag1}} &nbsp; {{image.tag2}}&nbsp; {{image.tag3}}
+    </div>
+    <div class="col-md-2">
+      <button type="button" class="btn btn-primary">Publish</button>
+    </div>
+    <br/>
+  </div>
+</div>

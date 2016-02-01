@@ -1,0 +1,31 @@
+<div align="right" style="margin-right: 8%;">
+  <input type="button" class="btn btn-primary" value="Upload" ui-sref="app.images({skillId: skillid})" />
+</div>
+<div class="searchview">
+  <br/>
+  <input type="search" class="form-control" ng-model="searchTag" placeholder="Search By inputing text here">
+  <br/>
+  <br/>
+  <a align="center" ui-sref="app.searchresult({skillId: skillid})">
+    <input type="button" class="btn btn-success" ng-click="search(searchTag)" value="search Images from AWS" />
+  </a>
+  <br/>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="row" ng-repeat="image in images| filter: searchTag" style="margin-left: 28%;">
+  <div class="col-md-3">
+    <image src="https://s3-us-west-2.amazonaws.com/com.nikhil.developer.cloud.images/nikhil/{{image.name}}" height="100" width="200" />
+  </div>
+  <div class="col-md-3">
+    {{image.tag1}} &nbsp; {{image.tag2}}&nbsp; {{image.tag3}}
+  </div>
+  <div class="col-md-2">
+    <button type="button" class="btn btn-primary">Publish</button>
+  </div>
+  <br/>
+</div>
+
+<!-- After search tag View -->

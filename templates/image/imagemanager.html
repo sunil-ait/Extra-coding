@@ -1,0 +1,48 @@
+
+<!-- Its header for the Images -->
+
+<form name="imageupload">
+  <div align="right" style="margin-right: 8%;">
+    <a type="button" ui-sref="app.imagelisting({skillId: skillid})" class="btn btn-primary">Back</a>
+  </div>
+  <h3 class="page-header" id="heading" align="center"> Image Manager</h3>
+
+  <div class="imagemanagerview">
+    <select ng-model="content" class="form-control">
+      <option value="">Select Choice</option>
+      <option>Image for Content</option>
+      <option>Image for Question</option>
+    </select>
+    <div align="right">
+    <br/>
+      <input type="file" ngf-select ng-model="picFile" name="file" accept="image/*"required ngf-model-invalid="errorFiles">
+    </div>
+  </div>
+  <br/>
+
+  <!-- Its for Content & Question Both-->
+
+  <div  class="imagemanagerview">
+    <input type="text" ng-model="username" placeholder="Enter Image Name" class="form-control">
+    <br/>
+    <input type="text" ng-model="tag1" placeholder="Enter Image Tag-1" class="form-control">
+    <br/>
+    <input type="text" ng-model="tag2" placeholder="Enter Image Tag-2" class="form-control">
+    <br/>
+    <input type="text" ng-model="tag3" placeholder="Enter Image Tag-3" class="form-control">
+    <br/>
+  </div>
+  
+  <!-- Its for Question -->
+
+  <div ng-if="content==='Image for Question'" class="imagemanagerview">
+    <div>
+      <input type="text" placeholder="Enter Question Id" class="form-control" ng-model="qid">
+    </div>
+    <br/>
+  </div>
+  <div align="center">   
+    <input type="button" value="Save" ng-click="uploadPic(picFile)" ui-sref="app.imagearea" class="btn btn-primary" />
+  </div>
+  <br/>
+</form>
