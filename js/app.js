@@ -347,6 +347,11 @@ $stateProvider
     templateUrl: 'templates/items/template.html',
     controller: "itemcontroller"
   })
+  .state("app.comprehension.newviews",{
+    url: "NewItem/{Itemtype:[0-9a-fA-F]{1,8}}",
+    templateUrl: 'templates/items/createtemplate.html',
+    controller: "itemcontroller"
+  })
   .state("app.adjecencies",{
     url: "/adjecencies/{skillId:[0-9a-fA-F]{1,8}}",
     templateUrl: 'templates/skills/adjecencies.html',

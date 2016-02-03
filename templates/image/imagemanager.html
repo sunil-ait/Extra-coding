@@ -6,7 +6,8 @@
     <a type="button" ui-sref="app.imagelisting({skillId: skillid})" class="btn btn-primary">Back</a>
   </div>
   <h3 class="page-header" id="heading" align="center"> Image Manager</h3>
-
+  <br/>
+  <br/>
   <div class="imagemanagerview">
     <select ng-model="content" class="form-control">
       <option value="">Select Choice</option>
@@ -32,6 +33,12 @@
     <input type="text" ng-model="tag3" placeholder="Enter Image Tag-3" class="form-control">
     <br/>
   </div>
+
+  <div ng-if="content==='Image for Content'">
+    <div align="center">   
+      <input type="button" value="Save" ng-click="uploadPic(picFile)" ui-sref="app.imagearea" class="btn btn-primary" />
+    </div>
+  </div>
   
   <!-- Its for Question -->
 
@@ -40,9 +47,9 @@
       <input type="text" placeholder="Enter Question Id" class="form-control" ng-model="qid">
     </div>
     <br/>
+    <div align="center">   
+    <input type="button" value="Save" ng-click="uploadPicQ(picFile, qid)" ui-sref="app.imagearea" class="btn btn-primary" />
   </div>
-  <div align="center">   
-    <input type="button" value="Save" ng-click="uploadPic(picFile)" ui-sref="app.imagearea" class="btn btn-primary" />
   </div>
   <br/>
 </form>

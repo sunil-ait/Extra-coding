@@ -1,72 +1,76 @@
-<form editable-form name="editableForm">
-	<div style="margin-left: 8%; margin-right: 20%; background-color: yellow;" class="row">
+	<div style="margin-left: 8%; margin-right: 20%; background-color: yellow;" class="row" shown="true">
 	  <div style="margin-left: 5%;" class="col-md-4">
 		  <br/>
-	  	<span class="title">Passage :</span>
-	  	<br/>
-	  	<p ng-model="item.question.items[0].passage" editable-text="item.question.items[0].passage" e-name="item.question.items[0].passage" e-form="editableForm" e-required>{{item.question.items[0].passage}}
-	    </p>
-    	<br/>
-    	<span class="title">Grit :</span>
-    	<br/>
-    	<p ng-model="item.grit" editable-text="item.grit" e-name="item.grit" e-form="editableForm" e-required>	{{item.grit}}
-	    </p>
-	    <br/>
-	    <span class="title">Diff :</span>
-    	<br/>
-    	<p ng-model="item.diff" editable-text="item.diff" e-name="item.diff" e-form="editableForm" e-required>	{{item.diff}}
-	    </p>
-	    <br/>
-	    <span class="title">Level :</span>
-	    <br/>
-	    <p ng-model="item.level" editable-text="item.level" e-name="item.level" e-form="editableForm" e-required>{{item.level}}
-	    </p>
-	    <br/>
-	    <span class="title">Skill :</span>
-	    <br/>
-	    <p ng-model="item.skill" editable-text="item.skill" e-name="item.skill" e-form="editableForm" e-required>{{item.skill}}
-	    </p>
-	    <br/>
-	    <span class="title">Qtype :</span>
-	    <br/>
-	    <p ng-model="item.qtype" editable-text="item.qtype" e-name="item.qtype" e-form="editableForm" e-required>{{item.qtype}}
-	    </p>
-	    <br/>
-	    <span class="title">Type :</span>
-	    <br/>
-	    <p ng-model="item.type" editable-text="item.type" e-name="item.type" e-form="editableForm" e-required>{{item.type}}
-	    </p>
-	    <br/>
-	    <br/>
-	  </div>
-	  <div class="col-md-4">
-	  	<br/>
-  		<h3>Questions</h3>
-      	<select id="subject" ng-model="quetype" name="subject" class="form-control">
-	       <option value="">Select Question</option>
-         <option ng-repeat= "item in items"><span i in item.question.items>{{$index + 1}}</option>
-         <option>New</option>
-	     </select>
-		  <div ng-if="quetype=='New'">
-	  		<h3>Question Type</h3>
-	      	<select ng-model="itemtype" id="subject" name="subject" class="form-control">
+		  	<span class="title">Passage :</span>
+		  	<br/>
+		  	<p ng-model="Questions.question.items[itemt].passage" editable-text="Questions.question.items[itemt].passage" e-name="Questions.question.items[itemt].passage" e-form="editableForm" e-required>{{Questions.question.items[itemt].passage}}
+		    </p>
+	    	<br/>
+	    	<span class="title">Grit :</span>
+	    	<br/>
+	    	<p ng-model="Questions.grit" editable-text="Questions.grit" e-name="Questions.grit" e-form="editableForm" e-required>	{{Questions.grit}}
+		    </p>
+		    <br/>
+		    <span class="title">Diff :</span>
+	    	<br/>
+	    	<p ng-model="Questions.diff" editable-text="Questions.diff" e-name="Questions.diff" e-form="editableForm" e-required>	{{Questions.diff}}
+		    </p>
+		    <br/>
+		    <span class="title">Level :</span>
+		    <br/>
+		    <p ng-model="Questions.level" editable-text="Questions.level" e-name="Questions.level" e-form="editableForm" e-required>{{Questions.level}}
+		    </p>
+		    <br/>
+		    <span class="title">Skill :</span>
+		    <br/>
+		    <p ng-model="Questions.skill" editable-text="Questions.skill" e-name="Questions.skill" e-form="editableForm" e-required>{{Questions.skill}}
+		    </p>
+		    <br/>
+		    <span class="title">Qtype :</span>
+		    <br/>
+		    <p ng-model="Questions.qtype" editable-text="Questions.qtype" e-name="Questions.qtype" e-form="editableForm" e-required>{{Questions.qtype}}
+		    </p>
+		    <br/>
+		    <span class="title">Type :</span>
+		    <br/>
+		    <p ng-model="Questions.type" editable-text="Questions.type" e-name="Questions.type" e-form="editableForm" e-required>{{Questions.type}}
+		    </p>
+		    <br/>
+		    <br/>
+		  </div>
+		  <div class="col-md-3">
+		  	<br/>
+		  	<h2>Questions Are:</h2>
+		  	 <div>
+		  		<a ui-sref="app.comprehension.views({Itemtype: itemt})" ng-repeat="item in Questions.question.items">
+				    <button type="button" ng-click="addQuestion(item.itype)" class="btn btn-primary">
+					    {{item.itype}}
+					  </button>
+				  </a>
+		  		<div>
+		  		<br/>
+	  			<select ng-model="itemtype" id="subject" name="subject" class="form-control">
 		       <option value="">Select Question Type</option>
-	         <!-- <option ng-repeat= "item in items">{{item.question.item.question.items[0].itype}}</option> -->
-	         <option>Matching Type</option>
-	         <option>Fill-Type</option>
-	         <option>True-False</option>
-	         <option>Highlight</option>
-	         <option>Objective</option>
-		     </select>
-		     <br/>
-		     <a ui-sref="app.comprehension.views({Itemtype: itemt})">
-			     <button type="button" ng-click="addQuestion(itemtype)" class="btn btn-primary">
-				    Go
-				  </button>
-			  </a>
-	  	</div>		
+	         <!-- <option ng-repeat= "Questions in Questionss">{{Questions.Question.Questions.Question.Questionss[$index].itype}}</option> -->
+	         <option>0</option>
+	         <option>1</option>
+	         <option>2</option>
+		      </select>
+			     <br/>
+			     <a ui-sref="app.comprehension.newviews({Itemtype: itemt})">
+				     <button type="button" ng-click="addQuestion(itemtype)" class="btn btn-primary">
+					    New
+					  </button>
+				  </a>
+		  	</div>
+		  </div>		
     </div>
 	</div>
 	<div ui-view></div>
+	{{Questions}}
+	<br/>
+	<br/>
+	<br/>
+	<br/>
 	<br/>
 </form>

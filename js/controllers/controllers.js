@@ -263,6 +263,120 @@ app.controller('simplecontroller', ['$rootScope','$stateParams','$scope','Item',
 
  var lessonid12= $rootScope.lessonIds;
 
+ $scope.Questions = {
+  qtype :"fdsf",
+  skill:"asdadd",
+  level: "fgffdjgbdg",
+  diff: "gkdgdg",
+  grit: "gfgfgg",
+  type: "vjkvdvkv",
+  question:{
+    items: [{
+      "itype": "0",
+      "Answer": "dsdjkfnnsf",
+      "solution": "djkfnssfsf",
+      "passage": "Hare",
+      "question": "ib",
+      "solution": "ib",
+      "option1": "ib",
+      "option2": "b",
+      "option3": "bi",
+      "option4": "bib",
+      "option5": null,
+      "option6": null,
+      "matcha": null,
+      "matchb": null,
+      "matchc": null,
+      "matchd": null,
+      "matche": null,
+      "matchf": null,
+      "hint1": null,
+      "hint2": null,
+      "hint3": null,
+      "hintcheck": null,
+      "grit": "ib",
+      "level": "ibi",
+      "difficulty": "bib",
+      "skill": "ib"
+    },
+    {
+      "itype": "1",
+      "Answer": "dsdjkfnnsf",
+      "solution": "djkfnssfsf",
+      "passage": "Ram",
+      "question": "ib",
+      "solution": "ib",
+      "option1": "ib",
+      "option2": "b",
+      "option3": "bi",
+      "option4": "bib",
+      "option5": null,
+      "option6": null,
+      "matcha": null,
+      "matchb": null,
+      "matchc": null,
+      "matchd": null,
+      "matche": null,
+      "matchf": null,
+      "hint1": null,
+      "hint2": null,
+      "hint3": null,
+      "hintcheck": null,
+      "grit": "ib",
+      "level": "ibi",
+      "difficulty": "bib",
+      "skill": "ib"
+    },
+    {
+      "itype": "2",
+      "passage": "Krsna",
+      "Answer": "dsdjkfnnsf",
+      "question": "ib",
+      "answer": "ib",
+      "solution": "ib",
+      "option1": "ib",
+      "option2": "b",
+      "option3": "bi",
+      "option4": "bib",
+      "option5": null,
+      "option6": null,
+      "matcha": null,
+      "matchb": null,
+      "matchc": null,
+      "matchd": null,
+      "matche": null,
+      "matchf": null,
+      "hint1": null,
+      "hint2": null,
+      "hint3": null,
+      "hintcheck": null,
+      "grit": "ib",
+      "level": "ibi",
+      "difficulty": "bib",
+      "skill": "ib"
+    }]
+  }
+ };
+
+$scope.getting = function(itype){
+  $scope.index =itype;
+}
+$scope.saving = function(i){
+  $scope.Questions.question.items.itype = i;
+  var Question = angular.toJson($scope.Question);
+  $scope.Questions.question.items.push(Question);
+  console.log($scope.Questions);
+  alert("Successfully Insert");
+}
+$scope.createsave=function(i){
+  $scope.itemt =i;
+  $scope.Questions.question.items.itype = itemt;
+  var Question = angular.toJson($scope.Question[i]);
+  $scope.Questions.question.items.push(Question);
+  alert("Successfully Created");
+}
+
+/*=============================================*/
  if(typeof(itemid) === 'undefined'){
    $scope.item = new Items({
     lessonId : lessonid12
@@ -555,11 +669,18 @@ app.controller('imagelistingcontroller', ['$scope','$stateParams','Allimages','I
 
 app.controller('Imageuploadcontroller', ['$scope','$stateParams','Upload', function($scope, $stateParams,Upload){
   $scope.skillid = $stateParams.skillId;
-
+/*Uploading the Skill Image*/
   $scope.uploadPic = function(file) {
     file.upload = Upload.upload({
       url: 'http://192.168.1.15:8080/files/upload/simage',
       data: {file: file, name: $scope.username, tag1: $scope.tag1, tag2: $scope.tag2, tag3: $scope.tag3, skillid: $scope.skillid}
+    });
+  }
+  /*Uploading Question Image*/
+  $scope.uploadPicQ = function(file, id) {
+    file.upload = Upload.upload({
+      url: 'http://192.168.1.15:8080/files/upload/qimage',
+      data: {file: file, name: $scope.username, tag1: $scope.tag1, tag2: $scope.tag2, tag3: $scope.tag3, qid: id}
     });
   }
 }]);
