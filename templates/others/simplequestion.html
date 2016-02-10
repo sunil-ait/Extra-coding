@@ -5,7 +5,7 @@
 	    <span class="title">Itype</span>
 	    <br/> 
       <br/>
-        <select id="subject" ng-model="item.question.items[0].itype" e-requiredname="subject" class="form-control">
+        <select id="subject" ng-model="item.question.items.itype" e-requiredname="subject" class="form-control">
            <option value="">Question Type</option>
            <option>1</option>
            <option>2</option>
@@ -16,7 +16,7 @@
            <option>7</option>
            <option>8</option>
            <option>9</option>
-           <option>{{item.question.items[0].itype}}</option>
+           <option>{{item.question.items.itype}}</option>
          </select>  
          <br/> 
 	  </div>
@@ -38,8 +38,13 @@
 		<span class="title">Question :</span>
 		<br/>
 		<br/>
-		<p ng-model="item.question.items[0].question" editable-text="item.question.items[0].question" e-name="item.question.items[0].question" e-form="editableForm" e-required>{{item.question.items[0].question}}
-		</p>
+		<!-- <p ng-model="item.question.items.question" editable-text="item.question.items.question" e-name="item.question.items.question" e-form="editableForm" e-required>{{item.question.items.question}}
+		</p> -->
+    <div style="margin-left: 3%; margin-right: 40%;">
+      <textarea ckeditor="editorOptions" ckeditor  name="editor" ng-model="item.question.items.question" editable-text="item.question.items.question" e-name="item.question.items.question" e-form="editableForm" e-required ng-minlength="30" ng-maxlength="30">
+      </textarea>
+      {{item.question.items.question}}
+    </div>
 		<br/>
 		<br/>
 		<span class="title">Options :</span>
@@ -48,61 +53,85 @@
 		<table border="0">
 		  <tr>
 			<td width="30%">
-				<p editable-text = "item.question.items[0].option1" e-form="editableForm">
-				<input  type="radio" ng-model ="item.question.items[0].option1"  name="option" value="{{item.question.items[0].option1}}"/>&nbsp;&nbsp;<b>A.</b>&nbsp; {{item.question.items[0].option1}}
+				<p editable-text = "item.question.items.option1" e-form="editableForm">
+				<input  type="radio" ng-model ="item.question.items.option1"  name="option" value="{{item.question.items.option1}}"/>&nbsp;&nbsp;<b>A.</b>&nbsp; {{item.question.items.option1}}
 		        </p>
+       <div style="margin-left: 3%; margin-right: 40%;">
+         <textarea ckeditor="editorOptions" ckeditor  name="editor" ng-model="skill.content" ng-minlength="30" ng-maxlength="30"required>
+         </textarea>
+       </div>
 			</td>
 		  </tr>
 		  <tr>
 			<td width="30%">
-				<p editable-text = "item.question.items[0].option2" e-form="editableForm">
-				<input  type="radio" ng-model ="item.question.items[0].option2" name="option" value="{{item.question.items[0].option2}}"/>&nbsp;&nbsp;<b>A.</b>&nbsp; {{item.question.items[0].option2}}
+				<p editable-text = "item.question.items.option2" e-form="editableForm">
+				<input  type="radio" ng-model ="item.question.items.option2" name="option" value="{{item.question.items.option2}}"/>&nbsp;&nbsp;<b>A.</b>&nbsp; {{item.question.items.option2}}
 		        </p>
+      <div style="margin-left: 3%; margin-right: 40%;">
+       <textarea ckeditor="editorOptions" ckeditor  name="editor" ng-model="skill.content" ng-minlength="30" ng-maxlength="30"required>
+       </textarea>
+      </div>
 			</td>
 		  </tr>
 		  <tr>
 			<td width="30%">
-				<p editable-text = "item.question.items[0].option3" e-form="editableForm">
-				<input  type="radio" ng-model ="item.question.items[0].option3"name="option" value="{{item.question.items[0].option3}}"/>&nbsp;&nbsp;<b>A.</b>&nbsp; {{item.question.items[0].option3}}
-		        </p>
+				<p editable-text = "item.question.items.option3" e-form="editableForm">
+				<input  type="radio" ng-model ="item.question.items.option3"name="option" value="{{item.question.items.option3}}"/>&nbsp;&nbsp;<b>A.</b>&nbsp; {{item.question.items.option3}}
+		    </p>
+       <div style="margin-left: 3%; margin-right: 40%;">
+          <textarea ckeditor="editorOptions" ckeditor  name="editor" ng-model="skill.content" ng-minlength="30" ng-maxlength="30"required>
+          </textarea>
+        </div>
 			</td>
 		  </tr>
 		  <tr>
 				<td width="30%">
-					<p editable-text ="item.question.items[0].option4" e-form="editableForm">
-					<input type="radio" ng-model ="item.question.items[0].option4" name="option" value="{{item.question.items[0].option4}}"/>&nbsp;&nbsp;<b>A.</b>&nbsp; {{item.question.items[0].option4}}
+					<p editable-text ="item.question.items.option4" e-form="editableForm">
+					<input type="radio" ng-model ="item.question.items.option4" name="option" value="{{item.question.items.option4}}"/>&nbsp;&nbsp;<b>A.</b>&nbsp; {{item.question.items.option4}}
 			    </p>
+        <div style="margin-left: 3%; margin-right: 40%;">
+          <textarea ckeditor="editorOptions" ckeditor  name="editor" ng-model="skill.content" ng-minlength="30" ng-maxlength="30"required>
+          </textarea>
+        </div>
 			</td>
 		  </tr>
 		</table>
 		<br/>
 		<span class="title">Answer :</span>
-		<p ng-model="item.question.items[0].answer" editable-text="item.question.items[0].answer" e-form="editableForm">{{item.question.items[0].answer}}
+		<p ng-model="item.question.items.answer" editable-text="item.question.items.answer" e-form="editableForm">{{item.question.items.answer}}
 		</p>
+    <div style="margin-left: 3%; margin-right: 40%;">
+      <textarea ckeditor="editorOptions" ckeditor  name="editor" ng-model="skill.content" ng-minlength="30" ng-maxlength="30"required>
+      </textarea>
+    </div>
 		<br/>
 		<br/>
 		<span class="title">Solution :</span>
-		<p ng-model="item.question.items[0].solution" editable-textarea="item.question.items[0].solution" e-form="editableForm" e-rows="10" e-cols="80">{{item.question.items[0].solution}}
+		<p ng-model="item.question.items.solution" editable-textarea="item.question.items.solution" e-form="editableForm" e-rows="10" e-cols="80">{{item.question.items.solution}}
 		</p>
+    <div style="margin-left: 3%; margin-right: 40%;">
+      <textarea ckeditor="editorOptions" ckeditor  name="editor" ng-model="skill.content" ng-minlength="30" ng-maxlength="30"required>
+      </textarea>
+    </div>
 		<br/>
 		<br/>
 		<span class="title">Grit :</span>
-		<p ng-model="item.question.items[0].grit" editable-textarea="item.question.items[0].grit" e-form="editableForm" e-rows="10" e-cols="80">{{item.question.items[0].grit}}
+		<p ng-model="item.question.items.grit" editable-textarea="item.question.items.grit" e-form="editableForm" e-rows="10" e-cols="80">{{item.question.items.grit}}
 		</p>
 		<br/>
 		<br/>
 		<span class="title">Level :</span>
-		<p ng-model="item.question.items[0].level" editable-textarea="item.question.items[0].level" e-form="editableForm" e-rows="10" e-cols="80">{{item.question.items[0].level}}
+		<p ng-model="item.question.items.level" editable-textarea="item.question.items.level" e-form="editableForm" e-rows="10" e-cols="80">{{item.question.items.level}}
 		</p>
 		<br/>
 		<br/>
 		<span class="title">Difficulty :</span>
-		<p ng-model="item.question.items[0].difficulty" editable-textarea="item.question.items[0].difficulty" e-form="editableForm" e-rows="10" e-cols="80">{{item.question.items[0].difficulty}}
+		<p ng-model="item.question.items.difficulty" editable-textarea="item.question.items.difficulty" e-form="editableForm" e-rows="10" e-cols="80">{{item.question.items.difficulty}}
 		</p>
 		<br/>
 		<br/>
 		<span class="title">Skill :</span>
-		<p ng-model="item.question.items[0].skill" editable-textarea="item.question.items[0].skill" e-form="editableForm" e-rows="10" e-cols="80">{{item.question.items[0].skill}}
+		<p ng-model="item.question.items.skill" editable-textarea="item.question.items.skill" e-form="editableForm" e-rows="10" e-cols="80">{{item.question.items.skill}}
 		</p>
 		
 		<!-- VERY FIRST LEVEL -->
@@ -128,7 +157,7 @@
 		<button type="button" class="btn btn-primary" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
 		 	Edit
 	   </button>
-    <button type="button" class="btn btn-primary" ng-click= "save(1)" ng-show="!editableForm.$visible">
+    <button type="button"  ui-sref="app.itemtype({lessonId: lessonid2})" class="btn btn-primary" ng-click= "save(1)" ng-show="!editableForm.$visible">
 	  	Save
     </button>
         <span ng-show="editableForm.$visible">

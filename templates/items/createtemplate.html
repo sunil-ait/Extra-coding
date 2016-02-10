@@ -7,7 +7,7 @@
     <div style="margin-left: 5%;">
       <span class="title">Question:</span>
       <br/>
-      <p editable-text="Question.questionitems[itemt].question" e-name="Question.questionitems[itemt].question" e-form="  editableForm" e-required>{{Question.questionitems[itemt].question}}
+      <p editable-text="question.question" e-name="question.question" e-form="  editableForm" e-required>{{question.question}}
       </p>
       <br/>
       <span class="title">Options :</span>
@@ -15,50 +15,50 @@
       <table border="0">
       <tr>
       <td width="30%">
-        <p editable-text = "Question.questionitems[itemt].option1" e-form="editableForm">
-          <input  type="radio" name="option" value="{{Question.questionitems[itemt].option1}}"/>&nbsp;&nbsp;<b>A.</b>&nbsp; {{Question.questionitems[itemt].option1}}
+        <p editable-text = "question.option1" e-form="editableForm">
+          <input  type="radio" name="option" value="{{question.option1}}"/>&nbsp;&nbsp;<b>A.</b>&nbsp; {{question.option1}}
         </p>
       </td>
         <td width="30%">
-        <p editable-text="Question.questionitems[itemt].matcha" e-form="editableForm">
-          <input type="radio" name="match" value="{{Question.questionitems[itemt].matcha">&nbsp;&nbsp;<b>1.</b>&nbsp;
-          {{Question.questionitems[itemt].matcha}}
+        <p editable-text="question.matcha" e-form="editableForm">
+          <input type="radio" name="match" value="{{question.matcha">&nbsp;&nbsp;<b>1.</b>&nbsp;
+          {{question.matcha}}
         </p>
       </td>
       </tr>
       <tr>
       <td>
-        <p editable-text="Question.questionitems[itemt].option2" e-form="editableForm">
-          <input type="radio" name="option" value="{{Question.questionitems[itemt].option2}}" />&nbsp;&nbsp;<b>B.</b>&nbsp; {{Question.questionitems[itemt].option2}}
+        <p editable-text="question.option2" e-form="editableForm">
+          <input type="radio" name="option" value="{{question.option2}}" />&nbsp;&nbsp;<b>B.</b>&nbsp; {{question.option2}}
         </p>
       </td>
       <td>
-        <p editable-text="Question.questionitems[itemt].matchb" e-form="editableForm">
-          <input type="radio" name="match" value="{{Question.questionitems[itemt].matchb}}" />&nbsp;&nbsp;<b>2.</b>&nbsp; {{Question.questionitems[itemt].matchb}}
-        </p>
-      </td>
-      </tr>
-      <tr>
-      <td>
-        <p editable-text="Question.questionitems[itemt].option3" e-form="editableForm">
-          <input type="radio" name="option" value="{{Question.questionitems[itemt].questio.option3}}" />&nbsp;&nbsp;<b>C.</b>&nbsp; {{Question.questionitems[itemt].option3}}
-        </p>
-      </td>
-      <td>
-        <p editable-text="Question.questionitems[itemt].matchc" e-form="editableForm">
-          <input type="radio" name="match" value="{{Question.questionitems[itemt].matchc}}" />&nbsp;&nbsp;<b>3.</b>&nbsp; {{Question.questionitems[itemt].matchc}}
+        <p editable-text="question.matchb" e-form="editableForm">
+          <input type="radio" name="match" value="{{question.matchb}}" />&nbsp;&nbsp;<b>2.</b>&nbsp; {{question.matchb}}
         </p>
       </td>
       </tr>
       <tr>
       <td>
-        <p editable-text="Question.questionitems[itemt].option4" e-form="editableForm">
-          <input type="radio" name="option" value="{{Question.questionitems[itemt].option4}}" />&nbsp;&nbsp;<b>D.</b>&nbsp; {{Question.questionitems[itemt].option4}}
+        <p editable-text="question.option3" e-form="editableForm">
+          <input type="radio" name="option" value="{{question.questio.option3}}" />&nbsp;&nbsp;<b>C.</b>&nbsp; {{question.option3}}
+        </p>
+      </td>
+      <td>
+        <p editable-text="question.matchc" e-form="editableForm">
+          <input type="radio" name="match" value="{{question.matchc}}" />&nbsp;&nbsp;<b>3.</b>&nbsp; {{question.matchc}}
+        </p>
+      </td>
+      </tr>
+      <tr>
+      <td>
+        <p editable-text="question.option4" e-form="editableForm">
+          <input type="radio" name="option" value="{{question.option4}}" />&nbsp;&nbsp;<b>D.</b>&nbsp; {{question.option4}}
         </p>    
       </td>
       <td>
-        <p editable-text="Question.questionitems[itemt].matchd" e-form="editableForm">
-          <input type="radio" name="match" value="{{Question.questionitems[itemt].matchd}}" />&nbsp;&nbsp;<b>4.</b>&nbsp; {{Question.questionitems[itemt].matchd}}
+        <p editable-text="question.matchd" e-form="editableForm">
+          <input type="radio" name="match" value="{{question.matchd}}" />&nbsp;&nbsp;<b>4.</b>&nbsp; {{question.matchd}}
         </p>
       </td>
       </tr>
@@ -66,30 +66,30 @@
     <br/>
     <br/>
     <span class="title">Answer :</span>
-    <p editable-text="Question.questionitems[itemt].answer" e-form="editableForm">{{Question.questionitems[itemt].answer}}</p>
+    <p editable-text="question.answer" e-form="editableForm">{{question.answer}}</p>
     <br/>
     <br/>
     <span class="title">Hint :</span>
-    <p editable-text="Question.questionitems[itemt].hint" e-form="editableForm">{{Question.questionitems[itemt].hint}}
+    <p editable-text="question.hint" e-form="editableForm">{{question.hint}}
     </p>
     <br/>
     <br/>
     <span class="title">Solution :</span>
-      <p editable-textarea="Question.questionitems[itemt].solution" e-form="editableForm" e-rows="10" e-cols="80">{{Question.questionitems[itemt].solution}}
+      <p editable-textarea="question.solution" e-form="editableForm" e-rows="10" e-cols="80">{{question.solution}}
     </p>
     <br/>
     <br/>
     <span class="title">Grit :</span>
-    <p editable-text="Question.questionitems[itemt].grit" e-form="editableForm">{{Question.questionitems[itemt].grit}}</p>
+    <p editable-text="question.grit" e-form="editableForm">{{question.grit}}</p>
     <br/>
     <br/>
     <span class="title">Level :</span>
-    <p editable-text="Question.questionitems[itemt].level" e-form="editableForm">{{Question.questionitems[itemt].level}}</p>
+    <p editable-text="question.level" e-form="editableForm">{{question.level}}</p>
     </span>
     <br/>
     <br/>
     <span class="title">Difficulty :</span>
-    <p editable-text="Question.questionitems[itemt].difficulty" e-form="editableForm">{{Question.questionitems[itemt].difficulty}}
+    <p editable-text="question.difficulty" e-form="editableForm">{{question.difficulty}}
     </p>
     <br/>
     <br/>
@@ -123,31 +123,40 @@
     <div style="margin-left: 5%;">
       <span class="title">Itype</span>
       <br/>
-      <p ng-model="Question.questionitems[itemt].itype" editable-text="Question.questionitems[itemt].itype" e-name="Question.questionitems[itemt].itype" e-form="editableForm" e-required> {{Question.questionitems[itemt].itype}}
+      <p ng-model="question.itype" editable-text="question.itype" e-name="question.itype" e-form="editableForm" e-required> {{question.itype}}
       </p>
       <br/>
-      <span class="title">Question :</span>
+       <span class="title">Passage :</span>
+        <br/>
+        <p ng-model="question.passage" editable-text="question.passage" e-name="question.passage" e-form="editableForm" e-required>{{question.passage}}
+        </p>
+        {{itemt}}
       <br/>
-      <p editable-text="Question.questionitems[itemt].question" e-name="Question.questionitems[itemt].question" e-form="  editableForm" e-required>{{Question.questionitems[itemt].question}}
+      <span class="title">Question:</span>
+      <br/>
+      <p editable-text="question.question" e-name="question.question" e-form="  editableForm" e-required>{{question.question}}
       </p>
       <br/>
       <br/>
       <span class="title">Answer :</span>
-      <p editable-text="Question.questionitems[itemt].answer" e-form="editableForm">{{Question.questionitems[itemt].answer}}</p>
+      <p editable-text="question.answer" e-form="editableForm">{{question.answer}}</p>
       <br/>
       <br/>
       <span class="title">Solution :</span>
-        <p editable-textarea="Question.questionitems[itemt].solution" e-form="editableForm" e-rows="10" e-cols="80">{{Question.questionitems[itemt].solution}}
+        <p editable-textarea="question.solution" e-form="editableForm" e-rows="10" e-cols="80">{{question.solution}}
       </p>
       <br/>
-      {{item}}
+      {{question}}
       <br/>
       <button type="button" class="btn btn-primary" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
         Edit
       </button>
-      <button type="button" class="btn btn-primary" ng-click="createsave(index)" ng-show="!editableForm.$visible">
+      <button type="button" class="btn btn-primary" ng-click="createsave(question)" ng-show="!editableForm.$visible">
         Publish
       </button>
+      <button type="submit" class="btn btn-primary" ng-click="savelocal(question)" ng-show="!editableForm.$visible">
+          LocalSave
+        </button>
       <span ng-show="editableForm.$visible">
         <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
           Save
@@ -168,33 +177,42 @@
   <div style="margin-left: 8%; margin-right: 20%; background-color: yellow;">
     <br/>
     <div style="margin-left: 5%;">
+      <span class="title">Itype</span>
+      <br/>
+      <p ng-model="question.itype" editable-text="question.itype" e-name="question.itype" e-form="editableForm" e-required> {{question.itype}}
+      </p>
+      <br/>
       <span class="title">Question :</span>
       <br/>
-      <p editable-text="Question.questionitems[itemt].question" e-name="Question.questionitems[itemt].question" e-form="  editableForm" e-required>{{Question.questionitems[itemt].question}}
+      <p editable-text="question.question" e-name="question.question" e-form="  editableForm" e-required>{{question.question}}
       </p>
       <br/>
       <br/>
-      <p editable-text="Question.questionitems[itemt].answer" e-form="editableForm">
-        <input type="radio" name="option" value="{{Question.questionitems[itemt].answer}}" />&nbsp;&nbsp;&nbsp; True
+      <p editable-text="question.answer" e-form="editableForm">
+        <input type="radio" name="option" value="{{question.answer}}" />&nbsp;&nbsp;&nbsp; True
       </p>
       <br/>
-      <p editable-text="Question.questionitems[itemt].answer" e-form="editableForm">
-        <input type="radio" name="option" value="{{Question.questionitems[itemt].answer}}" />&nbsp;&nbsp;&nbsp; False
+      <p editable-text="question.answer" e-form="editableForm">
+        <input type="radio" name="option" value="{{question.answer}}" />&nbsp;&nbsp;&nbsp; False
       </p>
     <br/>
     <br/>
     <span class="title">Answer :</span>
-    <p editable-text="Question.questionitems[itemt].answer" e-form="editableForm">{{Question.questionitems[itemt].answer}}</p>
+    <p editable-text="question.answer" e-form="editableForm">{{question.answer}}</p>
     <br/>
+    {{question}}
     <br/>
     <button type="button" class="btn btn-primary" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
     Edit
   </button>
-  <button type="button" class="btn btn-primary" ng-click="createsave(index)" ng-show="!editableForm.$visible">
-    Save
+  <button type="button" class="btn btn-primary" ng-click="createsave(question)" ng-show="!editableForm.$visible">
+    Publish
   </button>
+  <button type="submit" ng-click="savelocal(question)" class="btn btn-primary" ng-disabled="editableForm.$waiting">
+     LocalSvae
+    </button>
   <span ng-show="editableForm.$visible">
-    <button type="submit" ng-click="sendingIfo(item)"class="btn btn-primary" ng-disabled="editableForm.$waiting">
+    <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
       Re-edit
     </button>
     <button type="button" class="btn btn-primary" ng-click="editableForm.$show()" ng-show="   editableForm.$visible">

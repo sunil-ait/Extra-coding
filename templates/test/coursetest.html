@@ -13,7 +13,7 @@
       <h4><b>No Of Questions</b></h4>
     </div>
      <div class="col-md-4">
-      <h4><b>Operations</b></h4>
+      <h4 align="center"><b>Operations</b></h4>
     </div>
   </div>
   <br/>
@@ -27,11 +27,20 @@
     <div class="col-md-2">
       {{CourseTest.maximumMarks}}
     </div>
-    <div class="col-md-4">
-      <button type="button" class="btn btn-primary" ng-click="publish(CourseTest.id)">Publish</button>
-      <button type="button" class="btn btn-primary" ui-sref="app.viewcoursetest({TestId: CourseTest.id})">View</button>
-      <button type="button" class="btn btn-primary" ui-sref="app.editcoursetest({TestId: CourseTest.id})">Edit</button>
-      <button type="button" class="btn btn-primary" ng-click="deleteTest(CourseTest)">Delete</button>
+    <div class="col-md-5">
+      <div class="row">
+        <div class="col-md-2">
+        <button type="button"  ng-if="!CourseTest.published"  ui-sref="app.coursetest" class="btn btn-primary" ng-click="publish(CourseTest.id)">Publish</button>
+        </div>
+        <div class="col-md-2">
+          <button type="button" class="btn btn-primary" ui-sref="app.viewcoursetest({TestId: CourseTest.id})">View</button>
+        </div>
+        <div class="col-md-2">
+          <button type="button" class="btn btn-primary" ui-sref="app.editcoursetest({TestId: CourseTest.id})">Edit</button>
+        </div>
+        <div class="col-md-2">
+          <button type="button" class="btn btn-primary" ng-click="deleteTest(CourseTest)">Delete</button>
+        </div>
       <br/>
     </div>
     <br/>

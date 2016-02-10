@@ -10,7 +10,7 @@
     </div>
 
     <div class="form-group" ng-class="{'has-error' : createlo.title.$invalid && !createlo.title.$pristine }">
-      <input type="text" placeholder="Lo title" class="form-control" name="title" ng-model="lesson.title" ng-minlength="3" ng-maxlength="8" required>
+      <input type="text" placeholder="Lo title" class="form-control" name="title" ng-model="lo.title" ng-minlength="3" ng-maxlength="8" required>
       <p ng-show="createlo.title.$error.minlength" class="help-block">Title is too short.</p>
       <p ng-show="createlo.title.$error.maxlength" class="help-block">Title is too long.</p>
     </div>
@@ -26,7 +26,6 @@
         <p ng-show="createlo.description.$error.maxlength" class="help-block">description is too long.</p>
     </div>
     <div class="controls" ng-disabled="createlo.$invalid">
-      <p ng-show="!createlo.$valid"> You are missing some Field</p>
       <button type="button" class="btn btn-primary" data-dismiss="modal" ng-disabled="createlo.$invalid" ng-click="save(1)" ui-sref="app.contentarea">Save</button>
     </div>
 </div>

@@ -2,7 +2,6 @@
   <label class="control-label" align="center"><h2><b>Skill Content</b></h2></label>
   <br/>
   <div class="form-group" ng-class="{ 'has-error' : createarea.skill.$invalid && !createarea.skill.$pristine }">
-
   <textarea ckeditor="editorOptions" ckeditor  name="editor" ng-model="skill.content" ng-minlength="30" ng-maxlength="100" required>
   </textarea>
    <p ng-show="createarea.skill.$error.minlength" class="help-block">Text is too short.</p>

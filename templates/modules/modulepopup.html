@@ -25,9 +25,10 @@
         <p ng-show="createmodule.description.$error.minlength" class="help-block">description is too short.</p>
         <p ng-show="createmodule.description.$error.maxlength" class="help-block">description is too long.</p>
     </div>
+    <br/>
     <div class="controls" ng-disabled="createmodule.$invalid">
-      <p ng-show="!createmodule.$valid"> You are missing some Field</p>
       <button type="button" class="btn btn-primary" data-dismiss="modal" ng-disabled="createmodule.$invalid" ng-click="save(1)" ui-sref="app.contentarea">Save</button>
+      <button ui-sref="app.coursemodules({courseId: courseid1})" class="btn btn-primary">Back</button>
     </div>
 </div>
   <br/>

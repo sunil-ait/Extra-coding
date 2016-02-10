@@ -1,12 +1,13 @@
 <div class="customizing">
-  <ul class="nav nav-tabs" role="tablist">
+  <div class="row">
   <br/>
-    <li ui-sref-active="active"  class="active"><a ui-sref="app.testsimplequestion({TestId: testid})" class="btn btn-info">Add S.Q.</a>
-    </li>
-    <li ui-sref-active="active" class="active">
+    <div ui-sref-active="active"  class="col-md-2"><a ui-sref="app.testsimplequestion({TestId: testid})" class="btn btn-info">Add S.Q.</a>
+    </div>
+    <div ui-sref-active="active" class="col-md-1">
       <a ui-sref="app.comprehensiontestitem({TestId: testid})" class="btn btn-info">Add C.Q.</a>
-    </li>
-  </ul>
+    </div>
+  </div>
+  <br/>
   <br/>
   <h1>Test Details</h1>
   <br/>
@@ -58,7 +59,7 @@
     <div class="col-md-2">
       {{ItemdetailsofCourseTest.type}}
     </div>
-    <div class="col-md-2">
+    <div class="col-md-3">
       <button type="button" class= "btn btn-primary" ui-sref= "app.edittestsimplequestion({ItemId: ItemdetailsofCourseTest.id})">Edit</button>
       <button type="button" class= "btn btn-primary"  ng-click= "deleteTestItem(ItemdetailsofCourseTest)">Delete</button>
     </div>

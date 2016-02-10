@@ -2,8 +2,7 @@
 
 /*Defining the Module*/
 
-var app = angular.module("app", ['app.controllers','app.services','ngFileUpload','xeditable','ui.router','ui.bootstrap','ngCkeditor']); /*Dependency Injection*/
-
+var app = angular.module("app", ['app.controllers','app.services','app.graphdirective','ngFileUpload','xeditable','ui.router','ui.bootstrap','ngCkeditor']); /*Dependency Injection*/
 /*xeditable bootstrap theme*/
 
 app.run(function(editableOptions){
@@ -49,22 +48,22 @@ $stateProvider
     templateUrl: 'templates/areas/allarea.html',
     controller: 'areascontroller'
   })
-  .state('app.areapopup',{
+  /*.state('app.areapopup',{
     url: "/newarea",
     templateUrl: 'templates/areas/areapopup.html',
     controller: 'areadetailcontroller'
-  })
-  .state('app.areapopupedit',{
+  })*/
+  /*.state('app.areapopupedit',{
     url: "/editarea/{areaId:[0-9a-fA-F]{1,8}}",
     templateUrl: 'templates/areas/editareapopup.html',
     controller: 'areadetailcontroller'
-  })
+  })*/
   .state("app.areacourses",{  
     url: "/allcourses/{areaId:[0-9a-fA-F]{1,8}}",
     templateUrl: 'templates/courses/allcourse.html',
     controller: 'coursescontroller'
   })
-  .state("app.coursepopup",{  
+  /*.state("app.coursepopup",{  
     url: "/newcourses",
     templateUrl: 'templates/courses/coursepopup.html',
     controller: 'coursedetailcontroller'
@@ -73,7 +72,7 @@ $stateProvider
     url: "/editcourses/{courseId:[0-9a-fA-F]{1,8}}",
     templateUrl: 'templates/courses/editcoursepopup.html',
     controller: 'coursedetailcontroller'
-  })
+  })*/
   .state("app.coursemodules",{  
     url: "/allmodules/{courseId:[0-9a-fA-F]{1,8}}",
     templateUrl: 'templates/modules/allmodule.html',
@@ -358,8 +357,9 @@ $stateProvider
     controller: 'Skilladdingcontroller'
   })
   .state("app.areagraph",{
-    url: "/areagraph",
-    templateUrl: 'templates/areas/areagraph.html'
+    url: "/areagraph/{areaId:[0-9a-fA-F]{1,8}}",
+    templateUrl: 'templates/areas/areagraph.html',
+    controller: 'graphcontroller'
   })
   .state("app.imagearea",{
     url: "/imageareas",
