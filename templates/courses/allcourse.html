@@ -1,4 +1,5 @@
 <div class="curriculum-listings">
+  <h3 align="center"><b>Curriculum Manager</b></h3>
   <div class="backing">
     <a class="btn btn-primary" ui-sref="app.contentarea">Back</a>  
   </div>
@@ -6,7 +7,12 @@
   <div class="container_div">
     <ul class="scrolling">
       <a>
-        <li ng-repeat="course in allCourses">   
+        <li>
+          <div align="center" style="margin-top: 25%;">
+            <input type="button" class="btn btn-primary" ng-click="open(areaid, 1)" value="New Course">
+          </div>
+        </li>
+        <li ng-repeat="course in allCourses">
           <div class="curriculum-title">
           <br/>
             <span align="center">{{course.title}}</span>
@@ -19,11 +25,6 @@
             <a class="btn btn-primary" ng-click="deletecourse(course)">Delete</a>
           </div>
           <br>
-        </li>
-        <li>
-          <div align="center" style="margin-top: 25%;">
-            <input type="button" class="btn btn-primary" ng-click="open(areaid, 1)" value="New Course">
-          </div>
         </li>
       </a>
     </ul>

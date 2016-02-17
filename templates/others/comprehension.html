@@ -1,4 +1,172 @@
 <form editable-form name="editableForm" shown="true">
+  <div class="row" style="margin-left: 10%; margin-right: 10%; background-color: #6eb8d7;">
+    <h2 align="center">Create Comrehension Question</h2>
+      <br/>
+    <div class="col-md-8" style="margin-left:5%;">
+      <br/>
+      <br/>
+      <div class="row">
+        <div class="col-md-4">
+          <span class="title">Question Type:</span>
+          <br/>
+          <p  align="center" ng-model="items.qtype" editable-text="items.qtype" e-name="items.qtype" e-form="editableForm" e-required>{{items.qtype}}
+          </p>
+          <br/>
+          <span class="title">Type :</span>
+          <br/>
+          <p  align="center" ng-model="items.type" editable-text="items.type" e-name="items.type" e-form="editableForm" e-required>{{items.type}}
+          </p>
+          <br/>
+          <span class="title">Grit :</span>
+          <br/>
+          <p ng-model="items.grit" editable-text="items.grit" e-form="editableForm" e-rows="10" e-cols="80">{{items.grit}}
+          </p>
+          <br/>
+          <span class="title">Level :</span>
+          <br/>
+          <p ng-model="items.level" editable-text="items.level" e-form="editableForm" e-rows="10" e-cols="80">{{items.level}}
+          </p>
+          <br/>
+          <span class="title">Diff :</span>
+          <br/>
+          <p ng-model="items.diff" editable-text="items.diff" e-form="editableForm" e-rows="10" e-cols="80">{{items.diff}}
+          </p>  
+          <br/>
+        </div>
+        <div class="col-md-4" style="margin-left:5%;">
+				<h3>Items Are:</h3>
+				  <a ui-sref="app.comprehension.views({Itemtype: itemt})" ng-repeat="item in items.question.items">
+				    <button type="button" ng-click="addQuestion(item.itype)" class="btn btn-primary">
+				      {{item.itype}}
+				    </button>
+				  </a>
+				  <br/>
+				  <br/>
+				  <select ng-model="itemtype" id="subject" name="subject" class="form-control">
+				   <option value="">Select item Type</option>
+				   <option>0</option>
+				   <option>1</option>
+				   <option>2</option>
+				  </select>
+				   <br/>
+				   <a ui-sref="app.comprehension.newviews({Itemtype: itemt})">
+				     <button type="button" ng-click="addQuestion(itemtype)" class="btn btn-primary">
+				      New
+				    </button>
+				  </a>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <br/>
+      <span class="title">Grit :</span>
+      <br/>
+      <!-- <p ng-model="item.question.items.grit" editable-text="item.question.items.grit" e-form="editableForm" e-rows="10" e-cols="80">{{item.question.items.grit}}
+      </p> -->
+      <select id="subject" ng-model="item.question.items[0].grit" e-required class="form-control">
+        <option value="">Question Grit</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>{{item.question.items[0].grit}}</option>
+      </select>
+      <br/>
+      <span class="title">Level :</span>
+      <br/>
+      <!-- <p ng-model="item.question.items.level" editable-text="item.question.items.level" e-form="editableForm" e-rows="10" e-cols="80">{{item.question.items.level}}
+      </p> -->
+      <select id="subject" ng-model="item.question.items[0].level" e-required class="form-control">
+        <option value="">Question level</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>{{item.question.items[0].level}}</option>
+      </select>
+      <br/>
+      <span class="title">Difficulty:</span>
+      <br/>
+      <!-- <p ng-model="item.question.items.difficulty" editable-text="item.question.items.difficulty" e-form="editableForm" e-rows="10" e-cols="80">{{item.question.items.difficulty}}
+      </p> -->
+      <select id="subject" ng-model="item.question.items[0].difficulty" e-required class="form-control">
+        <option value="">Question difficulty</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>{{item.question.items[0].difficulty}}</option>
+      </select>
+      <br/>
+      <span class="title">Skill:</span>
+      <br/>
+     <!--  <p ng-model="item.question.items.skill" editable-text="item.question.items.skill" e-form="editableForm" e-rows="10" e-cols="80">{{item.question.items.skill}}
+      </p> -->
+      <select id="subject" ng-model="item.question.items[0].skill" e-required class="form-control">
+        <option value="">Question Skill</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>{{item.question.items[0].skill}}</option>
+      </select>
+      <br/>
+		  <br/>
+		  <br/>
+		  <br/>
+		  <br/>
+    </div>
+  </div>
+  <br/>
+  <div ui-view></div>
+  <br/>
+  <br/>
+</form>
+
+
+<style type="text/css">
+
+form[name="editableForm"] .title {
+  display: inline-block;
+  font-weight: bold;
+  padding-top: 5px;
+  vertical-align: top;
+  min-width: 90px;
+}
+
+form[name="editableForm"] .editable {
+  display: inline-block;
+  padding-top: 5px;
+  vertical-align: top;
+}
+form[name="editableForm"] > div {
+  height: auto;
+  padding: 5px 0;
+}
+</style>
+
+<!-- <form editable-form name="editableForm" shown="true">
 	<div style="margin-left: 8%; margin-right: 20%; background-color: yellow;" class="row">
 	  <div style="margin-left: 5%;" class="col-md-4">
 	    <br/>
@@ -67,4 +235,4 @@
 	<br/>
 	<br/>
 	<br/>
-</form>
+</form> -->

@@ -10,13 +10,41 @@ app.controller('areascontroller', ['$scope','Areas','Area','$stateParams','$stat
   var Id = $stateParams.areaId;
   $rootScope.aid = Id;
 
-  $scope.deletearea = function(area){
+  /*$scope.deletearea = function(area){
+    var result = confirm("do you wonna delete?");
+    if (result) {
     $scope.allAreas.splice($scope.allAreas.indexOf(area), 1);
       Area.delete({areaId: area.id});
+    }
+  }*/
+    $scope.animationsEnabled = true;
+
+   $scope.deletearea = function(area){
+    /*var result = confirm("do you wonna delete?");
+    if (result) {*/
+    $rootScope.Area =area;
+    var modalInstance = $uibModal.open({
+      animation: $scope.animationsEnabled,
+      templateUrl: 'myareaModalContentdelete.html',
+      controller: 'areadeleteModalInstanceCtrl'
+    });
+      
+    /*}*/
   }
 
+  $scope.areagraph = function(){
+    
+      var modalInstance = $uibModal.open({
+      animation: $scope.animationsEnabled,
+      templateUrl: 'myareagraphModal.html',
+      controller: 'areadeleteModalInstanceCtrl'
+    });
+  }
+
+
+
+
  //Model Related code
-/*$scope.animationsEnabled = true;*/
 
   $scope.open = function (size, id) {
     $rootScope.size =size;
@@ -49,7 +77,7 @@ app.controller('areascontroller', ['$scope','Areas','Area','$stateParams','$stat
 
 /*Area Creating and Updating Controller*/
 
-app.controller('AreaModalInstanceCtrl', ['$scope','$rootScope','Area','Areas','$stateParams','$uibModalInstance', function($scope,$rootScope,Area,Areas,$stateParams,$uibModalInstance){
+app.controller('AreaModalInstanceCtrl', ['$scope','$rootScope','Area','Areas','$stateParams','$uibModalInstance','$uibModal', '$log','$window', function($scope,$rootScope,Area,Areas,$stateParams,$uibModalInstance,$uibModal,$log,$window){
   var Id = $stateParams.areaId;
   $rootScope.aid = Id;
   var size =$rootScope.size;
@@ -70,18 +98,25 @@ app.controller('AreaModalInstanceCtrl', ['$scope','$rootScope','Area','Areas','$
   $scope.save = function(id){
     if (id ===1) {
       $uibModalInstance.close();
+      $scope.allAreas = Areas.query();
+      $scope.allAreas.push($scope.area);
+      console.log($scope.allAreas);
       $scope.area.$save();
+      /*location.reload();*/
+      
+   /*$window.location.reload();*/
+     /*$state.reload();*/
     }
     else{
       $uibModalInstance.close();
       $scope.area.$update();
+      $window.location.reload();
     }
   };
-
+  
   $scope.cancel = function () {
     $uibModalInstance.dismiss('cancel');
   };
-
 }]);
 
 /*Course Getting and Deleting Controller*/
@@ -412,9 +447,10 @@ app.controller('skillcontroller', ['$scope','LoSkills','Skill','$stateParams','$
 
 /*Skill creating and updating controller*/
 
-app.controller('skilldetailcontroller', ['$scope','Skill','Skills','$stateParams','$rootScope','$uibModalInstance', function($scope,Skill,Skills,$stateParams,$rootScope,$uibModalInstance){
+app.controller('SkillModalInstanceCtrl', ['$scope','Skill','Skills','$stateParams','$rootScope','$uibModalInstance', function($scope,Skill,Skills,$stateParams,$rootScope,$uibModalInstance){
+  
   var Id = $stateParams.skillId;
-  var loid1 = $rootScope.loid;
+ $rootScope.loid1 = $rootScope.loid;
 
   var size =$rootScope.size;
   var skilld = $rootScope.skillid;
@@ -434,7 +470,7 @@ app.controller('skilldetailcontroller', ['$scope','Skill','Skills','$stateParams
   $scope.save = function(id){
     if (id === 1) {
       $uibModalInstance.close();
-      $scope.skill.$save({loId: loid1});
+      $scope.skill.$save({loId: $rootScope.loid1});
     }else {
       $uibModalInstance.close();
       $scope.skill.$update();
@@ -443,6 +479,36 @@ app.controller('skilldetailcontroller', ['$scope','Skill','Skills','$stateParams
 
   $scope.cancel = function () {
     $uibModalInstance.dismiss('cancel');
+  };
+  
+}]);
+
+app.controller('ckeditorcontroller',  ['$scope','Skill','Skills','$stateParams','$rootScope', function($scope,Skill,Skills,$stateParams,$rootScope){
+
+  var Id = $stateParams.skillId;
+  $scope.loid1 = $rootScope.loid;
+
+  /*var size =$rootScope.size;
+  var skilld = $rootScope.skillid;
+  $scope.id = $rootScope.id;*/
+
+  if(typeof(Id) === 'undefined'){
+    $scope.skill = new Skills({
+      loId: size
+    });
+  }
+  else{
+    $scope.skill = Skill.get({
+      skillId: Id
+    });
+  }
+
+  $scope.save = function(id){
+    if (id === 1) {
+      $scope.skill.$save({loId: loid1});
+    }else {
+      $scope.skill.$update();
+    }
   };
   
 }]);
@@ -457,6 +523,8 @@ app.controller('simplecontroller', ['$rootScope','$stateParams','$scope','Item',
 
   $scope.lessonid11= $stateParams.lessonId;
   $rootScope.lessonIds = $stateParams.lessonId2;
+  $rootScope.lid =$scope.lessonid11;
+  console.log($scope.lessonid11);
   
   // Deleting the Item as Simple question
 
@@ -588,9 +656,10 @@ $scope.createsave = function(question){
 
 /*Item creating and updating controller*/
 
-app.controller('itemcontroller', ['$rootScope','$stateParams','$scope','Item','Items','AllItems', function($rootScope,$stateParams,$scope,Item,Items,AllItems){
+app.controller('itemcontroller', ['$rootScope','$stateParams','$scope','Item','Items','AllItems','LessonLos','LoSkills','ItemMapping', function($rootScope,$stateParams,$scope,Item,Items,AllItems,LessonLos,LoSkills,ItemMapping){
  
   $scope.lessonid2 = $stateParams.lessonId1;
+  $scope.lessid =$rootScope.lid;
   var itemid = $stateParams.itemId;
 
   // the creating item for comprehension code for navigating the template
@@ -627,6 +696,32 @@ app.controller('itemcontroller', ['$rootScope','$stateParams','$scope','Item','I
       $scope.item.$update(); 
     }
   }  
+
+  $scope.los = LessonLos.query({lessonId: $scope.lessid});
+
+  console.log($scope.los);
+
+  $scope.passlo= function(loid){
+    console.log(loid);
+    $scope.skills = LoSkills.query({loId: loid});
+    console.log($scope.skills);
+  }
+
+  $scope.mapped = function(skillid,itemid){
+    console.log(skillid);
+    console.log(itemid);
+    var item1 = angular.toJson($scope.item.question.items[0]);
+    var item2 = "["+ item1 + "]";
+    $scope.item.question.items = item2;
+    console.log($scope.item);
+    $scope.item.$update({itemId:itemid,skillId:skillid});
+  }
+}]);
+
+
+app.controller("Itemmappingcontroller", ['$rootScope','$scope','Item','Items','LessonLos','LoSkills','ItemMapping', function($rootScope, $scope,Item,Items,LessonLos,LoSkills,ItemMapping){
+  $scope.lessid =$rootScope.lid;
+
 }]);
 
 /*Coursetest getting and deleting controller*/
@@ -872,9 +967,9 @@ $scope.passinglo= function(id){
 
 $scope.save= function(id){
   Adjecency.get({skillpId: $scope.skillpid,skillcId: id});
+  console.log("get saved Successfully");
   $scope.Skills = Allskillgraphs.query({skillpId: $scope.skillpid});
   console.log($scope.Skills);
-  alert("I got Skills");
 };
 
 $scope.Delete= function(skill){
@@ -911,14 +1006,14 @@ app.controller('Imageuploadcontroller', ['$scope','$stateParams','Upload', funct
 /*Uploading the Skill Image*/
   $scope.uploadPic = function(file) {
     file.upload = Upload.upload({
-      url: 'http://192.168.1.17:8080/files/upload/simage',
+      url: 'http://192.168.1.5:8080/files/upload/simage',
       data: {file: file, name: $scope.username, tag1: $scope.tag1, tag2: $scope.tag2, tag3: $scope.tag3, skillid: $scope.skillid}
     });
   }
   /*Uploading Question Image*/
   $scope.uploadPicQ = function(file, id) {
     file.upload = Upload.upload({
-      url: 'http://192.168.1.17:8080/files/upload/qimage',
+      url: 'http://192.168.1.5:8080/files/upload/qimage',
       data: {file: file, name: $scope.username, tag1: $scope.tag1, tag2: $scope.tag2, tag3: $scope.tag3, qid: id}
     });
   }
@@ -941,7 +1036,30 @@ app.controller('graphcontroller', ['$stateParams', '$scope', function($statePara
   $scope.id = $stateParams.areaId;
 }]);
 
+app.controller('viewmapeditemscontroller', ['$scope','$stateParams','AllItems', function($scope,$stateParams,AllItems){
+  $scope.skillid =$stateParams.skillId;
+  $scope.Allitems = AllItems.query();
+}]);
 
 
+app.controller('areadeleteModalInstanceCtrl', ['$rootScope','$uibModalInstance','$scope','Area','$stateParams','$window', function($rootScope,$uibModalInstance,$scope,Area,$stateParams,$window){
 
+  $scope.area = $rootScope.Area;
+  $scope.name = 'World';
+  $scope.id = $stateParams.areaId;
 
+ $scope.deletearea =function(){
+   $scope.allAreas = Areas.query();
+   $scope.allAreas.splice($scope.allAreas.indexOf($scope.area), 1);
+   $uibModalInstance.close();
+   Area.delete({areaId: $scope.area.id});
+   /*location.reload();*/
+   /*location.href ="#app/allareas";*/
+   /*$scope.apply();*/
+ }
+
+ $scope.cancel = function () {
+    $uibModalInstance.dismiss('cancel');
+  };
+
+}]);

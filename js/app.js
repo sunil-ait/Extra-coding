@@ -2,7 +2,7 @@
 
 /*Defining the Module*/
 
-var app = angular.module("app", ['app.controllers','app.services','app.graphdirective','ngFileUpload','xeditable','ui.router','ui.bootstrap','ngCkeditor']); /*Dependency Injection*/
+var app = angular.module("app", ['app.controllers','app.services','app.graphdirective','uiBreadcrumbs','ngFileUpload','xeditable','ui.router','ui.bootstrap','ngCkeditor']); /*Dependency Injection*/
 /*xeditable bootstrap theme*/
 
 app.run(function(editableOptions){
@@ -16,7 +16,10 @@ $stateProvider
   .state("app.content",{
     url: "/contentareas",
     templateUrl: 'templates/areas/contentareas.html',
-    controller: 'areascontroller'
+    controller: 'areascontroller',
+    data: {
+      displayName: 'areas',
+    }
   })
   .state("app.contentareacourses",{  
     url: "/Contentareacourses/{areaId:[0-9a-fA-F]{1,8}}",
@@ -44,6 +47,8 @@ $stateProvider
     controller: 'skillcontroller'
   })
   .state("app.contentarea",{
+    cache: false,
+    reload: true,
     url: "/allareas",
     templateUrl: 'templates/areas/allarea.html',
     controller: 'areascontroller'
@@ -136,7 +141,7 @@ $stateProvider
   .state("app.skillpopupeditckeditor",{
     url: "/editskillcontent/{skillId:[0-9a-fA-F]{1,8}}",
     templateUrl: 'templates/skills/ckeditor.html',
-    controller: 'skilldetailcontroller'
+    controller: 'ckeditorcontroller'
   })
 
   /*END HERE CIRRCULUM PLAYER*/
@@ -180,6 +185,11 @@ $stateProvider
     templateUrl: 'templates/skills/itemskills.html',
     controller : 'skillcontroller'
   })
+  .state('app.viewmapeditems',{
+    url: "/skillmappeditemlist/{skillId:[0-9a-fA-F]{1,8}}",
+    templateUrl: 'templates/skills/viewmapeditems.html',
+    controller : 'viewmapeditemscontroller'
+    })
   .state('app.itemtree',{
     url: "/itemtree",
     templateUrl: 'templates/others/itemtree.html'
@@ -190,7 +200,7 @@ $stateProvider
     })
   .state('app.itemtype',{
     url: "/itemtype/{lessonId:[0-9a-fA-F]{1,8}}",
-    templateUrl: 'templates/others/itemtype.html',
+    templateUrl: 'templates/items/rawitemlist.html',
     controller: 'simplecontroller'
   })
   .state('app.simplequestion',{
@@ -234,7 +244,10 @@ $stateProvider
   })
   .state('app',{
     url: "/app",
-    templateUrl: 'templates/others/landingpage.html'
+    templateUrl: 'templates/others/landingpage.html',
+    data: {
+      displayName: 'Home',
+    }
   })
   .state('logout',{
     url: "/logout",

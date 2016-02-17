@@ -1,10 +1,16 @@
 <div class="curriculum-listings">
+  <h3 align="center"><b>Curriculum Manager</b></h3>
   <div class="backing">
     <a class="btn btn-primary" ui-sref="app.areacourses({areaId: areaid})">Back</a>
   </div>
   <div class="container_div">
     <ul class="scrolling">
       <a>
+        <li>
+         <div align="center" style="margin-top: 25%;">
+          <input type="button" class="btn btn-primary" ng-click="open(courseid, 1)" value="New Module">
+        </div>
+        </li>
         <li ng-repeat="module in allModules">   
           <div class="curriculum-title">
           <br/>
@@ -18,11 +24,6 @@
             <a class="btn btn-primary" ng-click="deletemodule(module)">Delete</a>
           </div>
           <br>
-        </li>
-        <li>
-         <div align="center" style="margin-top: 25%;">
-          <input type="button" class="btn btn-primary" ng-click="open(courseid, 1)" value="New Module">
-        </div>
         </li>
       </a>
     </ul>

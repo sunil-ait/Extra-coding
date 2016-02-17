@@ -15,7 +15,7 @@ app.directive('myNodes', ['$compile', function ($compile) {
         {source: "Kodak", target: "Apple", type: "suit"},
         {source: "Microsoft", target: "Barnes & Noble", type: "suit"},
         {source: "Microsoft", target: "Foxconn", type: "suit"},
-        {source: "Oracle", target: "Google", type: "suit"},
+        {source: "Oracle", target: "HTC", type: "suit"},
         {source: "Apple", target: "HTC", type: "suit"},
         {source: "Microsoft", target: "Inventec", type: "suit"},
         {source: "Samsung", target: "Kodak", type: "resolved"},
@@ -30,6 +30,7 @@ app.directive('myNodes', ['$compile', function ($compile) {
         {source: "Motorola", target: "Microsoft", type: "suit"},
         {source: "Huawei", target: "ZTE", type: "suit"},
         {source: "Ericsson", target: "ZTE", type: "suit"},
+        {source: "ZTE", target: "Samsung", type: "suit"},
         {source: "Kodak", target: "Samsung", type: "resolved"},
         {source: "Apple", target: "Samsung", type: "suit"},
         {source: "Kodak", target: "RIM", type: "suit"},
@@ -44,8 +45,8 @@ app.directive('myNodes', ['$compile', function ($compile) {
         link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
       });
 
-      var width = 960,
-      height = 500;
+      var width = 550;
+      height = 400;
 
       var force = d3.layout.force()
           .nodes(d3.values(nodes))
@@ -56,7 +57,7 @@ app.directive('myNodes', ['$compile', function ($compile) {
           .on("tick", tick)
           .start();
 
-      var svg = d3.select("body").append("svg")
+      var svg = d3.select("my-nodes").append("svg")
           .attr("width", width)
           .attr("height", height);
 

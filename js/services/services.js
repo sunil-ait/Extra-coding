@@ -6,7 +6,7 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 /*Getting all areas service*/
 
 .factory('Areas', function($resource) {
-    return Areas = $resource('http://192.168.1.5:8080/area',{
+    return Areas = $resource('http://192.168.1.14:8080/area',{
       areaId: '@id'
       },{
       update : {
@@ -21,7 +21,7 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 /*Getting all courses corresponding to an area*/
 
 .factory('AreaCourse', function($resource) {
-    return AreaCourse = $resource('http://192.168.1.5:8080/area/course/:areaId',{
+    return AreaCourse = $resource('http://192.168.1.14:8080/area/course/:areaId',{
     areaId: '@id'
     },{
 	  method: 'GET'
@@ -34,7 +34,7 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 /*Getting  and deleting an area*/
 
 .factory('Area', function($resource) {
-    var Area = $resource('http://192.168.1.5:8080/area/:areaId',{
+    var Area = $resource('http://192.168.1.14:8080/area/:areaId',{
       areaId: '@id'
       },{
       update : {
@@ -51,7 +51,7 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 /*Getting all courses*/
 
 .factory('Courses', function($resource) {
-    return Courses = $resource('http://192.168.1.5:8080/area/:areaId/course',{
+    return Courses = $resource('http://192.168.1.14:8080/area/:areaId/course',{
       areaId: '@id'
       },{
       update : {
@@ -66,7 +66,7 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 /*Getting and deleting a course*/
 
 .factory('Course', function($resource) {
-    return Course = $resource('http://192.168.1.5:8080/course/:courseId',{
+    return Course = $resource('http://192.168.1.14:8080/course/:courseId',{
       courseId: '@id'
       },{
       update : {
@@ -83,7 +83,7 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 
 .factory('Coursemodules', function($resource) {
     
-    return Coursemodules = $resource('http://192.168.1.5:8080/course/module/:courseId',{
+    return Coursemodules = $resource('http://192.168.1.14:8080/course/module/:courseId',{
       courseId: '@id'
     },{
       method: 'GET'
@@ -96,7 +96,7 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 /*Getting all modules */
 
 .factory('Modules', function($resource) {
-    return Modules = $resource('http://192.168.1.5:8080/course/:courseId/module',{
+    return Modules = $resource('http://192.168.1.14:8080/course/:courseId/module',{
       courseId: '@id'
       },{
       update : {
@@ -111,7 +111,7 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 /*Getting and deleting the module*/
 
 .factory('Module', function($resource) {
-    return Module = $resource('http://192.168.1.5:8080/module/:moduleId',{
+    return Module = $resource('http://192.168.1.14:8080/module/:moduleId',{
       moduleId: '@id'
       },{
       update : {
@@ -126,7 +126,7 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 /*Getting all lessons corresponding to a module*/
 
 .factory('ModuleLessons', function($resource) {
-    return ModuleLessons = $resource('http://192.168.1.5:8080/module/lesson/:moduleId',{
+    return ModuleLessons = $resource('http://192.168.1.14:8080/module/lesson/:moduleId',{
       moduleId: '@id'
     },{
       method: 'GET'
@@ -139,7 +139,7 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 /*Getting all learning objectives corresponding to a lesson*/
 
 .factory('LessonLos', function($resource) {
-    return LessonLos = $resource('http://192.168.1.5:8080/lesson/lo/:lessonId',{
+    return LessonLos = $resource('http://192.168.1.14:8080/lesson/lo/:lessonId',{
       lessonId: '@id'
     },{
       method: 'GET'
@@ -152,7 +152,7 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 /*Getting and deleting a lesson*/
 
 .factory('Lesson', function($resource) {
-    return Lesson = $resource('http://192.168.1.5:8080/lesson/:lessonId',{
+    return Lesson = $resource('http://192.168.1.14:8080/lesson/:lessonId',{
       lessonId: '@id'
       },{
       update : {
@@ -167,7 +167,7 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 /*Getting all the lesson*/
 
 .factory('Lessons', function($resource) {
-    return Lessons = $resource('http://192.168.1.5:8080/module/:moduleId/lesson',{
+    return Lessons = $resource('http://192.168.1.14:8080/module/:moduleId/lesson',{
       moduleId: '@id'
       },{
       update : {
@@ -182,7 +182,7 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 /*Getting learning objective and deleting*/
 
 .factory('Lo', function($resource) {
-    return Lo = $resource('http://192.168.1.5:8080/lo/:loId',{
+    return Lo = $resource('http://192.168.1.14:8080/lo/:loId',{
       loId: '@id'
       },{
       update : {
@@ -197,7 +197,7 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 /*Getting all learning objectives*/
 
 .factory('Los', function($resource) {
-    return Los = $resource('http://192.168.1.5:8080/lesson/:lessonId/lo',{
+    return Los = $resource('http://192.168.1.14:8080/lesson/:lessonId/lo',{
       lessonId: '@id'
       },{
       update : {
@@ -212,7 +212,7 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 /*Getting all skills corresponding to a skill*/
 
 .factory('LoSkills', function($resource) {
-    return LoSkills = $resource('http://192.168.1.5:8080/lo/skill/:loId',{
+    return LoSkills = $resource('http://192.168.1.14:8080/lo/skill/:loId',{
       loId: '@id'
     },{
       method: 'GET'
@@ -225,7 +225,7 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 /*Getting skill and deleting skills */
 
 .factory('Skill', function($resource) {
-    return Skill = $resource('http://192.168.1.5:8080/skill/:skillId',{
+    return Skill = $resource('http://192.168.1.14:8080/skill/:skillId',{
       skillId: '@id'
       },{
       update : {
@@ -240,7 +240,7 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 /*Getting all skills*/
 
 .factory('Skills', function($resource) {
-    return Skills = $resource('http://192.168.1.5:8080/lo/:loId/skill',{
+    return Skills = $resource('http://192.168.1.14:8080/lo/:loId/skill',{
       loId: '@id'
       },{
       update : {
@@ -255,7 +255,7 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 /*Getting an Item and Deleting an Item*/
 
 .factory('Item', function($resource) {
-    return Items = $resource('http://192.168.1.5:8080/item/:itemId',{
+    return Items = $resource('http://192.168.1.14:8080/item/:itemId',{
       itemId: '@id'
       },{
       update : {
@@ -270,7 +270,7 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 /*Getting all Items corresponding to lesson*/
 
 .factory('Items', function($resource) {
-  return Items = $resource('http://192.168.1.5:8080/lesson/:lessonId/item',{
+  return Items = $resource('http://192.168.1.14:8080/lesson/:lessonId/item',{
     lessonId: '@id'
     },{
     update : {
@@ -282,22 +282,36 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
   };  
 })
 
+.factory('ItemMapping', function($resource) {
+    return ItemMapping = $resource('http://192.168.1.14:8080/item/:itemId/skill/:skillId',{
+      itemId: '@id',
+      skillId: '@id'
+      },{
+      update : {
+        method: 'PUT'
+      }
+   })
+   ItemMapping.prototype.isNew = function() {
+    return (typeof (this.id) === 'undefined');
+  };  
+})
+
 /*Getting all items*/
 
 .factory('AllItems', function($resource) {
-  return AllItems = $resource('http://192.168.1.5:8080/item');  
+  return AllItems = $resource('http://192.168.1.14:8080/item');  
 })
 
 /*Getting all course test*/
 
 .factory('AllCourseTests', function($resource) {
-  return AllCourseTests = $resource('http://192.168.1.5:8080/course/test');
+  return AllCourseTests = $resource('http://192.168.1.14:8080/course/test');
 })
 
 /*Getting Course Test and deleting test*/
 
 .factory('Test', function($resource) {
-    return Test = $resource('http://192.168.1.5:8080/test/:TestId',{
+    return Test = $resource('http://192.168.1.14:8080/test/:TestId',{
       TestId: '@id'
       },{
       update : {
@@ -312,7 +326,7 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 /*Getting all Course Tests*/
 
 .factory('Tests', function($resource) {
-    return Tests = $resource('http://192.168.1.5:8080/course/:courseId/test',{
+    return Tests = $resource('http://192.168.1.14:8080/course/:courseId/test',{
       courseId: '@id'
       },{
       update : {
@@ -327,13 +341,13 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 /*Getting all Modules tests*/
 
 .factory('AllModuleTests', function($resource) {
-  return AllModuleTests = $resource('http://192.168.1.5:8080/module/test');
+  return AllModuleTests = $resource('http://192.168.1.14:8080/module/test');
 })
 
 /*Getting module test and deleting test*/
 
 .factory('MTest', function($resource) {
-    return Test = $resource('http://192.168.1.5:8080/test/:TestId',{
+    return Test = $resource('http://192.168.1.14:8080/test/:TestId',{
       TestId: '@id'
       },{
       update : {
@@ -348,7 +362,7 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 /*Getting all test corresponding to module*/
 
 .factory('MTests', function($resource) {
-    return MTests = $resource('http://192.168.1.5:8080/module/:moduleId/test',{
+    return MTests = $resource('http://192.168.1.14:8080/module/:moduleId/test',{
       moduleId: '@id'
       },{
       update : {
@@ -362,13 +376,13 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 
 /*Getting all lesson test*/
 .factory('AllLessonTests', function($resource) {
-  return AllLessonTests = $resource('http://192.168.1.5:8080/lesson/test');
+  return AllLessonTests = $resource('http://192.168.1.14:8080/lesson/test');
 })
 
 /*Getting lesson test and deleting */
 
 .factory('LTest', function($resource) {
-    return LTest = $resource('http://192.168.1.5:8080/test/:TestId',{
+    return LTest = $resource('http://192.168.1.14:8080/test/:TestId',{
       TestId: '@id'
       },{
       update : {
@@ -383,7 +397,7 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 /*Getting all testes corresponding to lesson*/
 
 .factory('LTests', function($resource) {
-    return Tests = $resource('http://192.168.1.5:8080/lesson/:lessonId/test',{
+    return Tests = $resource('http://192.168.1.14:8080/lesson/:lessonId/test',{
       lessonId: '@id'
       },{
       update : {
@@ -398,7 +412,7 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 /*Getting testitem corresponding to test*/
 
 .factory('TestItems', function($resource) {
-    return TestItems = $resource('http://192.168.1.5:8080/test/:TestId/testitem',{
+    return TestItems = $resource('http://192.168.1.14:8080/test/:TestId/testitem',{
       TestId: '@id'
       },{
       update : {
@@ -413,7 +427,7 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 /*Getting all coursetest item*/
 
 .factory('CourseTestItems', function($resource) {
-    return CourseTestItems = $resource('http://192.168.1.5:8080/testitem',{
+    return CourseTestItems = $resource('http://192.168.1.14:8080/testitem',{
       TestId: '@id'
       },{
       update : {
@@ -428,7 +442,7 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 /*Getting test item and deleting*/
 
 .factory('CourseTestItem', function($resource) {
-    return CourseTestItem = $resource('http://192.168.1.5:8080/testitem/:ItemId',{
+    return CourseTestItem = $resource('http://192.168.1.14:8080/testitem/:ItemId',{
       ItemId: '@id'
       },{
       update : {
@@ -443,7 +457,7 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 /*Coursetestitem post means publish the test*/
 
 .factory('CoursePostTestItem', function($resource) {
-    return CoursePostTestItem = $resource('http://192.168.1.5:8080/publish/test/:TestId',{
+    return CoursePostTestItem = $resource('http://192.168.1.14:8080/publish/test/:TestId',{
       TestId: '@id'
       },{
       update : {
@@ -458,7 +472,7 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 /*Adjecency of Skill Service*/
 
 .factory('Adjecency', function($resource) {
-    return Adjecency = $resource('http://192.168.1.5:8080/skillp/:skillpId/skillc/:skillcId',{
+    return Adjecency = $resource('http://192.168.1.14:8080/skillp/:skillpId/skillc/:skillcId',{
       skillpId: '@id',
       skillcId: '@id'
       },{
@@ -475,7 +489,7 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 /*Direct All Skills getting Service*/
 
 .factory('Allskillgraphs', function($resource) {
-    return Allskillgraphs = $resource('http://192.168.1.5:8080/skill/skillgraph/:skillpId',{
+    return Allskillgraphs = $resource('http://192.168.1.14:8080/skill/skillgraph/:skillpId',{
       skillpId: "@id"
     },{
       method: 'GET'
@@ -486,7 +500,7 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 })
 
 .factory('SkillgraphDelete', function($resource) {
-    return SkillgraphDelete = $resource('http://192.168.1.5:8080/skillp/:skillpId/skillc/:skillcId',{
+    return SkillgraphDelete = $resource('http://192.168.1.14:8080/skillp/:skillpId/skillc/:skillcId',{
       skillpId: "@id",
       skillcId: "@id"
     },{
@@ -500,7 +514,7 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 /*Uploading the file service*/
 
 .factory('Allimages', function($resource) {
-    return Allimages = $resource('http://192.168.1.5:8080/files/image',{
+    return Allimages = $resource('http://192.168.1.14:8080/files/image',{
       },{
       update : {
       method: 'GET'
@@ -514,7 +528,7 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
 /*Searching image service*/
 
 .factory('ImageSearch', function($resource) {
-    return ImageSearch = $resource('http://192.168.1.5:8080/files/search/image/tag/:tagname',{
+    return ImageSearch = $resource('http://192.168.1.14:8080/files/search/image/tag/:tagname',{
       tagname: '@id'
       },{
       update : {
@@ -529,7 +543,7 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
  /*Publishing the Images to Server*/
 
 .factory('ImagePublish', function($resource) {
-    return ImagePublish = $resource('http://192.168.1.5:8080/files/publish/image/:imageId',{
+    return ImagePublish = $resource('http://192.168.1.14:8080/files/publish/image/:imageId',{
       imageId: '@id'
       },{
       update : {
@@ -540,5 +554,3 @@ angular.module("app.services", ["ngResource"])  /*ng-resource as dependency Inje
       return (typeof (this.id) === 'undefined');
     };  
 })
-
-/*Publishing the Tests service*/

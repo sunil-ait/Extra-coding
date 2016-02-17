@@ -1,41 +1,69 @@
+<div class="backing">
+  <a class="btn btn-primary" ui-sref="app.loskills({loId: loid})">Back</a>
+</div>
 <form name="adjecencies" class="management" novalidate>
-  <div class="backing">
-    <a class="btn btn-primary" ui-sref="app.loskills({loId: loid})">Back</a>
-  </div>
   <label class="control-label" align="center"><h3><b>Adjecencies</b></h3></label>
   <br/>
   <br/>
   <div class="row">
     <div class="col-md-4">
-      <select ng-model="areaid" ng-change="passingarea(areaid)"class="form-control">
-        <option value="">Select Area</option>
-        <option ng-repeat="area in areas">{{area.id}}</option>
-      </select>
-      <br/>
-      <select ng-model="courseid" ng-change="passingcourse(courseid)" class="form-control">
-        <option value="">Select Course</option>
-        <option ng-repeat="course in courses">{{course.id}}</option>
-      </select>
-      <br/>
-      <select ng-model="moduleid" ng-change="passingmodule(moduleid)" class="form-control">
+      <span ng-repeat="area in areas">
+        <select ng-model="areaid" class="form-control">
+          <option value="">Select Area</option>
+          <option>{{area.id}}</option>
+        </select>
+        <br/>
+        <button ng-click="passingarea(areaid)" class="btn btn-success">Get Courses</button>
+        <br/>
+        <br/>
+      </span>
+      <span>
+        <select ng-model="courseid" class="form-control">
+          <option value="">Select Course</option>
+          <option ng-repeat="course in courses">{{course.id}}</option>
+        </select>
+        <br/>
+        <button ng-click="passingcourse(courseid)" class="btn btn-success">Get Modules</button>
+        <br/>
+        <br/>
+      </span>
+      <span>
+      <select ng-model="moduleid" class="form-control">
         <option value="">Select Module</option>
         <option ng-repeat="module in modules">{{module.id}}</option>
       </select>
-      <br/>
-      <select ng-model="lessonid" ng-change="passinglesson(lessonid)" class="form-control">
+       <br/>
+        <button ng-click="passingmodule(moduleid)" class="btn btn-success">Get Lessons</button>
+        <br/>
+        <br/>
+      </span>
+      <span>
+      <select ng-model="lessonid" class="form-control">
         <option value="">Select Lesson</option>
         <option ng-repeat="lesson in lessons">{{lesson.id}}</option>
       </select>
       <br/>
-      <select ng-model="loid" ng-change="passinglo(loid)"class="form-control">
+      <button ng-click="passinglesson(lessonid)" class="btn btn-success">Get Los</button>
+        <br/>
+        <br/>
+      </span>
+      <span>
+      <select ng-model="loid" class="form-control">
         <option value="">Select LO</option>
         <option ng-repeat="lo in los">{{lo.id}}</option>
       </select>
       <br/>
-      <select ng-model="skillid" ng-change="passingskill(skillid)" class="form-control">
+      <button ng-click="passinglo(loid)" class="btn btn-success">Get Skills</button>
+        <br/>
+        <br/>
+      </span>
+      <span>
+      <select ng-model="skillid" class="form-control">
         <option value="">Select Skill</option>
         <option ng-repeat="skill in skills">{{skill.id}}</option>
-      </select>    
+      </select>
+        <br/>
+      </span>    
     </div>
     <div class="col-md-6">
       <select id="myselection"  class="form-control" multiple="true" ng-model="selectedColors" ng-options="s.skillc for s in Skills">
