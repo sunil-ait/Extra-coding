@@ -1,0 +1,86 @@
+<form editable-form name="editableForm">
+   <div style="margin-left: 8%; margin-right: 20%; background-color: yellow;">
+    <br/>
+    <div style="margin-left: 5%;">
+    <span class="title">Question :</span>
+    <br/>
+    <br/>
+    <p editable-text="datajsons[0].questions[0].question" e-name="datajsons[0].questions[0].question" e-form="editableForm" e-required>{{datajsons[0].questions[0].question}}
+    </p>
+    <br/>
+    <br/>
+    <span class="title">Options :</span>
+    <br>
+    <br/>   
+    <table border="0">
+      <tr>
+      <td width="30%">
+        <p editable-text = "datajsons[0].questions[0].option1" e-form="editableForm">
+        <input  type="radio" name="option" value="{{datajsons[0].questions[0].option1}}"/>&nbsp;&nbsp;<b>A.</b>&nbsp; {{datajsons[0].questions[0].option1}}
+            </p>
+      </td>
+      </tr>
+      <tr>
+      <td>
+        <p editable-text="datajsons[0].questions[0].option2" e-form="editableForm">
+        <input type="radio" name="option" value="{{datajsons[0].questions[0].option2}}" />&nbsp;&nbsp;<b>B.</b>&nbsp; {{datajsons[0].questions[0].option2}}
+        </p>
+      </td>
+      </tr>
+      <tr>
+      <td>
+        <p editable-text="datajsons[0].questions[0].option3" e-form="editableForm">
+        <input type="radio" name="option" value="{{datajsons[0].questions[0].option3}}" />&nbsp;&nbsp;<b>C.</b>&nbsp; {{datajsons[0].questions[0].option3}}
+        </p>
+      </td>
+      </tr>
+      <tr>
+      <td>
+        <p editable-text="datajsons[0].questions[0].option4" e-form="editableForm">
+        <input type="radio" name="option" value="{{datajsons[0].questions[0].option4}}" />&nbsp;&nbsp;<b>D.</b>&nbsp; {{datajsons[0].questions[0].option4}}
+        </p>    
+      </td>
+      </tr>
+    </table>
+    <br/>
+    <span class="title">Answer :</span>
+    <p editable-text="datajsons[0].questions[0].answer" e-form="editableForm">{{datajsons[0].questions[0].answer}}
+    </p>
+    <br/>
+    <br/>
+    <span class="title">Solution :</span>
+    <p editable-textarea="datajsons[0].questions[0].solution" e-form="editableForm" e-rows="10" e-cols="80">{{datajsons[0].questions[0].solution}}
+    </p>
+    <br/>
+    <br/>
+    <span class="title">Grit :</span>
+    <p editable-text="datajsons[0].questions[0].grit" e-form="editableForm">{{datajsons[0].questions[0].grit}}
+    </p>
+    <br/>
+    <br/>
+    <span class="title">Level :</span>
+    <p editable-text="datajsons[0].questions[0].level" e-form="editableForm">{{datajsons[0].questions[0].level}}
+    </p>
+    <br/>
+    <br/>
+    <button type="button" class="btn btn-primary" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
+     Edit
+    </button>
+        <span ng-show="editableForm.$visible">
+          <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
+            Save
+          </button>
+          <button type="button" class="btn btn-Danger" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+            Cancel
+          </button>
+          <button type="button" class="btn btn-primary" ng-click="editableForm.$show()" ng-show="editableForm.$visible">
+            Publish
+          </button>
+        </span>
+        <br/>
+        <br/>
+      </div>
+  </div>
+   <br/>
+   <br/>
+</form>

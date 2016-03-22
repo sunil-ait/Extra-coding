@@ -1,5 +1,10 @@
+<h3 align="center"><b>Content Manager</b></h3>
+  <div class="backing">
+    <a class="btn btn-primary" ui-sref="app.dashboard">Back</a>  
+  </div>
+  <br/>
 <form  nonvalidate role="form" class="management">  
-  <label class="control-label" align="center"><h2><b>Skill Content</b></h2></label>
+  <label class="control-label" align="center"><h2><b>Content</b></h2></label>
   <br/>
   <div class="form-group" ng-class="{ 'has-error' : createarea.skill.$invalid && !createarea.skill.$pristine }">
   <textarea ckeditor="editorOptions" ckeditor  name="editor" ng-model="skill.content" ng-minlength="30" ng-maxlength="100" required>
@@ -10,9 +15,7 @@
    <br/>
   <br/>
    <div class="controls">
-    <a ui-sref="app.content">
-      <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="save(2)">Save</button>
-    <a>
+      <button type="button" ng-click="save(2)" ui-sref="app.contentloskills({loId: loid1})" class="btn btn-primary">Save</button>
    </div>
   <br/>
   <br/>

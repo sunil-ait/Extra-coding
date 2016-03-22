@@ -1,0 +1,149 @@
+<div style="background-color: #6eb8b7; margin-left: 3%; margin-right: 5%;">
+  <div style="margin-left: 3%;">                  
+    <ul class="nav nav-tabs" role="tablist">
+      <li ui-sref-active="active" class="active"><a ui-sref="app.coursemodules" class="btn btn-info">Editor</a></li>
+      <li ui-sref-active="active" class="active" style="background-color: #6eb8b7;"><a ui-sref="app.curriculum" class="btn btn-info">Player</a></li>        
+    </ul>
+  </div>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-4 sidebar">
+          <div ng-controller="dashboardcontroller" class="well sidebar-nav">
+            <div ui-tree id="tree-root">
+              <ol ui-tree-nodes ng-model="data">
+                <li ng-repeat="node in allModules" ui-tree-node ng-include="'nodes_renderer.html'">
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col">
+          <div class="">
+            <div id="scrollableContent">
+              <div ui-view></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ </div>
+  <!--/.fluid-container-->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/ng-template" id="nodes_renderer.html">
+    <div  class= "myeditview" ui-tree-handle class="tree-node tree-node-content">
+      <a class="btn btn-success btn-xs" ng-if="node.nodes.length > 0" data-nodrag ng-click="toggle(this)">
+        <span class="glyphicon"
+          ng-class="{
+          'glyphicon-chevron-right': collapsed,
+          'glyphicon-chevron-down': !collapsed
+          }">
+        </span>
+      </a>
+
+      <a editable-text="node.title" e-form="textBtnForm">{{node.title || "empty"}}</a>
+
+      <button class="btn btn-default" ng-click="textBtnForm.$show()" ng-hide="textBtnForm.$visible">
+        edit
+      </button>
+       <a id= "properalign" class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="remove(this)">
+        <span class="glyphicon glyphicon-remove"></span>
+       </a>
+
+      <a id= "properalign" class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="newSubItem(this)" style="margin-right: 8px;" >
+        <span class="glyphicon glyphicon-plus"></span>
+      </a>
+    </div>
+
+    <ol ui-tree-nodes  ng-model="nodeData" ng-class="{hidden: collapsed}">
+      <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer.html'">
+      </li>
+    </ol>
+
+  </script>
+  <br/>
+  <br/>
+  <style type="text/css">
+    .container-fluid{
+      margin-left: 3%;
+    }
+    .container{
+      margin-left: 20%;
+      margin-bottom: 5%; 
+    }
+    .myeditview{
+      height: 11%;
+    }
+    #properalign{
+      margin-top: 10px;
+    }
+  </style>
+
+
+
+  </div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span3">
+                <div ng-controller="BasicExampleCtrl" class="well sidebar-nav">
+                    <div ui-tree id="tree-root">
+      <ol ui-tree-nodes ng-model="data">
+        <li ng-repeat="node in data" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+      </ol>
+    </div>
+                </div>
+               
+                <!--/.well -->
+            </div>
+            <!--/span-->
+            <div class="span9">
+                <div >
+                    
+    
+
+  
+
+<div class="container">
+  <div id="scrollableContent" class="contentArea" >
+ <div ui-view>
+   
+    </div>
+</div>
+
+
+
+                </div>
+
+                <!--/row-->
+
+                <!--/row-->
+            </div>
+            <!--/span-->
+        </div>
+        <!--/row-->
+        <hr>
+        
+    </div>
+</div>
+    <!--/.fluid-container-->
+    <!-- Placed at the end of the document so the pages load faster -->
+   <script type="text/ng-template" id="nodes_renderer.html">
+  <div ui-tree-handle class="tree-node tree-node-content">
+    <a class="btn btn-success btn-xs" ng-if="node.nodes && node.nodes.length > 0" data-nodrag ng-click="toggle(this)"><span
+        class="glyphicon"
+        ng-class="{
+          'glyphicon-chevron-right': collapsed,
+          'glyphicon-chevron-down': !collapsed
+        }"></span></a>
+    {{node.title}}
+    <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="remove(this)"><span
+        class="glyphicon glyphicon-remove"></span></a>
+    <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="newSubItem(this)" style="margin-right: 8px;"><span
+        class="glyphicon glyphicon-plus"></span></a>
+  </div>
+  <ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
+    <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer.html'">
+    </li>
+  </ol>
+</script>

@@ -2,20 +2,83 @@
 
 /*Defining the Module*/
 
-var app = angular.module("app", ['app.controllers','app.services','app.graphdirective','ngFileUpload','xeditable','ui.router','ui.bootstrap','ngCkeditor']); /*Dependency Injection*/
-/*xeditable bootstrap theme*/
-
-app.run(function(editableOptions){
-  editableOptions.theme = 'bs3';
-});
+var app = angular.module("app", ['app.controllers','app.services','app.graphdirective','uiBreadcrumbs','ngFileUpload','xeditable','ui.router','ui.bootstrap']); /*Dependency Injection*/
 
 /*Configuration of UI-Routing*/
 
 app.config(function($stateProvider,$urlRouterProvider){
 $stateProvider
+  .state("app.organization",{
+      url: "/allorganizations",
+      templateUrl: 'templates/organization/allorganization.html',
+      controller: 'organizationscontroller'
+    })
+    .state("app.suborganization",{
+      url: "/allsuborganizations/{orgId:[0-9a-fA-F]{1,8}}",
+      templateUrl: 'templates/suborganization/allsuborganization.html',
+      controller: 'suborganizationscontroller'
+    })
+
+    .state("app.school",{
+      url: "/allschools/{suborgId:[0-9a-fA-F]{1,8}}",
+      templateUrl: 'templates/schools/allschools.html',
+      controller: 'schoolcontroller'
+    })
+
+    .state("app.batch",{
+      url: "/allclassrooms/{schoolId:[0-9a-fA-F]{1,8}}",
+      templateUrl: 'templates/batches/allbatches.html',
+      controller: 'Batchcontroller'
+    }) 
+
+    .state("app.classroom",{
+      url: "/allbatches/{batcheId:[0-9a-fA-F]{1,8}}",
+      templateUrl: 'templates/classrooms/allclassroom.html',
+      controller: 'Classroomcontroller'
+    })
+
+   .state("app.permissions",{
+      url: "/allpermissions",
+      templateUrl: 'templates/permissions/PermissionList.html',
+      controller: 'Permissioncontroller'
+    })
+
+    .state("app.permission",{
+      url: "/Newpermissions",
+      templateUrl: 'templates/permissions/Newpermission.html',
+      controller: 'Permissiondetailcontroller'
+    })
+
+    .state("app.PermissionEdit",{
+      url: "/Editpermissions/{permissionId:[0-9a-fA-F]{1,8}}",
+      templateUrl: 'templates/permissions/PermissionEdit.html',
+      controller: 'Permissiondetailcontroller'
+    })
+
+    .state("app.roles",{
+      url: "/allroles",
+      templateUrl: 'templates/roles/rolelist.html',
+      controller: 'Rolecontroller'
+    })
+
+    .state("app.role",{
+      url: "/Newrole",
+      templateUrl: 'templates/roles/Newrole.html',
+      controller: 'simplecontroller'
+    })
+
+    .state("app.roleedit",{
+      url: "/Editrole",
+      templateUrl: 'templates/roles/roleedit.html',
+      controller: 'simplecontroller'
+    })
+
+
+
+
   .state("app.content",{
     url: "/contentareas",
-    templateUrl: 'templates/areas/contentareas.html',
+    templateUrl: 'templates/organization/contentareas.html',
     controller: 'areascontroller'
   })
   .state("app.contentareacourses",{  
@@ -43,36 +106,11 @@ $stateProvider
     templateUrl: 'templates/skills/contentskills.html',
     controller: 'skillcontroller'
   })
-  .state("app.contentarea",{
-    url: "/allareas",
-    templateUrl: 'templates/areas/allarea.html',
-    controller: 'areascontroller'
-  })
-  /*.state('app.areapopup',{
-    url: "/newarea",
-    templateUrl: 'templates/areas/areapopup.html',
-    controller: 'areadetailcontroller'
-  })*/
-  /*.state('app.areapopupedit',{
-    url: "/editarea/{areaId:[0-9a-fA-F]{1,8}}",
-    templateUrl: 'templates/areas/editareapopup.html',
-    controller: 'areadetailcontroller'
-  })*/
   .state("app.areacourses",{  
     url: "/allcourses/{areaId:[0-9a-fA-F]{1,8}}",
     templateUrl: 'templates/courses/allcourse.html',
     controller: 'coursescontroller'
   })
-  /*.state("app.coursepopup",{  
-    url: "/newcourses",
-    templateUrl: 'templates/courses/coursepopup.html',
-    controller: 'coursedetailcontroller'
-  })
-  .state("app.coursepopupedit",{
-    url: "/editcourses/{courseId:[0-9a-fA-F]{1,8}}",
-    templateUrl: 'templates/courses/editcoursepopup.html',
-    controller: 'coursedetailcontroller'
-  })*/
   .state("app.coursemodules",{  
     url: "/allmodules/{courseId:[0-9a-fA-F]{1,8}}",
     templateUrl: 'templates/modules/allmodule.html',
@@ -136,23 +174,11 @@ $stateProvider
   .state("app.skillpopupeditckeditor",{
     url: "/editskillcontent/{skillId:[0-9a-fA-F]{1,8}}",
     templateUrl: 'templates/skills/ckeditor.html',
-    controller: 'skilldetailcontroller'
+    controller: 'ckeditorcontroller'
   })
-
-  /*END HERE CIRRCULUM PLAYER*/
-
-
-  /*NOW ITEM MANAGHER STARTING*/
-
-/*.state('app.itemarea',{
-      url: "/itemareas",
-      templateUrl: 'templates/areas/itemareas.html',
-      controller : 'areascontroller'
-    })*/
-
   .state('app.item',{
     url: "/itemareas",
-    templateUrl: 'templates/areas/itemareas.html',
+    templateUrl: 'templates/organization/itemareas.html',
     controller : 'areascontroller'
   })
   .state('app.itemcourses',{
@@ -180,6 +206,11 @@ $stateProvider
     templateUrl: 'templates/skills/itemskills.html',
     controller : 'skillcontroller'
   })
+  .state('app.viewmapeditems',{
+    url: "/skillmappeditemlist/{skillId:[0-9a-fA-F]{1,8}}",
+    templateUrl: 'templates/skills/viewmapeditems.html',
+    controller : 'viewmapeditemscontroller'
+    })
   .state('app.itemtree',{
     url: "/itemtree",
     templateUrl: 'templates/others/itemtree.html'
@@ -190,7 +221,7 @@ $stateProvider
     })
   .state('app.itemtype',{
     url: "/itemtype/{lessonId:[0-9a-fA-F]{1,8}}",
-    templateUrl: 'templates/others/itemtype.html',
+    templateUrl: 'templates/items/rawitemlist.html',
     controller: 'simplecontroller'
   })
   .state('app.simplequestion',{
@@ -234,7 +265,10 @@ $stateProvider
   })
   .state('app',{
     url: "/app",
-    templateUrl: 'templates/others/landingpage.html'
+    templateUrl: 'templates/landingpage.html',
+    data: {
+      displayName: 'Home',
+    }
   })
   .state('logout',{
     url: "/logout",
@@ -242,11 +276,8 @@ $stateProvider
     })
   .state('app.dashboard',{
     url: "/dashboard",
-    templateUrl: 'templates/others/Dashboard.html'
+    templateUrl: 'templates/Dashboard.html'
   })
-  
-  /*TEST MANAGER STRARTING*/
-
   .state('app.test',{
     url: "/alltestareas",
     templateUrl: 'templates/test/allareas.html',
@@ -358,7 +389,7 @@ $stateProvider
   })
   .state("app.areagraph",{
     url: "/areagraph/{areaId:[0-9a-fA-F]{1,8}}",
-    templateUrl: 'templates/areas/areagraph.html',
+    templateUrl: 'templates/organization/areagraph.html',
     controller: 'graphcontroller'
   })
   .state("app.imagearea",{
@@ -407,51 +438,4 @@ $stateProvider
     controller: 'imagesearchingcontroller'
   })
 
-  /*Its for videos*/
-
-  .state("app.videoareas",{
-    url: "/videoareas",
-    templateUrl: 'templates/video/videoareas.html',
-    controller: 'areascontroller'
-  })
-  .state("app.videoareacourses",{
-    url: "/videocourses/{areaId:[0-9a-fA-F]{1,8}}",
-    templateUrl: 'temlpates/video/imagvideocourses.html',
-    controller: 'coursescontroller'
-  })
-  .state("app.videocoursemodules",{
-    url: "/videocoursemodules/{courseId:[0-9a-fA-F]{1,8}}",
-    templateUrl: 'templates/video/videocoursemodules.html',
-    controller: 'modulecontroller'
-  })
-  .state("app.videomodulelessons",{
-    url: "/videomodulelessons/{moduleId:[0-9a-fA-F]{1,8}}",
-    templateUrl: 'templates/video/videomodulelessons.html',
-    controller: 'lessoncontroller'
-  })
-  .state("app.videolessonlos",{
-    url: "/videolessonlos/{lessonId:[0-9a-fA-F]{1,8}}",
-    templateUrl: 'templates/video/videolessonlos.html',
-    controller: 'locontroller'
-  })
-  .state("app.videoloskills",{
-    url: "/videoloskills/{loId:[0-9a-fA-F]{1,8}}",
-    templateUrl: 'templates/video/videoloskills.html',
-    controller: 'skillcontroller'
-  })
-  .state("app.videolisting",{
-    url: "/videolisting/{skillId:[0-9a-fA-F]{1,8}}",
-    templateUrl: 'templates/video/videolisting.html',
-    controller: 'videolistingcontroller'
-  })
-  .state("app.videos",{
-    url: "/videos/{skillId:[0-9a-fA-F]{1,8}}",
-    templateUrl: 'templates/video/imagemanager.html',
-    controller: 'videouploadcontroller'
-  })
-  .state("app.videosearchresult",{
-    url: "/videosearchresults/{skillId:[0-9a-fA-F]{1,8}}",
-    templateUrl: 'templates/video/videosearchresults.html',
-    controller: 'videosearchingcontroller'
-  })
 });

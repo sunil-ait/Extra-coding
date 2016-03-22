@@ -1,0 +1,71 @@
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" align="center"><b>New Course</b></h4>
+        </div>
+        <div class="modal-body">
+          <div>
+            <form role="form">
+            <br/>
+            <br/>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-3" >
+                  <div class="form-group">
+                    <select id="subject" name="subject" class="form-control">
+                       <option value="na" selected="">Select Areas</option>
+                       <option ng-repeat="area in allAreas" value="na" selected="" ng-model="id">{{area.title}}</option>
+                    </select>         
+                  </div>
+                </div>
+              </div>
+              <div class="row"  >
+                <div class="col-lg-3" >
+                  <div class="form-group">
+                   <select id="subject" name="subject" class="form-control">
+                     <option value="na" selected="">Select Course</option>
+                     <option ng-repeat="areacourse in areacourses" value="">{{areacourse.title}}</option>
+                   </select>         
+                  </div>
+                </div>
+              </div>
+              <br/>
+              <div class="row">
+                <div class="col-lg-3" >
+                  <div class="form-group">  
+                    <span>Description</span>
+                    <br/>
+                    <br/>
+                    <textarea name="message" id="message" class="form-control" rows="6"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-3" >
+                  <a ui-sref="app.dashboard">
+                      <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+                  <a>
+                </div>
+              </div>
+              <br/>
+              <br/>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style type="text/css">
+  .container{
+    margin-left: 25%;
+  }
+</style>

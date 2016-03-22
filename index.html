@@ -1,11 +1,11 @@
 <!DOCTYPE html>  <!-- Document is defined -->
 <html ng-app="app"> <!-- Initiating of the App -->
   <head>
-    <title>Publisher</title>
+    <title>Admin-App</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1"/>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
-    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/> -->
+    <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"/> -->
 
     <!--ALL CSS FILES-->
 
@@ -19,15 +19,15 @@
 
     <!-- Ckeditor and Bootstrap CSS FILE -->
 
-    <link rel='stylesheet' href='bower_components/ckeditor/ng-ckeditor-master/ng-ckeditor.css'>
+    <!-- <link rel='stylesheet' href='bower_components/ckeditor/ng-ckeditor-master/ng-ckeditor.css'> -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css">
 
     <!-- ALL JS FILE-->
 
     <!-- Ckeditor Files -->
-    <script src="library/modernizr.js" type="text/javascript"></script>
+   <!--  <script src="library/modernizr.js" type="text/javascript"></script>
     <script src="library/ckeditor_4.5.1_3b70c5ea9efc/ckeditor/ckeditor.js"></script>
-    <script src="library/ckeditor_4.5.1_3b70c5ea9efc/ckeditor/config.js"></script>
+    <script src="library/ckeditor_4.5.1_3b70c5ea9efc/ckeditor/config.js"></script> -->
     
     <!-- BOWER FILES  -->
 
@@ -36,12 +36,12 @@
     <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/ng-ckeditor/jquery-1.9.1.min.js"></script>
-    <script src="bower_components/ckeditor/ng-ckeditor-master/ng-ckeditor.js"></script>
-    <script src="bower_components/ckeditor/ng-ckeditor-master/ng-ckeditor.min.js"></script>
-    <script src="bower_components/ng-ckeditor/libs/ckeditor/ckeditor.js"></script>
-    <script src="bower_components/ckeditor/modernizr.js"></script>
+    <!-- <script src="bower_components/ckeditor/ng-ckeditor-master/ng-ckeditor.js"></script>
+    <script src="bower_components/ckeditor/ng-ckeditor-master/ng-ckeditor.min.js"></script> -->
+    <!-- <script src="bower_components/ng-ckeditor/libs/ckeditor/ckeditor.js"></script> -->
+    <!-- <script src="bower_components/ckeditor/modernizr.js"></script>
     <script src="bower_components/ckeditor/02-directive.js"></script>
-    <script src="bower_components/ng-ckeditor/config.js"></script> 
+    <script src="bower_components/ng-ckeditor/config.js"></script>  -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular-resource.js"></script>
     <script src="bower_components/lib/angular-deckgrid.min.js"></script>
     <script src="bower_components/lib/jquery-1.11.3.min.js"></script>
@@ -54,6 +54,7 @@
     <script src="js/controllers/controllers.js"></script>
     <script src="js/services/services.js"></script>
     <script src="js/directives/graphdirective.js"></script>
+    <script src="js/directives/uiBreadcrumbs.js"></script>
     
     <!-- ONLINE ACCESSED LIBRARIES -->
     
@@ -77,8 +78,14 @@
     <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.1.2.js"></script>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Brudcrum Directive////// -->
+
+    <link data-require="bootstrap-css@3.1.1" data-semver="3.1.1" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+    <script data-require="angular.js@1.2.15" data-semver="1.2.15" src="http://code.angularjs.org/1.2.15/angular.js"></script>
+    <script data-require="ui-router@*" data-semver="0.2.8" src="http://angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
   </head>
-  <body style="background-color: #98a24c;"> <!-- Render Templates here -->
+  <body style="background-color:#98a24c;"> <!-- Render Templates here -->
     <div ui-view></div>
+    <br/>
   </body>
 </html>

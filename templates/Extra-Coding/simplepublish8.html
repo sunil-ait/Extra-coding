@@ -1,0 +1,45 @@
+<form editable-form name="editableForm">
+   <div style="margin-left: 8%; margin-right: 20%; background-color: yellow;">
+    <br/>
+    <div style="margin-left: 5%;">
+    <span class="title">Question :</span>
+    <br/>
+    <br/>
+    <p editable-text="datajsons[0].questions[0].question" e-name="datajsons[0].questions[0].question" e-form="editableForm" e-required>{{datajsons[0].questions[0].question}}
+    </p>
+    <br/>
+    <br/>
+    <span class="title">Answer</span>
+    <p editable-text="datajsons[0].questions[0].answer" e-name="datajsons[0].questions[0].answer" e-form="editableForm" e-required>{{datajsons[0].questions[0].answer}}
+    </p>
+    <br/>
+    <br/>
+    <span class="title">Grit :</span>
+    <p editable-text="datajsons[0].questions[0].grit" e-form="editableForm">{{datajsons[0].questions[0].grit}}
+    </p>
+    <br/>
+    <br/>
+    <span class="title">Level :</span>
+    <p editable-text="datajsons[0].questions[0].level" e-form="editableForm">{{datajsons[0].questions[0].level}}
+    </p>
+    <br/>
+    <br/>
+    <button type="button" class="btn btn-primary" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
+     Edit
+        </button>
+        <span ng-show="editableForm.$visible">
+          <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
+            Save
+          </button>
+          <button type="button" class="btn btn-Danger" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+            Cancel
+          </button>
+          <button type="button" class="btn btn-primary" ng-click="editableForm.$show()" ng-show="editableForm.$visible">
+            Publish
+          </button>
+        </span>
+        <br/>
+        <br/>
+    </div>
+  </div>
+</form>

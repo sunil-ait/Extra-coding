@@ -1,0 +1,103 @@
+<div class="curriculum-listings">
+  <h3 align="center"><b>Admin - School</b></h3>
+  <div class="backing">
+    <a class="btn btn-primary" ui-sref="app.suborganization({orgId: organizationId})">Back</a>
+  </div>
+  <div class="container_div">
+    <ul class="scrolling">
+      <a>
+        <li>
+         <div align="center" style="margin-top: 25%;">
+          <input type="button" class="btn btn-primary" ng-click="open(school.id, 1)" value="New School">
+        </div>
+        </li>
+        <li ng-repeat="school in schools">   
+          <div class="curriculum-title">
+          <br/>
+            <span align="center">{{school.id}}</span>
+          </div>
+          <div class="curriculum-desc">{{school.name}}</div>
+          <div align="center">
+            <!-- <a class="btn btn-primary" ui-sref="app.areacourses({areaId: area.id})">Graph</a> -->
+            <a class="btn btn-primary" ui-sref="app.batch({schoolId: school.id})">View</a>
+            <a class="btn btn-primary" ng-click="open(school.id,2)">Edit</a>
+            <a class="btn btn-primary" ng-click="deletemodule(school)">Delete</a>
+          </div>
+          <br>
+        </li>
+      </a>
+    </ul>
+  </div>
+</div>
+
+<script type="text/ng-template" id="mymoduleModalContent.html">
+  <div class="modal-header">
+      <h3 align="center" ng-if="id===1"><b>New School</b></h3>
+      <h3 align="center" ng-if="id===2"><b>Edit School</b></h3>
+  </div>
+  <div class="modal-body">
+    <form name="school" class="model" novalidate>
+      <div class="control-group">
+        <br/>
+       <!--  <div class="form-group" ng-class="{ 'has-error' : school.input.$invalid && !school.input.$pristine }">
+          <input type="text" id="input" name="input" placeholder="school Id" class="form-control" ng-model="sch.id" ng-pattern="regex" ng-minlength="6" ng-maxlength="10" required> 
+          <p ng-show="school.input.$invalid && !school.input.$pristine" class="help-block">You should enter id properly in format like: IITJEE-001</p>
+          <p ng-show="school.input.$error.minlength" class="help-block">Id should be more than equal 6</p>
+          <p ng-show="school.input.$error.maxlength" class="help-block">Id should be less than equal 10</p>
+        </div> -->
+
+        <div class="form-group" ng-class="{'has-error' : school.name.$invalid && !school.name.$pristine }">
+          <input type="text" placeholder="school name" class="form-control" name="name" ng-model="sch.name" ng-minlength="5" ng-maxlength="50" required>
+          <p ng-show="school.name.$error.minlength" class="help-block">name should be more than 5</p>
+          <p ng-show="school.name.$error.maxlength" class="help-block">name should be less than 50</p>
+        </div>
+
+        <div class="form-group" ng-class="{'has-error' : school.line1.$invalid && !school.line1.$pristine }">
+            <input type="text" placeholder="Address line1" class="form-control" name="line1" ng-model="sch.line1" ng-minlength="5" ng-maxlength="20" required>
+            <p ng-show="school.line1.$error.minlength" class="help-block">line1 should be more than 5</p>
+            <p ng-show="school.line1.$error.maxlength" class="help-block">line1 should be less then 20</p>
+        </div>
+
+        <div class="form-group" ng-class="{'has-error' : school.line2.$invalid && !school.line2.$pristine }">
+            <input type="text" placeholder="Address line2" class="form-control" name="line2" ng-model="sch.line2" ng-minlength="5" ng-maxlength="20" required>
+            <p ng-show="school.line2.$error.minlength" class="help-block">line2 should be more than 5</p>
+            <p ng-show="school.line2.$error.maxlength" class="help-block">line2 should be less then 20</p>
+        </div>
+
+        <div class="form-group" ng-class="{'has-error' : school.city.$invalid && !school.city.$pristine }">
+          <input type="text" placeholder="Address city" class="form-control" name="city" ng-model="sch.city" ng-minlength="5" ng-maxlength="20" required>
+          <p ng-show="school.city.$error.minlength" class="help-block">city should be more than 5</p>
+          <p ng-show="school.city.$error.maxlength" class="help-block">city should be less then 20</p>
+        </div>
+
+        <div class="form-group" ng-class="{'has-error' : school.state.$invalid && !school.state.$pristine }">
+          <input type="text" placeholder="Address state" class="form-control" name="state" ng-model="sch.state" ng-minlength="2" ng-maxlength="15" required>
+          <p ng-show="school.state.$error.minlength" class="help-block">state should be more than 2</p>
+          <p ng-show="school.state.$error.maxlength" class="help-block">state should be less then 15</p>
+        </div>
+
+        <div class="form-group" ng-class="{'has-error' : school.country.$invalid && !school.country.$pristine }">
+          <input type="text" placeholder="Address country" class="form-control" name="country" ng-model="sch.country" ng-minlength="5" ng-maxlength="20" required>
+          <p ng-show="school.country.$error.minlength" class="help-block">country should be more than 5</p>
+          <p ng-show="school.country.$error.maxlength" class="help-block">country should be less then 20</p>
+        </div>        
+
+        <div class="form-group" ng-class="{'has-error' : school.pincode.$invalid && !school.pincode.$pristine }">
+            <textarea name="pincode" class="form-control" rows="6" Placeholder="pincode" id ="pincode" ng-model="sch.pincode" ng-minlength="5" ng-maxlength="70" required>
+            </textarea>          
+            <p ng-show="school.pincode.$error.minlength" class="help-block">pincode should be more than 5</p>
+            <p ng-show="school.pincode.$error.maxlength" class="help-block">pincode should be less than 70</p>
+        </div>
+        {{sch}}
+        <div class="controls" ng-disabled="school.$invalid">
+          <button  ng-if="id==1"ui-sref="app.school" class="btn btn-primary" ng-click="save(1)" ng-disabled="school.$invalid">Save</button>
+          <button ui-sref="app.school"  ng-if="id==2" class="btn btn-primary" ng-click="save(2)" ng-disabled="school.$invalid">Save</button>
+          <button ui-sref="app.school" class="btn btn-primary" ng-click="cancel()">Cancel</button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+  </div>
+</script>

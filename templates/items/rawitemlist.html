@@ -1,0 +1,38 @@
+<br/>
+<div style="margin-left: 70%; margin-right: 10%;">
+  <div class="row">                  
+    <div class="col-md-6" ui-sref-active="active"><a ui-sref="app.simplequestion({lessonId1: lessonid11})" class="btn" style="background-color:#20161e; color:white">Add S.Q.</a>
+    </div>
+    <div  class="col-md-6" ui-sref-active="active" class="active"><a  align="center" ui-sref="app.comprehension({lessonId2: lessonid11})" class="btn" style="background-color:#20161e; color:white;">Add C.Q.</a>
+    </div>        
+  </div>
+</div>
+<br/>
+<br/>
+<div class="item_heading">
+  <div class="row">
+    <div class="col-md-4"><b><h3>&nbsp;&nbsp;&nbsp;Type</h3></b></div>
+    <div class="col-md-4"><b><h3>&nbsp;&nbsp;&nbsp;Desciption</h3></b></div>
+    <div class="col-md-4"><b><h3>&nbsp;&nbsp;&nbsp;Operations</h3></b></div>
+  </div>
+</div>
+<div class="row" ng-repeat= "item in Allitems" style="margin-left: 15%; margin-right: 20%; background-color:white;">
+  <hr>
+  <div class="col-md-4">{{item.qtype}}</div>
+  <div class="col-md-4">&nbsp;&nbsp;&nbsp;{{item.question.items[0].question}}</div>
+  <div class="col-md-4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="button" class= "btn btn-primary" ui-sref= "app.simplequestionedit({itemId: item.id})">Edit</button>
+    <button type="button" class= "btn btn-primary"  ng-click= "delete(item)">Delete</button>
+  </div>
+</div>
+
+<style type="text/css">
+
+.item_heading{
+   margin-left: 15%;
+   margin-right: 20%;
+   background-color: #20161e;
+   color: white;
+   height: 30%; 
+  }
+</style>

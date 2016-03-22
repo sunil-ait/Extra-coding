@@ -1,0 +1,134 @@
+<div class="curriculum-listings">
+  <h3 align="center"><b>Admin - Organizations</b></h3>
+  <div class="backing">
+    <a class="btn btn-primary" ui-sref="app.dashboard">Back</a>  
+  </div>
+  <div class="container_div" class="scrolling">
+    <br/>
+    <ul>
+      <a>
+        <li>
+          <div align="center" style="margin-top: 25%;">
+            <input type="button" class="btn btn-primary" ng-click="open(org.id,1)" value="New Organization">
+          </div>
+        </li>
+        <li ng-repeat="org in orgs"> 
+          <input type="hidden" ng-model="area.id">  
+          <div class="curriculum-title">
+          <br/>
+          <span align="center" ng-model="area.title">{{org.id}}</span>
+          </div>
+          <div class="curriculum-desc" ng-model="area.description">{{org.name}}</div>
+            <div align="center">
+              <!-- <a class="btn btn-primary" ng-click="areagraph()">Graph</a> -->
+              <a class="btn btn-primary" ui-sref="app.suborganization({orgId: org.id})">View</a>
+              <a class="btn btn-primary" ng-click="open(org.id,2)">Edit</a>
+              <a class="btn btn-primary" ng-click="deleteorg(org)">Delete</a>
+            </div>
+          <br>
+        </li>
+      </a>
+    </ul>
+  </div>
+</div>
+
+<script type="text/ng-template" id="myareaModalContent.html">
+  <div class="modal-header">
+      <h3 align="center" ng-if="id===1"><b>New Organization</b></h3>
+      <h3 align="center" ng-if="id===2"><b>Edit Organization</b></h3>
+  </div>
+  <div class="modal-body">
+    <form name="organization" class="model" novalidate>
+      <div class="control-group">
+        <br/>
+        <!-- <div class="form-group" ng-class="{ 'has-error' : organization.input.$invalid && !organization.input.$pristine }">
+          <input type="text" id="input" name="input" placeholder="Organization Id" class="form-control" ng-model="org.id" ng-pattern="regex" ng-minlength="6" ng-maxlength="10" required> 
+          <p ng-show="organization.input.$invalid && !organization.input.$pristine" class="help-block">You should enter id properly in format like: IITJEE-001</p>
+          <p ng-show="organization.input.$error.minlength" class="help-block">Id should be more than equal 6</p>
+          <p ng-show="organization.input.$error.maxlength" class="help-block">Id should be less than equal 10</p>
+        </div> -->
+
+        <div class="form-group" ng-class="{'has-error' : organization.name.$invalid && !organization.name.$pristine }">
+          <input type="text" placeholder="Organization name" class="form-control" name="name" ng-model="org.name" ng-minlength="5" ng-maxlength="50" required>
+          <p ng-show="organization.name.$error.minlength" class="help-block">name should be more than 5</p>
+          <p ng-show="organization.name.$error.maxlength" class="help-block">name should be less than 50</p>
+        </div>
+
+        <div class="form-group" ng-class="{'has-error' : organization.line1.$invalid && !organization.line1.$pristine }">
+            <input type="text" placeholder="Address line1" class="form-control" name="line1" ng-model="org.line1" ng-minlength="5" ng-maxlength="20" required>
+            <p ng-show="organization.line1.$error.minlength" class="help-block">line1 should be more than 5</p>
+            <p ng-show="organization.line1.$error.maxlength" class="help-block">line1 should be less then 20</p>
+        </div>
+
+        <div class="form-group" ng-class="{'has-error' : organization.line2.$invalid && !organization.line2.$pristine }">
+            <input type="text" placeholder="Address line2" class="form-control" name="line2" ng-model="org.line2" ng-minlength="5" ng-maxlength="20" required>
+            <p ng-show="organization.line2.$error.minlength" class="help-block">line2 should be more than 5</p>
+            <p ng-show="organization.line2.$error.maxlength" class="help-block">line2 should be less then 20</p>
+        </div>
+
+        <div class="form-group" ng-class="{'has-error' : organization.city.$invalid && !organization.city.$pristine }">
+          <input type="text" placeholder="Address city" class="form-control" name="city" ng-model="org.city" ng-minlength="5" ng-maxlength="20" required>
+          <p ng-show="organization.city.$error.minlength" class="help-block">city should be more than 5</p>
+          <p ng-show="organization.city.$error.maxlength" class="help-block">city should be less then 20</p>
+        </div>
+
+        <div class="form-group" ng-class="{'has-error' : organization.state.$invalid && !organization.state.$pristine }">
+          <input type="text" placeholder="Address state" class="form-control" name="state" ng-model="org.state" ng-minlength="2" ng-maxlength="15" required>
+          <p ng-show="organization.state.$error.minlength" class="help-block">state should be more than 2</p>
+          <p ng-show="organization.state.$error.maxlength" class="help-block">state should be less then 15</p>
+        </div>
+
+        <div class="form-group" ng-class="{'has-error' : organization.country.$invalid && !organization.country.$pristine }">
+          <input type="text" placeholder="Address country" class="form-control" name="country" ng-model="org.country" ng-minlength="5" ng-maxlength="20" required>
+          <p ng-show="organization.country.$error.minlength" class="help-block">country should be more than 5</p>
+          <p ng-show="organization.country.$error.maxlength" class="help-block">country should be less then 20</p>
+        </div>        
+
+        <div class="form-group" ng-class="{'has-error' : organization.pincode.$invalid && !organization.pincode.$pristine }">
+            <textarea name="pincode" class="form-control" rows="6" Placeholder="pincode" id ="pincode" ng-model="org.pincode" ng-minlength="5" ng-maxlength="70" required>
+            </textarea>          
+            <p ng-show="organization.pincode.$error.minlength" class="help-block">pincode should be more than 5</p>
+            <p ng-show="organization.pincode.$error.maxlength" class="help-block">pincode should be less than 70</p>
+        </div>
+        {{org}}
+        <div class="controls" ng-disabled="organization.$invalid">
+          <button  ng-if="id ==1" ui-sref="app.organization" class="btn btn-primary" ng-click="save(1)" ng-disabled="organization.$invalid">Save</button>
+          <button ng-if="id==2"  ui-sref="app.organization" class="btn btn-primary" ng-click="save(2)" ng-disabled="organization.$invalid">Save</button>
+          <button ui-sref="app.organization" class="btn btn-primary" ng-click="cancel()">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+  </div>
+</script>
+
+
+<script type="text/ng-template" id="myareaModalContentdelete.html">
+  <div class="modal-body">
+    <form name="aredelete" class="model" novalidate>
+      <p> Do you want to delete org ?</p>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button ui-sref="app.organization" class="btn btn-primary" ng-click="deletearea()">Ok</button>
+    <button ui-sref="app.organization" class="btn btn-primary" ng-click="cancel()">Cancel</button>
+  </div>
+</script>
+
+<script type="text/ng-template" id="myareagraphModal.html">
+<div style="background-color: #6eb8d7">
+  <div class="modal-header">
+      <h3 align="center"><b><h1>Area Graph</h1></b></h3>
+  </div>
+  <div class="modal-body">
+    <br/>
+    <br/>
+    <br/>
+    <my-nodes></my-nodes>
+  </div>
+  <div class="modal-footer">
+    <button ui-sref="app.contentarea" class="btn btn-primary" ng-click="cancel()">Cancel</button>
+  </div>
+</div>
+</script>

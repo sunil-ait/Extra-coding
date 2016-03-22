@@ -1,0 +1,57 @@
+<br/>
+<br/>
+<div align="right" style="margin-right: 20%;">
+  <button class="btn btn-success" ui-sref="app.role">New Role</button>
+</div>
+<br/>
+<br/>
+<div style="margin-left: 15%; margin-right: 20%;">
+   <form class="navbar-search">
+    <input type="text" ng-model="query" class="search-query span3" class="form-control" placeholder="Search">
+  </form>
+</div>
+<br/>
+<br/>
+<div class="item_heading">
+  <div class="row">
+    <div class="col-md-4"><b><h3>&nbsp;&nbsp;&nbsp;Id</h3></b></div>
+    <div class="col-md-4"><b><h3>&nbsp;&nbsp;&nbsp;Name</h3></b></div>
+    <div class="col-md-4"><b><h3>&nbsp;&nbsp;&nbsp;Action</h3></b></div>
+  </div>
+</div>
+<div class="row" ng-repeat= "role in roles| filter:query" style="margin-left: 15%; margin-right: 20%; background-color:white;">
+  <hr>
+  <div class="col-md-4">{{role.id}}</div>
+  <div class="col-md-4">&nbsp;&nbsp;&nbsp;{{role.name}}</div>
+  <div class="col-md-4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="button" class= "btn btn-primary" ui-sref= "app.PermissionEdit">Edit</button>
+    <button type="button" class= "btn btn-primary"  ng-click= "delete(item)">Delete</button>
+  </div>
+</div>
+
+<style type="text/css">
+
+.navbar-search .search-query {
+    padding-left: 29px;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJ5JREFUeNpi+P//PwMQMANxERCfAeI/UBrEZwbJQ9WAFR0A4u1AbAnEbFB6O1ScGaawGoi3wHQiYyBYDZKHKbwHxLo4FOqC5GEKf4Ksw6EQ5IyfIDYTkPEUiNUZsAOQ+F9GRkYJEKcFiDficSOIcRjE4QTiY0C8DuRbqAJLKP8/FP9kQArHUiA+jySJjA8w4LAS5KZd0MAHhaccQIABALsMiBZy4YLtAAAAAElFTkSuQmCC);
+    background-repeat: no-repeat;
+    backgroundposition: 12px 8px;
+    width: 795px;
+    height: 30px;
+}
+
+.navbar-search .search-query:focus, .navbar-search .search-query.focused {
+    padding-left: 30px;
+    background-position: 13px 9px;
+}
+
+
+
+.item_heading{
+   margin-left: 15%;
+   margin-right: 20%;
+   background-color: #20161e;
+   color: white;
+   height: 30%; 
+  }
+</style>

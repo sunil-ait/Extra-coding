@@ -1,0 +1,104 @@
+<div class="curriculum-listings">
+  <h3 align="center"><b>Admin - Batche</b></h3>
+  <div class="backing">
+    <a class="btn btn-primary" ui-sref="app.school({suborgId: suborganizationId})">Back</a>
+  </div>
+  <br/>
+  <div class="container_div">
+    <ul class="scrolling">
+      <a>
+        <li>
+          <div align="center" style="margin-top: 25%;">
+            <input type="button" class="btn btn-primary" ng-click="open(batche.id,1)" value="New Batch">
+          </div>
+        </li>
+        <li ng-repeat="batche in batches">   
+          <div class="curriculum-title">
+          <br/>
+             <span align="center">{{batche.id}}</span>
+          </div>
+          <div class="curriculum-desc">{{batche.name}}</div>
+          <div align="center">
+          <!-- <a class="btn btn-primary" ui-sref="app.classroom({batcheId: batche.id})">Graph</a> -->
+            <a class="btn btn-primary" ui-sref="app.classroom({batcheId: batche.id})">View</a>
+            <a class="btn btn-primary" ng-click="open(batche.id,2)">Edit</a>
+            <a class="btn btn-primary" ng-click="deletelesson(batche)">Delete</a>
+          </div>
+          <br>
+        </li>
+      </a>
+    </ul>
+  </div>
+</div>
+
+<script type="text/ng-template" id="mylessonModalContent.html">
+  <div class="modal-header">
+      <h3 align="center" ng-if="id===1"><b>New Mybatche</b></h3>
+      <h3 align="center" ng-if="id===2"><b>Edit Mybatche</b></h3>
+  </div>
+  <div class="modal-body">
+    <form name="Mybatche" class="model" novalidate>
+      <div class="control-group">
+        <br/>
+       <!--  <div class="form-group" ng-class="{ 'has-error' : Mybatche.input.$invalid && !Mybatche.input.$pristine }">
+          <input type="text" id="input" name="input" placeholder="Mybatche Id" class="form-control" ng-model="batche.id" ng-pattern="regex" ng-minlength="6" ng-maxlength="10" required> 
+          <p ng-show="Mybatche.input.$invalid && !Mybatche.input.$pristine" class="help-block">You should enter id properly in format like: IITJEE-001</p>
+          <p ng-show="Mybatche.input.$error.minlength" class="help-block">Id should be more than equal 6</p>
+          <p ng-show="Mybatche.input.$error.maxlength" class="help-block">Id should be less than equal 10</p>
+        </div> -->
+
+        <div class="form-group" ng-class="{'has-error' : Mybatche.name.$invalid && !Mybatche.name.$pristine }">
+          <input type="text" placeholder="Batche name" class="form-control" name="name" ng-model="batche.name" ng-minlength="5" ng-maxlength="50" required>
+          <p ng-show="Mybatche.name.$error.minlength" class="help-block">name should be more than 5</p>
+          <p ng-show="Mybatche.name.$error.maxlength" class="help-block">name should be less than 50</p>
+        </div>
+
+        <div class="form-group" ng-class="{'has-error' : Mybatche.timings.$invalid && !Mybatche.timings.$pristine }">
+            <input type="text" placeholder="Batche timings" class="form-control" name="timings" ng-model="batche.timings" ng-minlength="5" ng-maxlength="20" required>
+            <p ng-show="Mybatche.timings.$error.minlength" class="help-block">timings should be more than 5</p>
+            <p ng-show="Mybatche.timings.$error.maxlength" class="help-block">timings should be less then 20</p>
+        </div>
+
+        <!-- <div class="form-group" ng-class="{'has-error' : Mybatche.line2.$invalid && !Mybatche.line2.$pristine }">
+            <input type="text" placeholder="Address line2" class="form-control" name="line2" ng-model="batche.line2" ng-minlength="5" ng-maxlength="20" required>
+            <p ng-show="Mybatche.line2.$error.minlength" class="help-block">line2 should be more than 5</p>
+            <p ng-show="Mybatche.line2.$error.maxlength" class="help-block">line2 should be less then 20</p>
+        </div>
+
+        <div class="form-group" ng-class="{'has-error' : Mybatche.city.$invalid && !Mybatche.city.$pristine }">
+          <input type="text" placeholder="Address city" class="form-control" name="city" ng-model="batche.city" ng-minlength="5" ng-maxlength="20" required>
+          <p ng-show="Mybatche.city.$error.minlength" class="help-block">city should be more than 5</p>
+          <p ng-show="Mybatche.city.$error.maxlength" class="help-block">city should be less then 20</p>
+        </div>
+
+        <div class="form-group" ng-class="{'has-error' : Mybatche.state.$invalid && !Mybatche.state.$pristine }">
+          <input type="text" placeholder="Address state" class="form-control" name="state" ng-model="batche.state" ng-minlength="2" ng-maxlength="15" required>
+          <p ng-show="Mybatche.state.$error.minlength" class="help-block">state should be more than 2</p>
+          <p ng-show="Mybatche.state.$error.maxlength" class="help-block">state should be less then 15</p>
+        </div>
+
+        <div class="form-group" ng-class="{'has-error' : Mybatche.country.$invalid && !Mybatche.country.$pristine }">
+          <input type="text" placeholder="Address country" class="form-control" name="country" ng-model="batche.country" ng-minlength="5" ng-maxlength="20" required>
+          <p ng-show="Mybatche.country.$error.minlength" class="help-block">country should be more than 5</p>
+          <p ng-show="Mybatche.country.$error.maxlength" class="help-block">country should be less then 20</p>
+        </div>        
+
+        <div class="form-group" ng-class="{'has-error' : Mybatche.pincode.$invalid && !Mybatche.pincode.$pristine }">
+            <textarea name="pincode" class="form-control" rows="6" Placeholder="pincode" id ="pincode" ng-model="batche.pincode" ng-minlength="5" ng-maxlength="70" required>
+            </textarea>          
+            <p ng-show="Mybatche.pincode.$error.minlength" class="help-block">pincode should be more than 5</p>
+            <p ng-show="Mybatche.pincode.$error.maxlength" class="help-block">pincode should be less than 70</p>
+        </div> -->
+        {{batche}}
+        <div class="controls" ng-disabled="Mybatche.$invalid">
+          <button  ng-if="id==1"ui-sref="app.batch" class="btn btn-primary" ng-click="save(1)" ng-disabled="Mybatche.$invalid">Save</button>
+          <button ui-sref="app.batch"  ng-if="id==2" class="btn btn-primary" ng-click="save(2)" ng-disabled="Mybatche.$invalid">Save</button>
+          <button ui-sref="app.batch" class="btn btn-primary" ng-click="cancel()">Cancel</button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+  </div>
+</script>
