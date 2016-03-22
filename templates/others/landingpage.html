@@ -5,10 +5,19 @@
         <a data-toggle="dropdown"><h2 class="glyphicon glyphicon-menu-hamburger" style="color: white;"></h2></a>
         <ul class="dropdown-menu">
           <li><a ui-sref="app.dashboard"><h5>Home</h5></a></li>
+<<<<<<< HEAD
           <li><a ui-sref="app.contentarea"><h5>Organization</h5></a></li>
           <li><a ui-sref="app.content"><h5>Permission</h5></a></li>
           <li><a ui-sref="app.item"><h5>Roles</h5></a></li>
           <li><a ui-sref="app.test"><h5>Users</h5></a></li>
+=======
+          <li><a ui-sref="app.contentarea({name: 'Curriculum Manager'})" ng-model="area"><h5>Curriculum Manager</h5></a></li>
+          <li><a ui-sref="app.content"><h5>Content Manager</h5></a></li>
+          <li><a ui-sref="app.item"><h5>Item Manager</h5></a></li>
+          <li><a ui-sref="app.test"><h5>Test Manager</h5></a></li>
+          <li><a ui-sref="app.imagearea"><h5>Image Manager</h5></a></li>
+          <li><a ui-sref="app.video"><h5>Video Manager</h5></a></li>
+>>>>>>> acd178afdc31f9899e1c48767db897727f3f1ef9
           <li><a ui-sref="/"><h5>Logout</h5></a></li>
         </ul>
       </div>
@@ -18,6 +27,8 @@
     </div>
   </div>
 </nav>
+<!-- <ui-breadcrumbs displayname-property="data.displayName" abstract-proxy-property="data.proxy" template-url="templates/Bredcrum/uiBreadcrumbs.tpl.html">
+</ui-breadcrumbs> -->
 
 <div ui-view></div>
 

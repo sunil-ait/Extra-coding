@@ -2,7 +2,16 @@
 
 /*Defining the Module*/
 
+<<<<<<< HEAD
 var app = angular.module("app", ['app.controllers','app.services','app.graphdirective','uiBreadcrumbs','ngFileUpload','xeditable','ui.router','ui.bootstrap']); /*Dependency Injection*/
+=======
+var app = angular.module("app", ['app.controllers','app.services','app.graphdirective','uiBreadcrumbs','ngFileUpload','xeditable','ui.router','ui.bootstrap','ngCkeditor']); /*Dependency Injection*/
+/*xeditable bootstrap theme*/
+
+app.run(function(editableOptions){
+  editableOptions.theme = 'bs3';
+});
+>>>>>>> acd178afdc31f9899e1c48767db897727f3f1ef9
 
 /*Configuration of UI-Routing*/
 
@@ -78,8 +87,16 @@ $stateProvider
 
   .state("app.content",{
     url: "/contentareas",
+<<<<<<< HEAD
     templateUrl: 'templates/organization/contentareas.html',
     controller: 'areascontroller'
+=======
+    templateUrl: 'templates/areas/contentareas.html',
+    controller: 'areascontroller',
+    data: {
+      displayName: 'areas',
+    }
+>>>>>>> acd178afdc31f9899e1c48767db897727f3f1ef9
   })
   .state("app.contentareacourses",{  
     url: "/Contentareacourses/{areaId:[0-9a-fA-F]{1,8}}",
@@ -106,6 +123,26 @@ $stateProvider
     templateUrl: 'templates/skills/contentskills.html',
     controller: 'skillcontroller'
   })
+<<<<<<< HEAD
+=======
+  .state("app.contentarea",{
+    cache: false,
+    reload: true,
+    url: "/allareas",
+    templateUrl: 'templates/areas/allarea.html',
+    controller: 'areascontroller'
+  })
+  /*.state('app.areapopup',{
+    url: "/newarea",
+    templateUrl: 'templates/areas/areapopup.html',
+    controller: 'areadetailcontroller'
+  })*/
+  /*.state('app.areapopupedit',{
+    url: "/editarea/{areaId:[0-9a-fA-F]{1,8}}",
+    templateUrl: 'templates/areas/editareapopup.html',
+    controller: 'areadetailcontroller'
+  })*/
+>>>>>>> acd178afdc31f9899e1c48767db897727f3f1ef9
   .state("app.areacourses",{  
     url: "/allcourses/{areaId:[0-9a-fA-F]{1,8}}",
     templateUrl: 'templates/courses/allcourse.html',
@@ -265,7 +302,11 @@ $stateProvider
   })
   .state('app',{
     url: "/app",
+<<<<<<< HEAD
     templateUrl: 'templates/landingpage.html',
+=======
+    templateUrl: 'templates/others/landingpage.html',
+>>>>>>> acd178afdc31f9899e1c48767db897727f3f1ef9
     data: {
       displayName: 'Home',
     }

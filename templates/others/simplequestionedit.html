@@ -36,7 +36,38 @@
           <span class="title">Diff :</span>
           <br/>
           <p ng-model="item.diff" editable-text="item.diff" e-form="editableForm" e-rows="10" e-cols="80">{{item.diff}}
+<<<<<<< HEAD
           </p>  
+=======
+          </p> 
+          <br/>
+          <span class="title">Lo:</span>
+          <br/>
+          <!-- <p ng-model="item.question.items.difficulty" editable-text="item.question.items.difficulty" e-form="editableForm" e-rows="10" e-cols="80">{{item.question.items.difficulty}}
+          </p> -->
+          <select id="subject" ng-model="lo" e-required class="form-control">
+            <option value="">Question LO</option>
+            <option ng-repeat="lo in los">{{lo.id}}</option>
+          </select>
+          <br/>
+          <button class="btn btn-success" ng-click="passlo(lo)">Get Skills</button>
+          <br/>
+          <span class="title">Skill:</span>
+          <br/>
+         <!--  <p ng-model="item.question.items[0].skill" editable-text="item.question.items[0].skill" e-form="editableForm" e-rows="10" e-cols="80">{{item.question.items[0].skill}}
+          </p> -->
+          <select id="subject" ng-model="item.skill" e-required class="form-control">
+            <option value="">Question Skill</option>
+            <option ng-repeat="skill in skills">{{skill.id}}</option>
+          </select>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <!-- <p ng-model="item.skill" editable-text="item.skill" e-form="editableForm" e-rows="10" e-cols="80">{{item.skill}}
+          </p>  --> 
+>>>>>>> acd178afdc31f9899e1c48767db897727f3f1ef9
           <br/>
           <span class="title">Answer :</span>
           <br/>
@@ -175,6 +206,7 @@
       <br/>
       <!-- <p ng-model="item.question.items[0].difficulty" editable-text="item.question.items[0].difficulty" e-form="editableForm" e-rows="10" e-cols="80">{{item.question.items[0].difficulty}}
       </p> -->
+<<<<<<< HEAD
       <select id="subject" ng-model="item.question.items[0].difficulty" e-required class="form-control">
         <option value="">Question difficulty</option>
         <option>1</option>
@@ -235,7 +267,59 @@
     </div>
   </div>
 </form>
+=======
+      <input type="text" ng-model="item.question.items[0].difficulty" class="form-control" placeholder="Difficulty" />
+>>>>>>> acd178afdc31f9899e1c48767db897727f3f1ef9
 
+      <!-- 
+      <select id="subject" ng-model="item.question.items[0].difficulty" e-required class="form-control">
+        <option value="">Question difficulty</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>{{item.question.items[0].difficulty}}</option>
+      </select> -->
+      <br/>
+      <span class="title">Lo:</span>
+      <br/>
+      <!-- <p ng-model="item.question.items.difficulty" editable-text="item.question.items.difficulty" e-form="editableForm" e-rows="10" e-cols="80">{{item.question.items.difficulty}}
+      </p> -->
+      <select id="subject" ng-model="lo" e-required class="form-control">
+        <option value="">Question LO</option>
+        <option ng-repeat="lo in los">{{lo.id}}</option>
+      </select>
+      <br/>
+      <button class="btn btn-success" ng-click="passlo(lo)">Get Skills</button>
+      <br/>
+      <span class="title">Skill:</span>
+      <br/>
+     <!--  <p ng-model="item.question.items[0].skill" editable-text="item.question.items[0].skill" e-form="editableForm" e-rows="10" e-cols="80">{{item.question.items[0].skill}}
+      </p> -->
+      <select id="subject" ng-model="item.question.items[0].skill" e-required class="form-control">
+        <option value="">Question Skill</option>
+        <option ng-repeat="skill in skills">{{skill.id}}</option>
+      </select>
+      <br/>
+      <input type="text" ng-model="item.mapped" placeholder= "Input maaping value" class="form-control">
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <a ng-click="editableForm.$show()">
+      <button type="button" class="btn btn-success" ng-click="mapped(item.question.items[0].skill,item.id)" ng-show="editableForm.$visible" ui-sref="app.itemtype({lessonId: lessid})">
+        Map
+      </button>
+      </a>
+    </div>
+  </div>
+</form>
++
 
 <style type="text/css">
 

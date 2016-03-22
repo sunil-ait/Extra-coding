@@ -27,6 +27,31 @@ app.controller('organizationscontroller', ['$scope','$stateParams','$rootScope',
     /*}*/
   }
 
+<<<<<<< HEAD
+=======
+  /*$scope.deletearea = function(area){
+    var result = confirm("do you wonna delete?");
+    if (result) {
+    $scope.allAreas.splice($scope.allAreas.indexOf(area), 1);
+      Area.delete({areaId: area.id});
+    }
+  }*/
+    $scope.animationsEnabled = true;
+
+   $scope.deletearea = function(area){
+    /*var result = confirm("do you wonna delete?");
+    if (result) {*/
+    $rootScope.Area =area;
+    var modalInstance = $uibModal.open({
+      animation: $scope.animationsEnabled,
+      templateUrl: 'myareaModalContentdelete.html',
+      controller: 'areadeleteModalInstanceCtrl'
+    });
+      
+    /*}*/
+  }
+
+>>>>>>> acd178afdc31f9899e1c48767db897727f3f1ef9
   $scope.areagraph = function(){
     
       var modalInstance = $uibModal.open({
@@ -72,7 +97,11 @@ app.controller('organizationscontroller', ['$scope','$stateParams','$rootScope',
 
 /*Area Creating and Updating Controller*/
 
+<<<<<<< HEAD
 app.controller('AreaModalInstanceCtrl', ['$scope','$rootScope','$stateParams','$uibModalInstance','$uibModal', '$log','$window','Organization','Organizations', function($scope,$rootScope,$stateParams,$uibModalInstance,$uibModal,$log,$window,Organization,Organizations){
+=======
+app.controller('AreaModalInstanceCtrl', ['$scope','$rootScope','Area','Areas','$stateParams','$uibModalInstance','$uibModal', '$log','$window', function($scope,$rootScope,Area,Areas,$stateParams,$uibModalInstance,$uibModal,$log,$window){
+>>>>>>> acd178afdc31f9899e1c48767db897727f3f1ef9
   var Id = $stateParams.areaId;
   $rootScope.aid = Id;
   var size =$rootScope.size;
@@ -95,16 +124,32 @@ app.controller('AreaModalInstanceCtrl', ['$scope','$rootScope','$stateParams','$
   $scope.save = function(id){
     if (id ===1) {
       $uibModalInstance.close();
+<<<<<<< HEAD
       /*$scope.orgs = Organizations.query();
       console.log($scope.org);
       $scope.orgs.push($scope.org);*/
       $scope.org.$save();
+=======
+      $scope.allAreas = Areas.query();
+      $scope.allAreas.push($scope.area);
+      console.log($scope.allAreas);
+      $scope.area.$save();
+      /*location.reload();*/
+      
+   /*$window.location.reload();*/
+     /*$state.reload();*/
+>>>>>>> acd178afdc31f9899e1c48767db897727f3f1ef9
     }
     else{
 
       $uibModalInstance.close();
+<<<<<<< HEAD
       $scope.org.$update();
       /*$window.location.reload();*/
+=======
+      $scope.area.$update();
+      $window.location.reload();
+>>>>>>> acd178afdc31f9899e1c48767db897727f3f1ef9
     }
   };
   
@@ -492,11 +537,54 @@ app.controller('SkillModalInstanceCtrl', ['$scope','Skill','Skills','$stateParam
   
 }]);
 
-
-
-
-
+<<<<<<< HEAD
+=======
 app.controller('ckeditorcontroller',  ['$scope','Skill','Skills','$stateParams','$rootScope', function($scope,Skill,Skills,$stateParams,$rootScope){
+
+  var Id = $stateParams.skillId;
+  $scope.loid1 = $rootScope.loid;
+
+  /*var size =$rootScope.size;
+  var skilld = $rootScope.skillid;
+  $scope.id = $rootScope.id;*/
+
+  if(typeof(Id) === 'undefined'){
+    $scope.skill = new Skills({
+      loId: size
+    });
+  }
+  else{
+    $scope.skill = Skill.get({
+      skillId: Id
+    });
+  }
+
+  $scope.save = function(id){
+    if (id === 1) {
+      $scope.skill.$save({loId: loid1});
+    }else {
+      $scope.skill.$update();
+    }
+  };
+  
+}]);
+
+/*Simple & Comprehension Question/ Item getting and deleting  and comprehension creating controller*/
+>>>>>>> acd178afdc31f9899e1c48767db897727f3f1ef9
+
+
+
+
+<<<<<<< HEAD
+app.controller('ckeditorcontroller',  ['$scope','Skill','Skills','$stateParams','$rootScope', function($scope,Skill,Skills,$stateParams,$rootScope){
+=======
+  $scope.lessonid11= $stateParams.lessonId;
+  $rootScope.lessonIds = $stateParams.lessonId2;
+  $rootScope.lid =$scope.lessonid11;
+  console.log($scope.lessonid11);
+  
+  // Deleting the Item as Simple question
+>>>>>>> acd178afdc31f9899e1c48767db897727f3f1ef9
 
   var Id = $stateParams.skillId;
   $scope.loid1 = $rootScope.loid;
@@ -548,9 +636,19 @@ app.controller('Permissioncontroller', ['$rootScope','$stateParams','$scope','Pe
 
 /*Item creating and updating controller*/
 
+<<<<<<< HEAD
 app.controller('Permissiondetailcontroller', ['$rootScope','$stateParams','$scope','Permissions','Permission', function($rootScope,$stateParams,$scope,Permissions,Permission){
  
   $scope.permissionid = $stateParams.permissionId;
+=======
+app.controller('itemcontroller', ['$rootScope','$stateParams','$scope','Item','Items','AllItems','LessonLos','LoSkills','ItemMapping', function($rootScope,$stateParams,$scope,Item,Items,AllItems,LessonLos,LoSkills,ItemMapping){
+ 
+  $scope.lessonid2 = $stateParams.lessonId1;
+  $scope.lessid =$rootScope.lid;
+  var itemid = $stateParams.itemId;
+
+  // the creating item for comprehension code for navigating the template
+>>>>>>> acd178afdc31f9899e1c48767db897727f3f1ef9
 
   console.log($scope.permissionid);
 
@@ -572,6 +670,43 @@ app.controller('Permissiondetailcontroller', ['$rootScope','$stateParams','$scop
     }
   };
 
+<<<<<<< HEAD
+=======
+  $scope.edit = function(id){
+    if(id === 2){
+      var item1 = angular.toJson($scope.item.question.items[0]);
+      var item2 = "["+ item1 + "]";
+      $scope.item.question.items = item2;
+      $scope.item.$update(); 
+    }
+  }  
+
+  $scope.los = LessonLos.query({lessonId: $scope.lessid});
+
+  console.log($scope.los);
+
+  $scope.passlo= function(loid){
+    console.log(loid);
+    $scope.skills = LoSkills.query({loId: loid});
+    console.log($scope.skills);
+  }
+
+  $scope.mapped = function(skillid,itemid){
+    console.log(skillid);
+    console.log(itemid);
+    var item1 = angular.toJson($scope.item.question.items[0]);
+    var item2 = "["+ item1 + "]";
+    $scope.item.question.items = item2;
+    console.log($scope.item);
+    $scope.item.$update({itemId:itemid,skillId:skillid});
+  }
+}]);
+
+
+app.controller("Itemmappingcontroller", ['$rootScope','$scope','Item','Items','LessonLos','LoSkills','ItemMapping', function($rootScope, $scope,Item,Items,LessonLos,LoSkills,ItemMapping){
+  $scope.lessid =$rootScope.lid;
+
+>>>>>>> acd178afdc31f9899e1c48767db897727f3f1ef9
 }]);
 
 /*Coursetest getting and deleting controller*/
@@ -892,17 +1027,33 @@ app.controller('viewmapeditemscontroller', ['$scope','$stateParams','AllItems', 
 }]);
 
 
+<<<<<<< HEAD
 app.controller('areadeleteModalInstanceCtrl', ['$rootScope','$uibModalInstance','$scope','$stateParams','$window','Organizations','Organization', function($rootScope,$uibModalInstance,$scope,$stateParams,$window,Organizations,Organization){
 
   $scope.org = $rootScope.Org;
+=======
+app.controller('areadeleteModalInstanceCtrl', ['$rootScope','$uibModalInstance','$scope','Area','$stateParams','$window', function($rootScope,$uibModalInstance,$scope,Area,$stateParams,$window){
+
+  $scope.area = $rootScope.Area;
+>>>>>>> acd178afdc31f9899e1c48767db897727f3f1ef9
   $scope.name = 'World';
   $scope.id = $stateParams.areaId;
 
  $scope.deletearea =function(){
+<<<<<<< HEAD
    $scope.orgs = Organizations.query();
    $scope.orgs.splice($scope.orgs.indexOf($scope.org), 1);
    $uibModalInstance.close();
    Organization.delete({org_Id: $scope.org.id});
+=======
+   $scope.allAreas = Areas.query();
+   $scope.allAreas.splice($scope.allAreas.indexOf($scope.area), 1);
+   $uibModalInstance.close();
+   Area.delete({areaId: $scope.area.id});
+   /*location.reload();*/
+   /*location.href ="#app/allareas";*/
+   /*$scope.apply();*/
+>>>>>>> acd178afdc31f9899e1c48767db897727f3f1ef9
  }
 
  $scope.cancel = function () {
